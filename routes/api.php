@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Models\Country;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,17 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Route::get('countries', function() {
+//     return  ['message'=> "",
+//     'status'=>'OK',
+//     'result'=>Country::all()
+//     ] ;
+// });
+
+
+Route::get('/countries', 'CountryApiController@index');
+Route::get('countries/{code}', 'CountryApiController@show');
+
+
+Route::get('/testcon', 'Apis/TestController@index');
