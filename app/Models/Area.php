@@ -11,8 +11,8 @@ class Area extends Model
         return $this->belongsTo('App\Models\Country','countryCode');
     }
 
-    public function days()
+    public function ramadans()
     {
-        return $this->hasMany('App\Models\Day');
+        return $this->hasMany('App\Models\Ramadan','areaCode','code');
     }
 }

@@ -16,4 +16,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/countries', 'Jpis/CountryController@index');
+
+Route::resource('countries', 'CountryController');
+Route::resource('areas', 'AreaController');
+Route::resource('ramadans', 'RamadanController');

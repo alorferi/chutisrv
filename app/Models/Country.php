@@ -9,6 +9,6 @@ class Country extends Model
     
     public function areas()
     {
-        return $this->hasMany('App\Models\Area');
+        return $this->hasMany('App\Models\Area','countryCode','code');
     }
 }

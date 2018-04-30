@@ -49,6 +49,7 @@ class AreasTableSeeder extends Seeder
                 'countryCode' => "BD",
             ],
             
+            
          ];
         // Publisher::delete();
          foreach ($array as $key => $value) {

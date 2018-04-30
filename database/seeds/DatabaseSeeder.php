@@ -13,6 +13,6 @@ class DatabaseSeeder extends Seeder
     {
          $this->call("CountriesTableSeeder");
          $this->call("AreasTableSeeder");
-         $this->call("DaysTableSeeder");
+         $this->call("RamadansTableSeeder");
     }
 }

@@ -15,12 +15,11 @@ class CreateDaysTable extends Migration
     {
         Schema::create('days', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('englishDate');
-            $table->string('sherTime',4);
-            $table->string('fajorTime',4);
-            $table->string('iftaarTime',4);
-            $table->string('areaCode',6);
-            $table->foreign('areaCode')->references('code')->on('areas');
+            $table->string('dayKey');      
+            $table->string('dayCategory',3);
+            $table->integer('dayFlag');    
+            $table->string('dayTitle');
+            $table->string('dayDesc');
             $table->timestamps();
         });
     }
