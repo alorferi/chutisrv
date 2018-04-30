@@ -18,7 +18,7 @@ class CreateAreasTable extends Migration
             $table->string('name',30)->nullable(false);
             $table->string('localName',50)->nullable();
             $table->string('countryCode',2)->nullable();
-            $table->foreign('countryCode')->references('code')->on('countries');
+            $table->foreign('countryCode')->references('code')->on('countries')->onUpdate('cascade');
             $table->timestamps();
         });
     }

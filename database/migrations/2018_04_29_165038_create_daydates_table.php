@@ -16,9 +16,11 @@ class CreateDaydatesTable extends Migration
         Schema::create('daydates', function (Blueprint $table) {
             $table->increments('id');
             $table->string('holidayCode',2);
+            $table->foreign('holidayCode')->references('code')->on('holidaytypes')->onUpdate('cascade');  
             $table->string('stared',1);
             $table->date('dayDate');     
-            $table->string('DayKey');
+            $table->string('dayKey');
+            $table->integer('dayId')->references('id')->on('days');  
             $table->timestamps();
         });
     }
