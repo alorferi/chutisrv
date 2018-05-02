@@ -19,4 +19,5 @@ Route::get('/', function () {
 
 Route::resource('countries', 'CountryController');
 Route::resource('areas', 'AreaController');
+Route::get('areas/{code}/fcm', 'AreaController@fcm');
 Route::resource('ramadans', 'RamadanController');

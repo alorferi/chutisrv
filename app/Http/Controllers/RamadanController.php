@@ -9,17 +9,25 @@ class RamadanController extends Controller
 {
     
     public function index()
-    {
-  
+    {  
                // get all the tag
         $ramadans = Ramadan::all();
   
         // load the view and pass the tag
-        return view('ramadan.index')
+        return view('ramadans.index')
             ->with('ramadans', $ramadans);
-  
+
     }
 
+    public function getAllApi($areaCode)
+    {
+
+        $ramadans =  Ramadan::where('areaCode', strtoupper($areaCode))->get();
+        return  ['message'=> "",
+    'status'=>'OK',
+    'result'=>$ramadans
+    ] ;
+    }
 
     /**
    * Show the form for editing the specified resource.
@@ -52,5 +60,16 @@ class RamadanController extends Controller
       
      return $this->index();
   }
+
+
+  public function updatedLast($areaCode){
+    $ramadan = Ramadan::select('updated_at')->where('areaCode', $areaCode)->orderBy('date', 'desc')->first();
+    return  ['message'=> "",
+    'status'=>'OK',
+    'result'=> $ramadan->updated_at
+    ] ;
+
+
+}
 
 }

@@ -15,7 +15,7 @@ class CountryController extends Controller
         $countries = Country::all();
   
         // load the view and pass the tag
-        return view('country.index')->with('countries', $countries);
+        return view('countries.index')->with('countries', $countries);
   
     }
     

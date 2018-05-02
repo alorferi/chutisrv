@@ -17,7 +17,7 @@ class AreaController extends Controller
         $areas = Area::all();
   
         // load the view and pass the tag
-        return view('area.index')
+        return view('areas.index')
             ->with('areas', $areas);
   
     }
@@ -48,7 +48,7 @@ class AreaController extends Controller
   {
         $countries = Country::pluck('name', 'code');
        // $tags = Tag::pluck('name', 'id');
-        return view("area.create")->with('countries', $countries);;
+        return view("areas.create")->with('countries', $countries);;
   }
 
   /**
@@ -84,6 +84,21 @@ class AreaController extends Controller
       //
   }
 
+  public function fcm( $code)
+  {
+      $area = Area::where('code', strtoupper($code))->get()->first();
+     
+      fcm()
+      ->toTopic($area->code) // $topic must an string (topic name)
+      ->notification([
+          'title' => $area->name,
+          'body' => $area->localName,
+      ])
+      ->send();
+
+     return $this->index();
+  }
+
   /**
    * Show the form for editing the specified resource.
    *
@@ -93,7 +108,7 @@ class AreaController extends Controller
   public function edit($id)
   {
     $tag = Tag::find($id);
-     return  \View::make('tag.edit')->with('tag', $tag);
+     return  \View::make('areas.edit')->with('tag', $tag);
   }
 
   /**

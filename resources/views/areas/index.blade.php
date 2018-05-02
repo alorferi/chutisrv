@@ -32,17 +32,10 @@ Area List
     <tbody>
     @foreach($areas as $key => $value)
         <tr>
-        	      <!-- we will also add show, edit, and delete buttons -->
             <td>
-
-                <!-- delete the nerd (uses the destroy method DESTROY /genre/{id} -->
-                <!-- we will add this later since its a little more complicated than the other two buttons -->
-
-                <!-- show the nerd (uses the show method found at GET /genre/{id} -->
-                <a class="btn btn-small btn-success" href="{{ URL::to('areas/' . $value->id) }}">Show </a>
-
-                <!-- edit this nerd (uses the edit method found at GET /genre/{id}/edit -->
-                <a class="btn btn-small btn-info" href="{{ URL::to('areas/' . $value->id . '/edit') }}">Edit </a>
+                <a class="btn btn-small btn-success" href="{{ URL::to('areas/' . $value->code) }}">Show </a>
+                <a class="btn btn-small btn-info" href="{{ URL::to('areas/' . $value->code . '/edit') }}">Edit </a>
+                <a class="btn btn-small btn-info" href="{{ URL::to('areas/' . $value->code . '/fcm') }}">FCM </a>
             </td>
 
             <td>{{ $value->code }}</td>
