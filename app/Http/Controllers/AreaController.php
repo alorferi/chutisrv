@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Area;
+use App\Models\Ramadan;
 use App\Models\Country;
 
 class AreaController extends Controller
@@ -84,15 +85,25 @@ class AreaController extends Controller
       //
   }
 
-  public function fcm( $code)
+  public function fcm($code)
   {
-      $area = Area::where('code', strtoupper($code))->get()->first();
-     
+
+    $code = strtoupper($code);
+    //  $area = Area::where('code', $code)->get()->first();
+
+      $today = date('Y-m-d');
+
+      $ramadan = Ramadan::with('area')->where('areaCode', $code)
+            ->where('date', $today)->get()->first();
+
+
+                        $body =    $ramadan->date.' '. $ramadan->sehrTime.' AM';
+
       fcm()
-      ->toTopic($area->code) // $topic must an string (topic name)
+      ->toTopic($ramadan->area->code) // $topic must an string (topic name)
       ->notification([
-          'title' => $area->name,
-          'body' => $area->localName,
+          'title' => $ramadan->area->name,
+          'body' =>  $body,
       ])
       ->send();
 

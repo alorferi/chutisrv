@@ -9,6 +9,6 @@ class Ramadan extends Model
     
     public function area()
     {
-        return $this->belongsTo('App\Models\Area','areaCode');
+        return $this->belongsTo('App\Models\Area','areaCode','code');
     }
 }
