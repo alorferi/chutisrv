@@ -44,8 +44,8 @@ class RamadanController extends Controller
   {
       $ramadan = Ramadan::find($id);
       // $tag->fill($request->all());
-      $ramadan->englishDate = $request->englishDate;
-      $ramadan->sherTime = $request->sherTime;
+      $ramadan->date = $request->date;
+      $ramadan->sehrTime = $request->sehrTime;
       $ramadan->fajorTime = $request->fajorTime;
       $ramadan->iftaarTime = $request->iftaarTime;
       $ramadan->save();

@@ -48,8 +48,18 @@ class AreasTableSeeder extends Seeder
                 'localName' => "ঢাকা",
                 'countryCode' => "BD",
             ],
-            
-            
+            [
+                'code' => "BD-34",
+                'name' => "Mymensingh",
+                'localName' => "ময়মনসিংহ",
+                'countryCode' => "BD",
+            ],
+            [
+                'code' => "BD-55",
+                'name' => "Rangpur",
+                'localName' => "রংপুর",
+                'countryCode' => "BD",
+            ],
          ];
         // Publisher::delete();
          foreach ($array as $key => $value) {

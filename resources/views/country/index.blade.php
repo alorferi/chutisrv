@@ -23,32 +23,26 @@ Genre List
         <tr>
         	  <td>Actions</td>
             <td>Code</td>
-            <td>Name (Bn)  </td>
-            <td>Name (En) </td>
+            <td>Name   </td>
+            <td>Local Name  </td>
 
         </tr>
     </thead>
     <tbody>
     @foreach($countries as $key => $value)
         <tr>
-        	      <!-- we will also add show, edit, and delete buttons -->
+        	   
             <td>
-
-                <!-- delete the nerd (uses the destroy method DESTROY /genre/{id} -->
-                <!-- we will add this later since its a little more complicated than the other two buttons -->
-
-                <!-- show the nerd (uses the show method found at GET /genre/{id} -->
                 <a class="btn btn-small btn-success" href="{{ URL::to('countries/' . $value->id) }}">Show </a>
-
-                <!-- edit this nerd (uses the edit method found at GET /genre/{id}/edit -->
                 <a class="btn btn-small btn-info" href="{{ URL::to('countries/' . $value->id . '/edit') }}">Edit </a>
+            </td>
 
             <td>{{ $value->code }}</td>
             <td>{{ $value->name }}</td>
 
    <td>{{ $value->localName }}</td>
 
-            </td>
+           
         </tr>
     @endforeach
     </tbody>

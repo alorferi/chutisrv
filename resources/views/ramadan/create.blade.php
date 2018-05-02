@@ -1,7 +1,7 @@
 @extends('layouts.adminapp')
 
 @section('back')
-<a href="{{ URL::to('genre') }}">&lt; Back</a>
+<a href="{{ URL::to('ramadans') }}">&lt; Back</a>
 @endsection
 
 @section('title')
@@ -13,7 +13,7 @@ Genre - Create
 <!-- if there are creation errors, they will show here -->
 {{ Html::ul($errors->all()) }}
 
-{{ Form::open(array('url' => 'genre')) }}
+{{ Form::open(array('url' => 'ramadans')) }}
   {{ csrf_field() }}
     <div class="form-group">
         {{ Form::label('name', 'Name') }}

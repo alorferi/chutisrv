@@ -15,13 +15,13 @@ class CreateRamadansTable extends Migration
     {
         Schema::create('ramadans', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('englishDate');
-            $table->string('sherTime',4);
+            $table->date('date');
+            $table->string('sehrTime',4);
             $table->string('fajorTime',4)->nullable(true);
             $table->string('iftaarTime',4);
             $table->string('areaCode',6);
             $table->foreign('areaCode')->references('code')->on('areas')->onUpdate('cascade');
-            $table->unique(['englishDate', 'areaCode']);
+            $table->unique(['date', 'areaCode']);
             $table->timestamps();
         });
     }

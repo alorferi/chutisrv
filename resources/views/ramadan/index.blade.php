@@ -48,8 +48,8 @@ ramadans List
 
             </td>
             <td>{{ $value->id }}</td>
-            <td>{{ $value->englishDate }}</td>
-            <td>{{ $value->sherTime }}  </td>
+            <td>{{ $value->date }}</td>
+            <td>{{ $value->sehrTime }}  </td>
             <td>{{ $value->fajorTime }}  </td>
             <td>{{ $value->iftaarTime }}  </td>
             <td>{{ $value->areaCode }}  </td>

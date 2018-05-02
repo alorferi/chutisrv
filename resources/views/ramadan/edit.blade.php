@@ -18,15 +18,15 @@ ramadan - Edit
 {{ Form::model($ramadan, array('route' => array('ramadans.update', $ramadan->id), 'method' => 'PUT')) }}
 
     <div class="form-group">
-        {{ Form::label('name', 'Date') }}
-        {{ Form::date('englishDate', null, array('class' => 'form-control')) }}
+        {{ Form::label('date', 'Date') }}
+        {{ Form::date('date', null, array('class' => 'form-control')) }}
     </div>
 
 
 
     <div class="form-group">
-            {{ Form::label('sherTime', 'Sher Time') }}
-            {{ Form::text('sherTime', null, array('class' => 'form-control')) }}
+            {{ Form::label('sehrTime', 'Sher Time') }}
+            {{ Form::text('sehrTime', null, array('class' => 'form-control')) }}
         </div>
     
 
