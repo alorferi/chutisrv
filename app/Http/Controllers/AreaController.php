@@ -99,8 +99,9 @@ class AreaController extends Controller
 
                         $body =    $ramadan->date.' '. $ramadan->sehrTime.' AM';
 
+                        // $ramadan->area->code
       fcm()
-      ->toTopic($ramadan->area->code) // $topic must an string (topic name)
+      ->toTopic('com.ushalab.maheramadan') // $topic must an string (topic name)
       ->notification([
           'title' => $ramadan->area->name,
           'body' =>  $body,
@@ -149,20 +150,32 @@ class AreaController extends Controller
       //
   }
 
-    public function getAllApi()
+
+  public function getAreas()
+  {
+         return  ['message'=> "",
+                'status'=>'OK',
+                'result'=>Area::all()
+                ] ;
+  }
+
+    public function getAreasByCountryCode($countryCode)
     {
+
+      $areas =  Area::where('countryCode', strtoupper($countryCode))->get();
+
            return  ['message'=> "",
     'status'=>'OK',
     'result'=>Area::all()
     ] ;
     }
 
-    public function showApi($code)
+    public function getArea($code)
     {
 
            return  ['message'=> "",
                     'status'=>'OK',
-                     'result'=> Area::with("ramadans")->where('code', strtoupper($code))->get()->first()
+                     'result'=> Area::where('code', strtoupper($code))->get()->first()
     ] ;
     }
 }

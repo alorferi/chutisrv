@@ -19,15 +19,6 @@ class RamadanController extends Controller
 
     }
 
-    public function getAllApi($areaCode)
-    {
-
-        $ramadans =  Ramadan::where('areaCode', strtoupper($areaCode))->get();
-        return  ['message'=> "",
-    'status'=>'OK',
-    'result'=>$ramadans
-    ] ;
-    }
 
     /**
    * Show the form for editing the specified resource.
@@ -38,7 +29,7 @@ class RamadanController extends Controller
   public function edit($id)
   {
     $ramadan = Ramadan::find($id);
-     return  \View::make('ramadan.edit')->with('ramadan', $ramadan);
+     return  \View::make('ramadans.edit')->with('ramadan', $ramadan);
   }
 
   /**
@@ -62,14 +53,23 @@ class RamadanController extends Controller
   }
 
 
-  public function updatedLast($areaCode){
-    $ramadan = Ramadan::select('updated_at')->where('areaCode', $areaCode)->orderBy('date', 'desc')->first();
-    return  ['message'=> "",
+    public function updatedLast($areaCode){
+        $ramadan = Ramadan::select('updated_at')->where('areaCode', $areaCode)->orderBy('date', 'desc')->first();
+        return  ['message'=> "",
+        'status'=>'OK',
+        'result'=> $ramadan->updated_at
+            ] ;
+
+    }
+
+    public function getRamadansByAreaCode($areaCode){
+        $ramadans =  Ramadan::where('areaCode', strtoupper($areaCode))
+                            ->orderBy('date')
+                            ->get();
+        return  ['message'=> "",
     'status'=>'OK',
-    'result'=> $ramadan->updated_at
+    'result'=>$ramadans
     ] ;
-
-
-}
+    }
 
 }

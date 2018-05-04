@@ -29,7 +29,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/countries', 'CountryController@getAllApi');
 Route::get('countries/{code}', 'CountryController@showApi');
 
-Route::get('/areas', 'AreaController@getAllApi');
-Route::get('areas/{code}', 'AreaController@showApi');
+//Route::get('/areas', 'AreaController@getAreas');
+Route::get('/areas/{countryCode}', 'AreaController@getAreasByCountryCode');
+Route::get('area/{code}', 'AreaController@getArea');
+
+
+Route::get('ramadans/{areaCode}', 'RamadanController@getRamadansByAreaCode');
 
 //Route::get('/testcon', 'Apis/TestController@index');
