@@ -97,14 +97,14 @@ class AreaController extends Controller
             ->where('date', $today)->get()->first();
 
 
-                        $body =    $ramadan->date.' '. $ramadan->sehrTime.' AM';
+                     //   $body =    $ramadan->date.' '. $ramadan->sehrTime.' AM';
 
                         // $ramadan->area->code
       fcm()
       ->toTopic('com.ushalab.maheramadan') // $topic must an string (topic name)
       ->notification([
-          'title' => $ramadan->area->name,
-          'body' =>  $body,
+          'title' =>"test title",// $ramadan->area->name"",
+          'body' =>  "test body", // $body
       ])
       ->send();
 
