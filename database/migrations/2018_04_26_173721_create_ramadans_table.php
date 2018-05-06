@@ -17,8 +17,8 @@ class CreateRamadansTable extends Migration
             $table->increments('id');
             $table->date('date');
             $table->string('sehrTime',4);
-            $table->string('fajorTime',4)->nullable(true);
-            $table->string('iftaarTime',4);
+            $table->string('fajrTime',4)->nullable(true);
+            $table->string('iftarTime',4);
             $table->string('areaCode',6);
             $table->foreign('areaCode')->references('code')->on('areas')->onUpdate('cascade');
             $table->unique(['date', 'areaCode']);
