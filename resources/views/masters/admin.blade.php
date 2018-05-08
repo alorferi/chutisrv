@@ -28,6 +28,7 @@
                         <li><a href="/countries">Countries</a></li>
                         <li><a href="/areas">Areas</a></li>
                         <li><a href="/ramadans">Ramadans</a></li>
+                        <li><a href="/apps">App</a></li>
                       </ul>
                     </div>
                   </nav>

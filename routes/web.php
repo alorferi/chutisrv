@@ -21,3 +21,7 @@ Route::resource('countries', 'CountryController');
 Route::resource('areas', 'AreaController');
 Route::get('areas/{code}/fcm', 'AreaController@fcm');
 Route::resource('ramadans', 'RamadanController');
+Route::resource("apps","AppController");
+Route::get('apps/{id}/fcm', 'AppController@composeFcm');
+
+Route::post('apps/sendfcm/{id}', 'AppController@sendFcm')->name('apps.sendfcm');

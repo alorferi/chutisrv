@@ -101,7 +101,7 @@ class AreaController extends Controller
 
                         // $ramadan->area->code
       fcm()
-      ->toTopic('com.ushalab.maheramadan') // $topic must an string (topic name)
+      ->toTopic('com.ushalab.ramadan') // $topic must an string (topic name)
       ->notification([
           'title' =>"test title",// $ramadan->area->name"",
           'body' =>  "test body", // $body
@@ -119,8 +119,8 @@ class AreaController extends Controller
    */
   public function edit($id)
   {
-    $tag = Tag::find($id);
-     return  \View::make('areas.edit')->with('tag', $tag);
+    $area = Area::find($id);
+     return  \View::make('areas.edit')->with('tag', $area);
   }
 
   /**

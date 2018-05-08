@@ -15,8 +15,8 @@ class CreateHolidaytypesTable extends Migration
     {
         Schema::create('holidaytypes', function (Blueprint $table) {
             $table->string('code',2)->primary();
-            $table->string('shortName');
-            $table->string('longName'); 
+            $table->string('shortName',20)->unique();
+            $table->string('longName',50)->unique(); 
             $table->integer('orderFlag');       
             $table->boolean('showInCalendar');
             $table->timestamps();
