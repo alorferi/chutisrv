@@ -7,10 +7,8 @@ use App\Models\Area;
 use App\Models\Ramadan;
 use App\Models\Country;
 
-class AreaController extends Controller
+class AreasController extends Controller
 {
-     
-
     public function index()
     {
   
