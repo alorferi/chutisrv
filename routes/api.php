@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use App\Models\Country;
-use Conrollers\API\LanguageController;
+use Conrollers\Apis\LanguageController;
+use Conrollers\Apis\CountriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,16 +28,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // });
 
 
-Route::get('/countries', 'CountriesController@getAllApi');
-Route::get('countries/{code}', 'CountriesController@showApi');
+Route::get('/countries', 'API\CountriesController@getCountries');
+Route::get('countries/{code}', 'API\CountriesController@getCountry');
 
 //Route::get('/areas', 'AreasController@getAreas');
-Route::get('/areas/{countryCode}', 'AreasController@getAreasByCountryCode');
-Route::get('area/{code}', 'AreasController@getArea');
+Route::get('/areas/{countryCode}', 'API\AreasController@getAreasByCountryCode');
+Route::get('area/{code}', 'API\AreasController@getArea');
 
+Route::get('ramadans/{areaCode}', 'API\RamadansController@getRamadansByAreaCode');
 
-Route::get('ramadans/{areaCode}', 'RamadansController@getRamadansByAreaCode');
+//Route::get('/testcon', 'Api/TestController@index');
 
-//Route::get('/testcon', 'Apis/TestController@index');
-
-Route::resource("languages","API\LanguageController");
+//Route::resource("languages","Api\LanguageController");

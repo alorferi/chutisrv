@@ -66,15 +66,6 @@ class RamadansController extends Controller
 
     }
 
-    public function getRamadansByAreaCode($areaCode){
-        $ramadans =  Ramadan::where('areaCode', strtoupper($areaCode))
-                            ->orderBy('date')
-                            ->get();
-        return  ['message'=> "",
-    'status'=>'OK',
-    'result'=>$ramadans
-    ] ;
-    }
 
     /**
      * Show the form for creating a new resource.

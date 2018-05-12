@@ -23,24 +23,7 @@ class CountriesController extends Controller
   
     }
     
-    public function getAllApi()
-    {
-           return  ['message'=> "",
-    'status'=>'OK',
-    'result'=>Country::all()
-    ] ;
-    }
-
-
-    public function showApi($code)
-    {
-
-      //  Country::where('code', $code)->get()
-           return  ['message'=> "",
-    'status'=>'OK',
-    'result'=> Country::with("areas")->where('code', strtoupper($code))->get()->first()
-    ] ;
-    }
+   
 
     /**
      * Show the form for creating a new resource.
