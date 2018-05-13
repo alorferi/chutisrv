@@ -4,8 +4,14 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Language;
 
 class LanguagesController extends Controller
 {
-    //
+   public function getLanguages(){
+    return  ['message'=> "",
+    'status'=>'OK',
+    'result'=>Language::all()
+    ] ;
+   }
 }

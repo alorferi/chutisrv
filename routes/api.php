@@ -37,6 +37,4 @@ Route::get('area/{code}', 'API\AreasController@getArea');
 
 Route::get('ramadans/{areaCode}', 'API\RamadansController@getRamadansByAreaCode');
 
-//Route::get('/testcon', 'Api/TestController@index');
-
-//Route::resource("languages","Api\LanguageController");
+Route::get("languages","API\LanguagesController@getLanguages");
