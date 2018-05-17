@@ -20,14 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::get('countries', function() {
-//     return  ['message'=> "",
-//     'status'=>'OK',`
-//     'result'=>Country::all()
-//     ] ;
-// });
-
-
 Route::get('/countries', 'API\CountriesController@getCountries');
 Route::get('countries/{code}', 'API\CountriesController@getCountry');
 
