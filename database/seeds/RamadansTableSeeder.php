@@ -14,19 +14,7 @@ class RamadansTableSeeder extends Seeder
         $array = [
             
             // BD-13: dhaka
-            [
-                'date' => "2018-05-16",
-                'sehrTime' => "3:52",
-                'fajrTime' => "",
-                'iftarTime' => "6:34",
-                'areaCode' => "BD-13",
-            ], [
-                'date' => "2018-05-17",
-                'sehrTime' => "3:52",
-                'fajrTime' => "",
-                'iftarTime' => "6:34",
-                'areaCode' => "BD-13",
-            ], [
+          [
                 'date' => "2018-05-18",
                 'sehrTime' => "3:51",
                 'fajrTime' => "",
@@ -194,22 +182,22 @@ class RamadansTableSeeder extends Seeder
                 'fajrTime' => "",
                 'iftarTime' => "6:46",
                 'areaCode' => "BD-13",
-            ],
+            ],  [
+                'date' => "2018-06-15",
+                'sehrTime' => "3:52",
+                'fajrTime' => "",
+                'iftarTime' => "6:34",
+                'areaCode' => "BD-13",
+            ], [
+                'date' => "2018-06-16",
+                'sehrTime' => "3:52",
+                'fajrTime' => "",
+                'iftarTime' => "6:34",
+                'areaCode' => "BD-13",
+            ], 
 
             // Barisal
             [
-                'date' => "2018-05-16",
-                'sehrTime' => "3:55",
-                'fajrTime' => "",
-                'iftarTime' => "6:32",
-                'areaCode' => "BD-06",
-            ], [
-                'date' => "2018-05-17",
-                'sehrTime' => "3:55",
-                'fajrTime' => "",
-                'iftarTime' => "6:33",
-                'areaCode' => "BD-06",
-            ], [
                 'date' => "2018-05-18",
                 'sehrTime' => "3:54",
                 'fajrTime' => "",
@@ -377,23 +365,23 @@ class RamadansTableSeeder extends Seeder
                 'fajrTime' => "",
                 'iftarTime' => "6:44",
                 'areaCode' => "BD-06",
-            ],
+            ],[
+                'date' => "2018-06-15",
+                'sehrTime' => "3:52",
+                'fajrTime' => "",
+                'iftarTime' => "6:34",
+                'areaCode' => "BD-06",
+            ], [
+                'date' => "2018-06-16",
+                'sehrTime' => "3:52",
+                'fajrTime' => "",
+                'iftarTime' => "6:34",
+                'areaCode' => "BD-06",
+            ], 
 
 
             //Chittagong
             [
-                'date' => "2018-05-16",
-                'sehrTime' => "3:50",
-                'fajrTime' => "",
-                'iftarTime' => "6:26",
-                'areaCode' => "BD-10",
-            ], [
-                'date' => "2018-05-17",
-                'sehrTime' => "3:50",
-                'fajrTime' => "",
-                'iftarTime' => "6:26",
-                'areaCode' => "BD-10",
-            ], [
                 'date' => "2018-05-18",
                 'sehrTime' => "3:49",
                 'fajrTime' => "",
@@ -561,24 +549,24 @@ class RamadansTableSeeder extends Seeder
                 'fajrTime' => "",
                 'iftarTime' => "6:38",
                 'areaCode' => "BD-10",
-            ],
+            ],[
+                'date' => "2018-06-15",
+                'sehrTime' => "3:52",
+                'fajrTime' => "",
+                'iftarTime' => "6:34",
+                'areaCode' => "BD-10",
+            ], [
+                'date' => "2018-06-16",
+                'sehrTime' => "3:52",
+                'fajrTime' => "",
+                'iftarTime' => "6:34",
+                'areaCode' => "BD-10",
+            ], 
 
 
             //Khulna
 
-            [
-                'date' => "2018-05-16",
-                'sehrTime' => "3:58",
-                'fajrTime' => "",
-                'iftarTime' => "6:36",
-                'areaCode' => "BD-27",
-            ], [
-                'date' => "2018-05-17",
-                'sehrTime' => "3:58",
-                'fajrTime' => "",
-                'iftarTime' => "6:36",
-                'areaCode' => "BD-27",
-            ], [
+             [
                 'date' => "2018-05-18",
                 'sehrTime' => "3:57",
                 'fajrTime' => "",
@@ -746,24 +734,24 @@ class RamadansTableSeeder extends Seeder
                 'fajrTime' => "",
                 'iftarTime' => "6:48",
                 'areaCode' => "BD-27",
-            ],
+            ],[
+                'date' => "2018-06-15",
+                'sehrTime' => "3:52",
+                'fajrTime' => "",
+                'iftarTime' => "6:34",
+                'areaCode' => "BD-27",
+            ], [
+                'date' => "2018-06-16",
+                'sehrTime' => "3:52",
+                'fajrTime' => "",
+                'iftarTime' => "6:34",
+                'areaCode' => "BD-27",
+            ], 
 
 
             //Rajshahi
 
             [
-                'date' => "2018-05-16",
-                'sehrTime' => "3:58",
-                'fajrTime' => "",
-                'iftarTime' => "6:42",
-                'areaCode' => "BD-54",
-            ], [
-                'date' => "2018-05-17",
-                'sehrTime' => "3:57",
-                'fajrTime' => "",
-                'iftarTime' => "6:43",
-                'areaCode' => "BD-54",
-            ], [
                 'date' => "2018-05-18",
                 'sehrTime' => "3:57",
                 'fajrTime' => "",
@@ -931,23 +919,23 @@ class RamadansTableSeeder extends Seeder
                 'fajrTime' => "",
                 'iftarTime' => "6:55",
                 'areaCode' => "BD-54",
-            ],
+            ],[
+                'date' => "2018-06-15",
+                'sehrTime' => "3:52",
+                'fajrTime' => "",
+                'iftarTime' => "6:34",
+                'areaCode' => "BD-54",
+            ], [
+                'date' => "2018-06-16",
+                'sehrTime' => "3:52",
+                'fajrTime' => "",
+                'iftarTime' => "6:34",
+                'areaCode' => "BD-54",
+            ], 
 
             //Rangpur
 
-             [
-                'date' => "2018-05-16",
-                'sehrTime' => "3:52",
-                'fajrTime' => "",
-                'iftarTime' => "6:42",
-                'areaCode' => "BD-55",
-            ], [
-                'date' => "2018-05-17",
-                'sehrTime' => "3:51",
-                'fajrTime' => "",
-                'iftarTime' => "6:42",
-                'areaCode' => "BD-55",
-            ], [
+           [
                 'date' => "2018-05-18",
                 'sehrTime' => "3:50",
                 'fajrTime' => "",
@@ -1115,18 +1103,24 @@ class RamadansTableSeeder extends Seeder
                 'fajrTime' => "",
                 'iftarTime' => "6:55",
                 'areaCode' => "BD-55",
-            ],
+            ],[
+                'date' => "2018-06-15",
+                'sehrTime' => "3:52",
+                'fajrTime' => "",
+                'iftarTime' => "6:34",
+                'areaCode' => "BD-55",
+            ], [
+                'date' => "2018-06-16",
+                'sehrTime' => "3:52",
+                'fajrTime' => "",
+                'iftarTime' => "6:34",
+                'areaCode' => "BD-55",
+            ], 
 
 
             //Sylhet
 
             [
-                'date' => "2018-05-16",
-                'sehrTime' => "3:43",
-                'fajrTime' => "",
-                'iftarTime' => "6:30",
-                'areaCode' => "BD-60",
-            ], [
                 'date' => "2018-05-17",
                 'sehrTime' => "3:43",
                 'fajrTime' => "",
@@ -1300,24 +1294,24 @@ class RamadansTableSeeder extends Seeder
                 'fajrTime' => "",
                 'iftarTime' => "6:43",
                 'areaCode' => "BD-60",
-            ],
+            ],[
+                'date' => "2018-06-15",
+                'sehrTime' => "3:52",
+                'fajrTime' => "",
+                'iftarTime' => "6:34",
+                'areaCode' => "BD-60",
+            ], [
+                'date' => "2018-06-16",
+                'sehrTime' => "3:52",
+                'fajrTime' => "",
+                'iftarTime' => "6:34",
+                'areaCode' => "BD-60",
+            ], 
 
 
                 //Mymensingh 
 
                 [
-                    'date' => "2018-05-16",
-                    'sehrTime' => "3:50",
-                    'fajrTime' => "",
-                    'iftarTime' => "6:36",
-                    'areaCode' => "BD-34",
-                ], [
-                    'date' => "2018-05-17",
-                    'sehrTime' => "3:49",
-                    'fajrTime' => "",
-                    'iftarTime' => "6:36",
-                    'areaCode' => "BD-34",
-                ], [
                     'date' => "2018-05-18",
                     'sehrTime' => "3:48",
                     'fajrTime' => "",
@@ -1485,7 +1479,19 @@ class RamadansTableSeeder extends Seeder
                     'fajrTime' => "",
                     'iftarTime' => "6:49",
                     'areaCode' => "BD-34",
-                ],
+                ],[
+                    'date' => "2018-06-15",
+                    'sehrTime' => "3:52",
+                    'fajrTime' => "",
+                    'iftarTime' => "6:34",
+                    'areaCode' => "BD-34",
+                ], [
+                    'date' => "2018-06-16",
+                    'sehrTime' => "3:52",
+                    'fajrTime' => "",
+                    'iftarTime' => "6:34",
+                    'areaCode' => "BD-34",
+                ], 
     
 
 
