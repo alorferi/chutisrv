@@ -1,4 +1,4 @@
-@extends('masters.admin')
+@extends('layouts.admin')
 
 @section('back')
 <a href="{{ URL::to('ramadans') }}">&lt; Back</a>

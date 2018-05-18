@@ -19,9 +19,12 @@ Route::get('/', function () {
 
 Route::resource('countries', 'CountriesController');
 Route::resource('areas', 'AreasController');
-Route::get('areas/{code}/fcm', 'AreaController@fcm');
+Route::get('areas/{code}/fcm', 'AreasController@fcm');
 Route::resource('ramadans', 'RamadansController');
 Route::resource("apps","AppsController");
 Route::get('apps/{id}/fcm', 'AppsController@composeFcm');
 
 Route::post('apps/sendfcm/{id}', 'AppsController@sendFcm')->name('apps.sendfcm');
+
+
+Auth::routes();
