@@ -17,7 +17,7 @@
 
 
                     <div>
-                            @include('layouts.loginpartial')
+                            {{--  @include('layouts.loginpartial')  --}}
                     </div>
 
 

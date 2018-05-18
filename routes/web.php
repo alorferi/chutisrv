@@ -28,3 +28,8 @@ Route::post('apps/sendfcm/{id}', 'AppsController@sendFcm')->name('apps.sendfcm')
 
 
 Auth::routes();
+Auth::routes();
+
+Route::get('/admin', 'AdminController@index')->name('admin');
+
+Route::get('/home', 'HomeController@index')->name('home');
