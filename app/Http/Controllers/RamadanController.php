@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ramadan;
 
-class RamadansController extends Controller
+class RamadanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,7 @@ class RamadansController extends Controller
         $ramadans = Ramadan::all();
   
         // load the view and pass the tag
-        return view('ramadans.index')
+        return view('ramadan.index')
             ->with('ramadans', $ramadans);
 
     }
@@ -33,7 +33,7 @@ class RamadansController extends Controller
   public function edit($id)
   {
     $ramadan = Ramadan::find($id);
-     return  \View::make('ramadans.edit')->with('ramadan', $ramadan);
+     return  \View::make('ramadan.edit')->with('ramadan', $ramadan);
   }
 
   /**

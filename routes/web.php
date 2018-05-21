@@ -17,17 +17,16 @@ Route::get('/', function () {
 
 
 
-Route::resource('countries', 'CountriesController');
-Route::resource('areas', 'AreasController');
-Route::get('areas/{code}/fcm', 'AreasController@fcm');
-Route::resource('ramadans', 'RamadansController');
-Route::resource("apps","AppsController");
-Route::get('apps/{id}/fcm', 'AppsController@composeFcm');
+Route::resource('countries', 'CountryController');
+Route::resource('areas', 'AreaController');
+Route::get('areas/{code}/fcm', 'AreaController@fcm');
+Route::resource('ramadans', 'RamadanController');
+Route::resource("apps","AppController");
+Route::get('apps/{id}/fcm', 'AppController@composeFcm');
 
-Route::post('apps/sendfcm/{id}', 'AppsController@sendFcm')->name('apps.sendfcm');
+Route::post('apps/sendfcm/{id}', 'AppController@sendFcm')->name('apps.sendfcm');
 
 
-Auth::routes();
 Auth::routes();
 
 Route::get('/admin', 'AdminController@index')->name('admin');

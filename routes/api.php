@@ -20,13 +20,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/countries', 'API\CountriesController@getCountries');
-Route::get('countries/{code}', 'API\CountriesController@getCountry');
+Route::get('/countries', 'API\CountryController@getCountries');
+Route::get('countries/{code}', 'API\CountryController@getCountry');
 
 //Route::get('/areas', 'AreasController@getAreas');
-Route::get('/areas/{countryCode}', 'API\AreasController@getAreasByCountryCode');
-Route::get('area/{code}', 'API\AreasController@getArea');
+Route::get('/areas/{countryCode}', 'API\AreaController@getAreasByCountryCode');
+Route::get('area/{code}', 'API\AreaController@getArea');
 
-Route::get('ramadans/{areaCode}', 'API\RamadansController@getRamadansByAreaCode');
+Route::get('ramadans/{areaCode}', 'API\RamadanController@getRamadansByAreaCode');
 
-Route::get("languages","API\LanguagesController@getLanguages");
+Route::get("languages","API\LanguageController@getLanguages");

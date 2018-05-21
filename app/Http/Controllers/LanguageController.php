@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Country;
 
-class CountriesController extends Controller
+class LanguageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,16 +13,8 @@ class CountriesController extends Controller
      */
     public function index()
     {
-  
-               // get all the tag
-        $countries = Country::all();
-  
-        // load the view and pass the tag
-        return view('countries.index')->with('countries', $countries);
-  
+        //
     }
-    
-   
 
     /**
      * Show the form for creating a new resource.

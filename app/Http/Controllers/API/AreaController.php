@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Area;
 
-class AreasController extends Controller
+class AreaController extends Controller
 {
     public function getAreas()
     {

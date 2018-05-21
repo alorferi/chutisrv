@@ -7,7 +7,7 @@ use App\Models\Area;
 use App\Models\Ramadan;
 use App\Models\Country;
 
-class AreasController extends Controller
+class AreaController extends Controller
 {
     public function index()
     {
@@ -16,7 +16,7 @@ class AreasController extends Controller
         $areas = Area::all();
   
         // load the view and pass the tag
-        return view('areas.index')
+        return view('area.index')
             ->with('areas', $areas);
   
     }
@@ -47,7 +47,7 @@ class AreasController extends Controller
   {
         $countries = Country::pluck('name', 'code');
        // $tags = Tag::pluck('name', 'id');
-        return view("areas.create")->with('countries', $countries);;
+        return view("area.create")->with('countries', $countries);;
   }
 
   /**
@@ -118,7 +118,7 @@ class AreasController extends Controller
   public function edit($id)
   {
     $area = Area::find($id);
-     return  \View::make('areas.edit')->with('tag', $area);
+     return  \View::make('area.edit')->with('tag', $area);
   }
 
   /**

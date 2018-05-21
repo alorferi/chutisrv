@@ -3,45 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\App;
+use App\Models\Country;
 
-class AppsController extends Controller
+class CountryController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    function index(){        
-        $apps = App::all();
-       return view("apps.index")->with("apps",$apps);
-    
-    }
-
-
-    public function composeFcm($id)
+    public function index()
     {
   
-        $app = App::find($id); // select * from apps where id = 1
-
-       return view("apps.fcm")->with("app",$app);
+               // get all the tag
+        $countries = Country::all();
+  
+        // load the view and pass the tag
+        return view('country.index')->with('countries', $countries);
+  
     }
-
-    public function sendFcm(Request $request,$id)
-  {
-
-      $app = App::find($id); // select * from apps where id = 1
-
-      fcm()
-      ->toTopic($app->bundleId) // $topic must an string (topic name)
-      ->notification([
-          'title' =>$request->title,// $ramadan->area->name"",
-          'body' => $request->body , // $body
-      ])
-      ->send();
-
-     return $this->index();
-  }
+    
+   
 
     /**
      * Show the form for creating a new resource.
