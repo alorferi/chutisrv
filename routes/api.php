@@ -21,12 +21,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/countries', 'API\CountryController@getCountries');
-Route::get('countries/{code}', 'API\CountryController@getCountry');
+Route::get('country/{code}', 'API\CountryController@getCountry');
 
 //Route::get('/areas', 'AreasController@getAreas');
 Route::get('/areas/{countryCode}', 'API\AreaController@getAreasByCountryCode');
 Route::get('area/{code}', 'API\AreaController@getArea');
 
-Route::get('ramadans/{areaCode}', 'API\RamadanController@getRamadansByAreaCode');
+Route::get('ramadans/{areaCode}', 'API\RamadanController@getRamadans');
+Route::get('ramadan/{id}', 'API\RamadanController@getRamadan');
+//Route::put('ramadan', 'API\RamadanController@updateRamadan');
+Route::put('ramadan/{ramadan}', 'API\RamadanController@update');
 
 Route::get("languages","API\LanguageController@getLanguages");

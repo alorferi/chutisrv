@@ -18,6 +18,8 @@ class CreateAppsTable extends Migration
             $table->string('name',30)->unique();
             $table->string('localName',50)->nullable();
             $table->string('bundleId',100)->unique()->nullable();
+            $table->integer('versionCode'); 
+            $table->string('versionName');
             $table->timestamps();
         });
     }

@@ -17,12 +17,17 @@ class AppsTableSeeder extends Seeder
              
                 'name' => "Chuti",
                 'localName' => "ছুটি",
-                'bundleId' => 'com.provatsoft.apps.govtholidaysbd'
+                'bundleId' => 'com.provatsoft.apps.govtholidaysbd',
+                'versionCode' => 35,
+                'versionName' => "1.35",
+
             ], [
             
                 'name' => "Ramadan",
                 'localName' => 'রমজান',
                 'bundleId' => 'com.ushalab.ramadan',
+                'versionCode' => 5,
+                'versionName' => "1.5",
             ],
          ];
         // Publisher::delete();

@@ -26,6 +26,8 @@ App List
             <td>Name   </td>
             <td>Local Name  </td>
             <td>Bundle Id</td>
+            <td>Version Code</td>
+            <td>Version Name</td>
 
         </tr>
     </thead>
@@ -43,6 +45,8 @@ App List
              <td>{{ $app->localName }}</td>
 
             <td>{{ $app->bundleId }}</td>
+            <td>{{ $app->versionCode }}</td>
+            <td>{{ $app->versionName }}</td>
         </tr>
     @endforeach
     </tbody>
