@@ -24,11 +24,15 @@
                         <a class="navbar-brand" href="/">{{ config('app.name') }}</a>
                       </div>
                       <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
+                            <li><a href="/apps">Apps</a></li>
                         <li><a href="/countries">Countries</a></li>
                         <li><a href="/areas">Areas</a></li>
                         <li><a href="/ramadans">Ramadans</a></li>
-                        <li><a href="/apps">App</a></li>
+                        <li><a href="/days">Days</a></li>
+                        <li><a href="/daydates">DayDates</a></li>
+                        <li><a href="/holidaytypes">Holiday Types</a></li>
+                        <li><a href="/dayflags">Day Flags</a></li>
+                      
                       </ul>
 
                       

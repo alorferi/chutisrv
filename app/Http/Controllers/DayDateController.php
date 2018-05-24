@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DayDate;
+use App\Models\Day;
 use Illuminate\Http\Request;
 
 class DayDateController extends Controller
@@ -14,7 +15,21 @@ class DayDateController extends Controller
      */
     public function index()
     {
-        //
+          // get all the Day
+          $daydates = DayDate::with('day')->get();
+
+
+        // foreach( $daydates  as $k=> $daydate){
+        //     $day = Day::where('dayKey','=', $daydate->dayKey)->get()->first();
+        //     if($day!=null){
+        //         $daydate->dayId = $day->id;
+        //         $daydate->save();
+        //     }
+          
+        // }
+  
+          // load the view and pass the Day
+          return view('daydate.index')->with('daydates', $daydates);
     }
 
     /**

@@ -32,3 +32,8 @@ Auth::routes();
 Route::get('/admin', 'AdminController@index')->name('admin');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/days', 'DayController@index')->name('days');
+Route::get('/daydates', 'DayDateController@index')->name('daydates');
+Route::get('/dayflags', 'DayflagController@index')->name('dayflags');
+Route::get('/holidaytypes', 'HolidayTypeController@index')->name('holydaytypes');

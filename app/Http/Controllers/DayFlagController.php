@@ -14,7 +14,8 @@ class DayFlagController extends Controller
      */
     public function index()
     {
-        //
+        $dayflags = DayFlag::all();
+        return view('dayflag.index')->with('dayflags', $dayflags);
     }
 
     /**

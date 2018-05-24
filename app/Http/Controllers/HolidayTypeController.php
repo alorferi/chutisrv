@@ -14,7 +14,8 @@ class HolidayTypeController extends Controller
      */
     public function index()
     {
-        //
+        $holidaytypes = HolidayType::all();
+        return view('holidaytype.index')->with('holidaytypes', $holidaytypes);
     }
 
     /**

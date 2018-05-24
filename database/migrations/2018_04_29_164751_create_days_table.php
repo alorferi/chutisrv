@@ -17,7 +17,7 @@ class CreateDaysTable extends Migration
             $table->increments('id');
             $table->string('dayKey')->unique();     
             $table->string('title');
-            $table->string('description'); 
+            $table->string('description')->nullable(); 
             $table->string('dayCategory',3);
             $table->integer('dayFlag');  
             $table->foreign('dayFlag')->references('flag')->on('dayflags')->onUpdate('cascade');  

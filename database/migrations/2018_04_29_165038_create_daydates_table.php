@@ -17,10 +17,10 @@ class CreateDaydatesTable extends Migration
             $table->increments('id');
             $table->string('holidayCode',2);
             $table->foreign('holidayCode')->references('code')->on('holidaytypes')->onUpdate('cascade');  
-            $table->string('stared',1);
+            $table->string('stared',1)->nullable();
             $table->date('dayDate');     
             $table->string('dayKey');
-            $table->integer('dayId')->references('id')->on('days');  
+            $table->integer('dayId')->references('id')->on('days')->nullable();  
             $table->timestamps();
         });
     }

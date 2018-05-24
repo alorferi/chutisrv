@@ -23,7 +23,7 @@ class CountriesTableSeeder extends Seeder
                 'localName' => "افغانستان",
             ],
          ];
-        // Publisher::delete();
+
          foreach ($array as $key => $value) {
             Country::create($value);
          }
