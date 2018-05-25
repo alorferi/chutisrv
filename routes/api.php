@@ -33,3 +33,6 @@ Route::get('ramadan/{id}', 'API\RamadanController@getRamadan');
 Route::put('ramadan/{ramadan}', 'API\RamadanController@update');
 
 Route::get("languages","API\LanguageController@getLanguages");
+
+
+Route::get("holidaytypes","API\HolidayTypeController@getHolidayTypes");
