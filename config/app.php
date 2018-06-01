@@ -213,6 +213,7 @@ return [
         'Input' => Illuminate\Support\Facades\Input::class,
         'Fcm' => Kawankoding\Fcm\FcmFacade::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+        'Input' => Illuminate\Support\Facades\Request::class,
     ],
 
 ];

@@ -24,7 +24,7 @@ class AppController extends Controller
   
         $app = App::find($id); // select * from apps where id = 1
 
-       return view("apps.fcm")->with("app",$app);
+       return view("app.fcm")->with("app",$app);
     }
 
     public function sendFcm(Request $request,$id)

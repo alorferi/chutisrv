@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Area;
 use App\Utils\Data;
+use App\Models\Ramadan;
 
 class AreaController extends Controller
 {
@@ -22,16 +23,7 @@ class AreaController extends Controller
                     return $data;
     }
   
-      public function getAreasByCountryCode($countryCode)
-      {
-  
-        $areas =  Area::where('countryCode', strtoupper($countryCode))->get();
-  
-             return  ['message'=> "",
-      'status'=>'OK',
-      'result'=>Area::all()
-      ] ;
-      }
+
   
       public function getArea($code)
       {
@@ -41,4 +33,19 @@ class AreaController extends Controller
                        'result'=> Area::where('code', strtoupper($code))->get()->first()
       ] ;
       }
+
+      public function getRamadansByAreaCode($areaCode){
+        $ramadans =  Ramadan::where('areaCode', strtoupper($areaCode))
+                            ->orderBy('date')
+                            ->get();
+
+    if(sizeof($ramadans)==0){
+        $data =   Data::data("FAILED","No ramadan(s) found",$ramadans);   
+    }else{
+        $data =   Data::data("OK",sizeof($ramadans)." ramadan(s) found",$ramadans);   
+        }
+        
+        return $data;
+    
+    }
 }

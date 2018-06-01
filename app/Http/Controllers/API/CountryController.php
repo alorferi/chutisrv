@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Country;
+use App\Models\Area;
 
 class CountryController extends Controller
 {
@@ -24,6 +25,17 @@ class CountryController extends Controller
            return  ['message'=> "",
     'status'=>'OK',
     'result'=> Country::with("areas")->where('code', strtoupper($code))->get()->first()
+    ] ;
+    }
+
+    public function getAreasByCountryCode($countryCode)
+    {
+
+      $areas =  Area::where('countryCode', strtoupper($countryCode))->get();
+
+           return  ['message'=> "",
+    'status'=>'OK',
+    'result'=>Area::all()
     ] ;
     }
 }

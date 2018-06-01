@@ -31,12 +31,12 @@ ramadan - Edit
     
 
         <div class="form-group">
-                {{ Form::label('fajorTime', 'Fajor Time') }}
-                {{ Form::text('fajorTime', null, array('class' => 'form-control')) }}
+                {{ Form::label('fajrTime', 'Fajor Time') }}
+                {{ Form::text('fajrTime', null, array('class' => 'form-control')) }}
             </div>
             <div class="form-group">
-                    {{ Form::label('iftaarTime', 'Iftaar Time') }}
-                    {{ Form::text('iftaarTime', null, array('class' => 'form-control')) }}
+                    {{ Form::label('iftarTime', 'Iftaar Time') }}
+                    {{ Form::text('iftarTime', null, array('class' => 'form-control')) }}
                 </div>
 
     {{ Form::submit('Save', array('class' => 'btn btn-primary')) }}

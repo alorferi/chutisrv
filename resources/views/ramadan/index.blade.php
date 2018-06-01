@@ -46,9 +46,9 @@ ramadans List
             <td>{{ $value->id }}</td>
             <td>{{ $value->date }}</td>
             <td>{{ $value->sehrTime }}  </td>
-            <td>{{ $value->fajorTime }}  </td>
-            <td>{{ $value->iftaarTime }}  </td>
-            <td>{{ $value->areaCode }}  </td>
+            <td>{{ $value->fajrTime }}  </td>
+            <td>{{ $value->iftarTime }}  </td>
+            <td>{{ $value->area->name }}  </td>
   
 
         </tr>

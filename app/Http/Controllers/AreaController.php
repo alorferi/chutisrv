@@ -94,12 +94,11 @@ class AreaController extends Controller
       $ramadan = Ramadan::with('area')->where('areaCode', $code)
             ->where('date', $today)->get()->first();
 
-
                      //   $body =    $ramadan->date.' '. $ramadan->sehrTime.' AM';
 
                         // $ramadan->area->code
       fcm()
-      ->toTopic('com.ushalab.ramadan') // $topic must an string (topic name)
+      ->toTopic($code) // $topic must an string (topic name)
       ->notification([
           'title' =>"test title",// $ramadan->area->name"",
           'body' =>  "test body", // $body

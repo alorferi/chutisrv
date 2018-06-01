@@ -9,20 +9,7 @@ use App\Utils\Data;
 
 class RamadanController extends Controller
 {
-    public function getRamadans($areaCode){
-        $ramadans =  Ramadan::where('areaCode', strtoupper($areaCode))
-                            ->orderBy('date')
-                            ->get();
-
-    if(sizeof($ramadans)==0){
-        $data =   Data::data("FAILED","No ramadan(s) found",$ramadans);   
-    }else{
-        $data =   Data::data("OK",sizeof($ramadans)." ramadan(s) found",$ramadans);   
-        }
-        
-        return $data;
-    
-    }
+ 
        
 
     public function getRamadan($id){

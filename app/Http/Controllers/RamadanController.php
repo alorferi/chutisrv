@@ -99,6 +99,64 @@ class RamadanController extends Controller
         //
     }
 
+    public function fcm(Request $request)
+    {
+  
+        $date = $request->input('date', date("Y-m-d"));
+
+        $ramadans = Ramadan::where('date','=',$date)->get(); // select * from apps where id = 1
+
+        return view("ramadan.fcm")->with(compact("ramadans","date"));
+    }    
+
+    public function sendFcm(Request $request)
+    {
+  
+        $date = $request->input('date', date("Y-m-d"));
+
+        $meridian = $request->input('meridiem');
+
+        $ramadans = Ramadan::where('date','=',$date)->get(); // select * from apps where id = 1
+
+        $today = date("Y-m-d");
+
+        $msg = "";
+
+        foreach($ramadans as $k=> $ramadan){
+
+            if($date == $today){
+                $prefix = "আজ";
+            }else if($date > $today){
+                $prefix = "আগামীকাল";
+            }else{
+                return "Old date";
+            }
+
+            if($meridian == "sehrTime"){
+                $meridian = "শেহেরীর সময় ভোর";
+                $time = $ramadan->sehrTime;
+             }else if($meridian == "iftarTime"){
+                 $meridian = "ইফতারীর সময় সন্ধ্যাে";
+                 $time = $ramadan->iftarTime;
+             }else{
+              //  return "No meridian ".$meridian;
+             }
+             $title = "$prefix $date তারিখ।";
+             $body =  "$meridian $time";
+            fcm()
+            ->toTopic($ramadan->area->code) // $topic must an string (topic name)
+            ->notification([
+                'title' =>$title,// $ramadan->area->name"",
+                'body' =>  $body, // $body
+            ])
+            ->send();
+
+            $msg.=$body." ";
+        }
+
+        return $msg;
+    }    
+
 
     /**
      * Remove the specified resource from storage.

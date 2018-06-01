@@ -11,23 +11,29 @@
 |
 */
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 
-
+//Countries route
 Route::resource('countries', 'CountryController');
+
+//Areas route
 Route::resource('areas', 'AreaController');
-Route::get('areas/{code}/fcm', 'AreaController@fcm');
+Route::get('areas/{areaCode}/fcm', 'AreaController@fcm');
+
+//Ramadans route
 Route::resource('ramadans', 'RamadanController');
+Route::get('ramadans.fcm', 'RamadanController@fcm')->name('ramadans.fcm');
+Route::post('ramadans.sendfcm', 'RamadanController@sendFcm')->name('ramadans.sendfcm');;
+
+//Apps route
 Route::resource("apps","AppController");
 Route::get('apps/{id}/fcm', 'AppController@composeFcm');
-
 Route::post('apps/sendfcm/{id}', 'AppController@sendFcm')->name('apps.sendfcm');
-
-
-Auth::routes();
 
 Route::get('/admin', 'AdminController@index')->name('admin');
 
