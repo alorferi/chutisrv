@@ -19,27 +19,31 @@ Route::get('/', function () {
 
 
 //Countries route
-Route::resource('countries', 'CountryController');
+Route::resource('country', 'CountryController');
 
 //Areas route
-Route::resource('areas', 'AreaController');
-Route::get('areas/{areaCode}/fcm', 'AreaController@fcm');
+Route::resource('area', 'AreaController');
+Route::get('area/{areaCode}/fcm', 'AreaController@fcm');
 
 //Ramadans route
-Route::resource('ramadans', 'RamadanController');
-Route::get('ramadans.fcm', 'RamadanController@fcm')->name('ramadans.fcm');
-Route::post('ramadans.sendfcm', 'RamadanController@sendFcm')->name('ramadans.sendfcm');;
+Route::resource('ramadan', 'RamadanController');
+Route::get('ramadan.fcm', 'RamadanController@fcm')->name('ramadan.fcm');
+Route::post('ramadan.sendfcm', 'RamadanController@sendFcm')->name('ramadan.sendfcm');;
 
 //Apps route
-Route::resource("apps","AppController");
-Route::get('apps/{id}/fcm', 'AppController@composeFcm');
-Route::post('apps/sendfcm/{id}', 'AppController@sendFcm')->name('apps.sendfcm');
+Route::resource("app","AppController");
+Route::get('app/{id}/fcm', 'AppController@composeFcm');
+Route::post('app/sendfcm/{id}', 'AppController@sendFcm')->name('app.sendfcm');
 
 Route::get('/admin', 'AdminController@index')->name('admin');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/days', 'DayController@index')->name('days');
-Route::get('/daydates', 'DayDateController@index')->name('daydates');
-Route::get('/dayflags', 'DayflagController@index')->name('dayflags');
-Route::get('/holidaytypes', 'HolidayTypeController@index')->name('holydaytypes');
+Route::get('/day', 'DayController@index')->name('day');
+Route::get('/daydate', 'DayDateController@index')->name('daydate');
+Route::get('/dayflag', 'DayflagController@index')->name('dayflag');
+Route::get('/holidaytype', 'HolidayTypeController@index')->name('holydaytype');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
