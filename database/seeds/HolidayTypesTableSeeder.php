@@ -40,14 +40,45 @@ class HolidayTypesTableSeeder extends Seeder
                         ,'orderFlag'=>32		
                         ,'showInCalendar'=>0		
                         ],
+                        [ 
+                            'code'=> 'XC'
+                            ,'shortName'=>'ঐচ্ছিক(খ্রি.)'		
+                            ,'longName'=>'ঐচ্ছিক ছুটি (খ্রিষ্টান পর্ব)'		
+                            ,'orderFlag'=>16		
+                            ,'showInCalendar'=>0		
+                            ],
+                            [ 
+                                'code'=> 'XH'
+                                ,'shortName'=>'ঐচ্ছিক(হি.)'		
+                                ,'longName'=>'ঐচ্ছিক ছুটি (হিন্দু পর্ব)'		
+                                ,'orderFlag'=>8		
+                                ,'showInCalendar'=>0		
+                                ],
+                                [ 
+                                    'code'=> 'XM'
+                                    ,'shortName'=>'ঐচ্ছিক(মু.)'		
+                                    ,'longName'=>'ঐচ্ছিক ছুটি (মুসলিম পর্ব)'		
+                                    ,'orderFlag'=>4		
+                                    ,'showInCalendar'=>0		
+                                ],
+
+                                [ 
+                                    'code'=> 'XU'
+                                    ,'shortName'=>'নির্বাহী'		
+                                    ,'longName'=>'নির্বাহী আদেশে সরকারী ছুটি'		
+                                    ,'orderFlag'=>2	
+                                    ,'showInCalendar'=>1		
+                                ],
+                                [ 
+                                    'code'=> 'GN'
+                                    ,'shortName'=>'সাধারণ'		
+                                    ,'longName'=>'সাধারণ ছুটি'		
+                                    ,'orderFlag'=>1	
+                                    ,'showInCalendar'=>1		
+                                ],
                 ];
 
 
-// XC	ঐচ্ছিক(খ্রি.)	ঐচ্ছিক ছুটি (খ্রিষ্টান পর্ব)	16	0
-// XH	ঐচ্ছিক(হি.)	ঐচ্ছিক ছুটি (হিন্দু পর্ব)	8	0
-// XM	ঐচ্ছিক(মু.)	ঐচ্ছিক ছুটি (মুসলিম পর্ব)	4	0
-// XU	নির্বাহী	নির্বাহী আদেশে সরকারী ছুটি	2	1
-// GN	সাধারণ	সাধারণ ছুটি	1	1
 
             foreach ($array as $key => $value) {
                 HolidayType::create($value);
