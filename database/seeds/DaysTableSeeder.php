@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Models\Day;
 class DaysTableSeeder extends Seeder
 {
     /**
@@ -264,6 +264,8 @@ class DaysTableSeeder extends Seeder
 
         ];
 
-
+        foreach ($array as $key => $value) {
+            Day::create($value);
+         }
     }
 }

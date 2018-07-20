@@ -18,9 +18,10 @@ class DatabaseSeeder extends Seeder
          $this->call("LanguagesTableSeeder");
          $this->call("RolesTableSeeder");
          $this->call("UsersTableSeeder");
-         $this->call("DaysTableSeeder");
          $this->call("DayFlagsTableSeeder");
          $this->call("HolidayTypesTableSeeder");
+         $this->call("DaysTableSeeder");
+       
 
     }
 }
