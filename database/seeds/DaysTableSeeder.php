@@ -31,47 +31,239 @@ class DaysTableSeeder extends Seeder
             ,'dayCategory'=>'GNL'
             ,'dayFlag'=>3
             ],
+           
+            ['dayKey'=> '26-MAR'
+                ,'title'=>'স্বাধীনতা ও জাতীয় দিবস'
+                ,'dayCategory'=>'GNL'
+                ,'dayFlag'=>3],
+            
+            ['dayKey'=> 'BN-NOBO',
+                'title'=>'বাংলা নববর্ষ',
+                'dayCategory'=>'GNL',
+                'dayFlag'=>3
+            ],
+           
+            ['dayKey'=> 'MAY-DAY',
+            'title'=>'মে দিবস',
+            'dayCategory'=>'GNL',
+            'dayFlag'=>3
+            ],
+            
+            ['dayKey'=> 'B-PURNIMA',
+            'title'=>'বুদ্ধ পূর্ণিমা',
+            'dayCategory'=>'GNL',
+            'dayFlag'=>1
+            ],
+            
+            ['dayKey'=> 'EID-UL-FITAR',
+            'title'=>'ঈদ-উল-ফিতর',
+            'dayCategory'=>'MLM',
+            'dayFlag'=>1  
+            ],
+
+            ['dayKey'=> 'SOBE-KADOR',
+            'title'=>'শবে-কদর',
+            'dayCategory'=>'MLM',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'JUMATUL-BIDAH',
+            'title'=>'জুমা-তুল-বিদা',
+            'dayCategory'=>'MLM',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'SOBE-BORAT',
+            'title'=>'শবে-বরাত',
+            'dayCategory'=>'MLM',
+            'dayFlag'=>1
+             ],
+           
+             ['dayKey'=> 'ASHURA',
+            'title'=>'পবিত্র  আশুরা',
+            'dayCategory'=>'MLM',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'DURGA-PUGA-10TH',
+            'title'=>'শারদীয় দূর্গাপূজা (বিজয়া দশমী)',
+            'dayCategory'=>'HDU',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'EID-UL-ADHA',
+            'title'=>'ঈদ-উল-আযহা',
+            'dayCategory'=>'MLM',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'JANMO-ASTOMI',
+            'title'=>'শুভ জন্মাষ্টমী',
+            'dayCategory'=>'HDU',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> '15-AUG',
+            'title'=>'জাতীয় শোক দিবস',
+            'dayCategory'=>'GNL',
+            'dayFlag'=>3
+            ],
+
+            ['dayKey'=> 'BORO-DIN',
+            'title'=>'যীশু খ্রীষ্টের জন্মদিন (বড়দিন)',
+            'dayCategory'=>'CRN',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> '16-DEC',
+            'title'=>'বিজয় দিবস',
+            'dayCategory'=>'GNL',
+            'dayFlag'=>3
+            ],
+
+            ['dayKey'=> 'EID-E-MILADUN',
+            'title'=>'ঈদ-ই-মিলাদুন্নবী (সাঃ)',
+            'dayCategory'=>'MLM',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'SOBE-MIRAZ',
+            'title'=>'শব-ই-মিরাজ',
+            'dayCategory'=>'MLM',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'FATEHA-E-YAJDAHUM',
+            'title'=>'ফাতেহা-ই-ইয়াজদাহম',
+            'dayCategory'=>'MLM',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'AKHERI-CAHAR-SOMBA',
+            'title'=>'আখেরী চাহার সোম্বা',
+            'dayCategory'=>'MLM',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'SOROSOTI-PUJA',
+            'title'=>'শ্রী শ্রী সরস্বতী পূজা',
+            'dayCategory'=>'HDU',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'SHIBRATRI-BROTO',
+            'title'=>'শ্রী শ্রী শিবরাত্রী ব্রত',
+            'dayCategory'=>'HDU',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'DOL-JAT',
+            'title'=>'শুভ দোল যাত্রা',
+            'dayCategory'=>'HDU',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'THAKUR-ABRAIRVAB',
+            'title'=>'শ্রী শ্রী হরিচাঁদ ঠাকুরের আবির্ভাব',
+            'dayCategory'=>'HDU',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'MOHALYA',
+            'title'=>'শুভ মহালয়া',
+            'dayCategory'=>'HDU',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'DURGA-PUGA-09TH',
+            'title'=>'শ্রী শ্রী দূর্গাপূজা (মহানবমী)',
+            'dayCategory'=>'HDU',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'LAKSHMI-PUJA',
+            'title'=>'শ্রী শ্রী লক্ষ্মী পূজা',
+            'dayCategory'=>'HDU',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'SHAMA-PUJA',
+            'title'=>'শ্রী শ্রী শ্যামা পূজা',
+            'dayCategory'=>'HDU',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'EN-NOBO',
+            'title'=>'ইংরেজী নববর্ষ',
+            'dayCategory'=>'CRN',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'VOSMO-WED',
+            'title'=>'ভস্ম বুধবার',
+            'dayCategory'=>'CRN',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'PUNNO-THR',
+            'title'=>'পূণ্য বৃহস্পতিবার',
+            'dayCategory'=>'CRN',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'PUNNO-SAT',
+            'title'=>'পূণ্য শনিবার',
+            'dayCategory'=>'CRN',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'PUNNO-FRI',
+            'title'=>'পূণ্য শুক্রবার',
+            'dayCategory'=>'CRN',
+            'dayFlag'=>1
+            ],
+
+
+            ['dayKey'=> 'AR-ESTSUN',
+            'title'=>'ইস্টার সানডে',
+            'dayCategory'=>'CRN',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'M-PURNIMA',
+            'title'=>'মাঘী পূর্ণিমা',
+            'dayCategory'=>'BDO',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'CHYTRO-SOKGKRANTI',
+            'title'=>'চৈত্র সংক্রান্তি',
+            'dayCategory'=>'BDO',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'ASHARI-PURNIMA',
+            'title'=>'আষাঢ়ী পূর্ণিমা',
+            'dayCategory'=>'BDO',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'OTHR',
+            'title'=>'বৈসাবি ও পার্বত্য চট্টগ্রামের অন্যান্য ক্ষুদ্র নৃ-গোষ্ঠী সমূহের অনুরূপ সামাজিক উৎসব)',
+            'dayCategory'=>'OHR',
+            'dayFlag'=>1
+            ],
+
+            ['dayKey'=> 'DURGA-PUGA-08TH',
+            'title'=>'শ্রী শ্রী দূর্গাপূজা (মহাষ্টমী)',
+            'dayCategory'=>'HDU',
+            'dayFlag'=>1
+            ],
+
+
+
         ];
 
-// 26-MAR	স্বাধীনতা ও জাতীয় দিবস		GNL	3
-// BN-NOBO	বাংলা নববর্ষ		GNL	3
-// MAY-DAY	মে দিবস		GNL	5
-// B-PURNIMA	বুদ্ধ পূর্ণিমা		BDO	1
-// EID-UL-FITAR	ঈদ-উল-ফিতর		MLM	1
-// SOBE-KADOR	শবে-কদর		MLM	1
-// JUMATUL-BIDAH	জুমা-তুল-বিদা		MLM	1
-// SOBE-BORAT	শবে-বরাত		MLM	1
-// ASHURA	পবিত্র  আশুরা		MLM	1
-// DURGA-PUGA-10TH	শারদীয় দূর্গাপূজা (বিজয়া দশমী)		HDU	1
-// EID-UL-ADHA	ঈদ-উল-আযহা		MLM	1
-// JANMO-ASTOMI	শুভ জন্মাষ্টমী		HDU	1
-// 15-AUG	জাতীয় শোক দিবস		GNL	3
-// BORO-DIN	যীশু খ্রীষ্টের জন্মদিন (বড়দিন)		CRN	1
-// 16-DEC	বিজয় দিবস		GNL	3
-// EID-E-MILADUN	ঈদ-ই-মিলাদুন্নবী (সাঃ)		MLM	1
-// SOBE-MIRAZ	শব-ই-মিরাজ		MLM	1
-// FATEHA-E-YAJDAHUM	ফাতেহা-ই-ইয়াজদাহম		MLM	1
-// AKHERI-CAHAR-SOMBA	আখেরী চাহার সোম্বা		MLM	1
-// SOROSOTI-PUJA	শ্রী শ্রী সরস্বতী পূজা		HDU	1
-// SHIBRATRI-BROTO	শ্রী শ্রী শিবরাত্রী ব্রত		HDU	1
-// DOL-JATRA	শুভ দোল যাত্রা		HDU	1
-// THAKUR-ABIRVAB	শ্রী শ্রী হরিচাঁদ ঠাকুরের আবির্ভাব		HDU	1
-// MOHALYA	শুভ মহালয়া		HDU	1
-// DURGA-PUGA-09TH	শ্রী শ্রী দূর্গাপূজা (মহানবমী)		HDU	1
-// LAKSHMI-PUJA	শ্রী শ্রী লক্ষ্মী পূজা		HDU	1
-// SHAMA-PUJA	শ্রী শ্রী শ্যামা পূজা		HDU	1
-// EN-NOBO	"ইংরেজী নববর্ষ	"		CRN	1
-// VOSMO-WED	ভস্ম বুধবার		CRN	1
-// PUNNO-THR	পূণ্য বৃহস্পতিবার		CRN	1
-// PUNNO-SAT	পূণ্য শনিবার		CRN	1
-// PUNNO-FRI	পূণ্য শুক্রবার		CRN	1
-// ESTAR-SUN	ইস্টার সানডে		CRN	1
-// M-PURNIMA	মাঘী পূর্ণিমা		BDO	1
-// CHYTRO-SOKGKRANTI	চৈত্র সংক্রান্তি		BDO	1
-// ASHARI-PURNIMA	আষাঢ়ী পূর্ণিমা		BDO	1
-// MODHU-PURNIMA	মধু পূর্ণিমা (ভাদ্র পূর্ণিমা)		BDO	1
-// PROBARONA-PURNIMA	প্রবারণা পূর্ণিমা (আশ্বিনী পূর্ণিমা)		BDO	1
-// OTHR	বৈসাবি ও পার্বত্য চট্টগ্রামের অন্যান্য ক্ষুদ্র নৃ-গোষ্ঠী সমূহের অনুরূপ সামাজিক উৎসব		"	OHR"	1
-// DURGA-PUGA-08TH	শ্রী শ্রী দূর্গাপূজা (মহাষ্টমী)		HDU	1
+
     }
 }
