@@ -18,32 +18,39 @@ Route::get('/', function () {
 });
 
 
-//Countries route
-Route::resource('country', 'CountryController');
+Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 
-//Areas route
-Route::resource('area', 'AreaController');
-Route::get('area/{areaCode}/fcm', 'AreaController@fcm');
+    
+        Route::get('/', 'AdminController@index')->name('admin');
+            //Countries route
+        Route::resource('country', 'CountryController');
 
-//Ramadans route
-Route::resource('ramadan', 'RamadanController');
-Route::get('ramadan.fcm', 'RamadanController@fcm')->name('ramadan.fcm');
-Route::post('ramadan.sendfcm', 'RamadanController@sendFcm')->name('ramadan.sendfcm');;
+        //Areas route
+        Route::resource('area', 'AreaController');
+        Route::get('area/{areaCode}/fcm', 'AreaController@fcm');
 
-//Apps route
-Route::resource("app","AppController");
-Route::get('app/{id}/fcm', 'AppController@composeFcm');
-Route::post('app/sendfcm/{id}', 'AppController@sendFcm')->name('app.sendfcm');
+        //Ramadans route
+        Route::resource('ramadan', 'RamadanController');
+        Route::get('ramadan.fcm', 'RamadanController@fcm')->name('ramadan.fcm');
+        Route::post('ramadan.sendfcm', 'RamadanController@sendFcm')->name('ramadan.sendfcm');;
 
-Route::get('/admin', 'AdminController@index')->name('admin');
+        //Apps route
+        Route::resource("app","AppController");
+        Route::get('app/{id}/fcm', 'AppController@composeFcm');
+        Route::post('app/sendfcm/{id}', 'AppController@sendFcm')->name('app.sendfcm');
 
-Route::get('/home', 'HomeController@index')->name('home');
+      
 
-Route::get('/day', 'DayController@index')->name('day');
-Route::get('/daydate', 'DayDateController@index')->name('daydate');
-Route::get('/dayflag', 'DayflagController@index')->name('dayflag');
-Route::get('/holidaytype', 'HolidayTypeController@index')->name('holydaytype');
+       
 
-Auth::routes();
+        Route::get('/day', 'DayController@index')->name('day');
+        Route::get('/daydate', 'DayDateController@index')->name('daydate');
+        Route::get('/dayflag', 'DayflagController@index')->name('dayflag');
+        Route::get('/holidaytype', 'HolidayTypeController@index')->name('holydaytype');
+   
+});
+
+
+
 
 Route::get('/home', 'HomeController@index')->name('home');

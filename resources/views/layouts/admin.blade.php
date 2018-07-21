@@ -40,14 +40,14 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                            <li><a class="nav-link" href="/app">App</a></li>
-                            <li><a class="nav-link" href="/country">Country</a></li>
-                            <li><a class="nav-link" href="/area">Area</a></li>
-                            <li><a class="nav-link" href="/ramadan">Ramadan</a></li>
-                            <li><a class="nav-link" href="/day">Day</a></li>
-                            <li><a class="nav-link" href="/daydate">DayDate</a></li>
-                            <li><a class="nav-link" href="/holidaytype">Holiday Type</a></li>
-                            <li><a class="nav-link" href="/dayflag">Day Flag</a></li>
+                            <li><a class="nav-link" href="/admin/app">App</a></li>
+                            <li><a class="nav-link" href="/admin/country">Country</a></li>
+                            <li><a class="nav-link" href="/admin/area">Area</a></li>
+                            <li><a class="nav-link" href="/admin/ramadan">Ramadan</a></li>
+                            <li><a class="nav-link" href="/admin/day">Day</a></li>
+                            <li><a class="nav-link" href="/admin/daydate">DayDate</a></li>
+                            <li><a class="nav-link" href="/admin/holidaytype">Holiday Type</a></li>
+                            <li><a class="nav-link" href="/admin/dayflag">Day Flag</a></li>
                         <!-- Authentication Links -->
                         @guest
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>

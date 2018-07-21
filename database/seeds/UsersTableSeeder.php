@@ -20,8 +20,8 @@ class UsersTableSeeder extends Seeder
             'password' => Hash::make('123456'),
         ]);
 
-        $role = Role::where('name','=','admin')->first();
-        $maruf->attachRole($role);
+        $adminRole = Role::where('name','=','admin')->first();
+        $maruf->attachRole($adminRole);
 
         $iqbal = User::create([
             'firstName'     => 'Iqbal',
@@ -31,7 +31,7 @@ class UsersTableSeeder extends Seeder
        
         ]);
 
-        $iqbal->attachRole($role);
+        $iqbal->attachRole($adminRole);
 
 
         $babul = User::create([
@@ -41,9 +41,10 @@ class UsersTableSeeder extends Seeder
             'password' => Hash::make('123456'),
         ]);
 
-        $role = Role::where('name','=','sa')->first();
-        $maruf->attachRole($role);
-        $babul->attachRole($role);
+        $saRole = Role::where('name','=','sa')->first();
+        $maruf->attachRole($saRole);
+        $babul->attachRole($saRole);
+        $babul->attachRole($adminRole);
 
        
     }
