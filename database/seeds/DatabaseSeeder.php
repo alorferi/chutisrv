@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
          $this->call("DayFlagsTableSeeder");
          $this->call("HolidayTypesTableSeeder");
          $this->call("DaysTableSeeder");
+         $this->call("DayDatesTableSeeder");
        
 
     }
