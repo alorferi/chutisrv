@@ -46,11 +46,11 @@ class DayFlagsTableSeeder extends Seeder
                             ],
                             [ 
                                 'flag'=> 8
-                                ,'name'=>'Birth day'		
+                                ,'name'=>'Date of Birth'		
                                 ],
                                 [ 
                                     'flag'=> 16
-                                    ,'name'=>'Birth day'		
+                                    ,'name'=>'Day of Death'		
                                     ],
             ];
             foreach ($array as $key => $value) {

@@ -8,7 +8,7 @@ App List
 @section('content')
 
 
-<a href="apps/create">Create</a>
+<a href="/admin/app/create">Create</a>
 
 
 <div class="container">
@@ -36,9 +36,9 @@ App List
         <tr>
         	   
             <td>
-                <a class="btn btn-small btn-success" href="{{ URL::to('apps/' . $app->id) }}">Show </a>
-                <a class="btn btn-small btn-info" href="{{ URL::to('apps/' . $app->id . '/edit') }}">Edit </a>
-                <a class="btn btn-small btn-info" href="{{ URL::to('apps/' . $app->id . '/fcm') }}">FCM </a>
+                <a class="btn btn-small btn-success" href="{{ URL::to('/admin/app/' . $app->id) }}">Show </a>
+                <a class="btn btn-small btn-info" href="{{ URL::to('/admin/app/' . $app->id . '/edit') }}">Edit </a>
+                <a class="btn btn-small btn-info" href="{{ URL::to('/admin/app/' . $app->id . '/fcm') }}">FCM </a>
             </td>
 
             <td>{{ $app->name }}</td>

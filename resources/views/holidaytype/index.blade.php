@@ -8,7 +8,7 @@ Genre List
 @section('content')
 
 
-<a href="holidaytypes/create">Create</a>
+<a href="/admin/holidaytype/create">Create</a>
 
 
 <div class="container">
@@ -36,8 +36,8 @@ Genre List
         <tr>
         	   
             <td>
-                <a class="btn btn-small btn-success" href="{{ URL::to('countries/' . $holidaytype->id) }}">Show </a>
-                <a class="btn btn-small btn-info" href="{{ URL::to('countries/' . $holidaytype->id . '/edit') }}">Edit </a>
+                <a class="btn btn-small btn-success" href="{{ URL::to('/admin/holidaytype/' . $holidaytype->code) }}">Show </a>
+                <a class="btn btn-small btn-info" href="{{ URL::to('/admin/holidaytype/' . $holidaytype->code . '/edit') }}">Edit </a>
             </td>
 
             <td>{{ $holidaytype->code }}</td>
