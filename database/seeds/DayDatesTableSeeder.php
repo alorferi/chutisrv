@@ -38,21 +38,68 @@ class DayDatesTableSeeder extends Seeder
                             ,'dayDate'=>'2017-03-26'	
                             ,'dayKey'=>'26-MAR'		
                             ],
-                ];
+                            [ 
+                                'holidayCode'=> 'XU'
+                                ,'stared'=>null
+                                ,'dayDate'=>'2017-04-14'	
+                                ,'dayKey'=>'BN-NOBO'		
+                                ],
+                                [
+                                    'holidayCode'=> 'GN'
+                                    ,'stared'=>null
+                                    ,'dayDate'=>'2017-05-01'	
+                                    ,'dayKey'=>'MAY-DAY'		
+                                    ],
+                                    [
+                                        'holidayCode'=> 'GN'
+                                        ,'stared'=>'*'
+                                        ,'dayDate'=>'2017-05-10'	
+                                        ,'dayKey'=>'B-PURNIMA'		
+                                        ],
+                                        [
+                                            'holidayCode'=> 'GN'
+                                            ,'stared'=>'*'
+                                            ,'dayDate'=>'2017-06-26'	
+                                            ,'dayKey'=>'EID-UL-FITAR'		
+                                            ],
+                                            [
+                                                'holidayCode'=> 'XU'
+                                                ,'stared'=>'*'
+                                                ,'dayDate'=>'2017-06-27'	
+                                                ,'dayKey'=>'EID-UL-FITAR'		
+                                                ],
+                                                [
+                                                    'holidayCode'=> 'XU'
+                                                    ,'stared'=>'*'
+                                                    ,'dayDate'=>'2017-06-25'	
+                                                    ,'dayKey'=>'EID-UL-FITAR'		
+                                                    ],
+                                                    [
+                                                        'holidayCode'=> 'GN'
+                                                        ,'stared'=>null
+                                                        ,'dayDate'=>'2017-06-23'	
+                                                        ,'dayKey'=>'JUMATUL-BIDAH'		
+                                                        ],
+                                                        [
+                                                            'holidayCode'=> 'XU'
+                                                            ,'stared'=>'*'
+                                                            ,'dayDate'=>'2017-05-12'	
+                                                            ,'dayKey'=>'SOBE-BORAT'		
+                                                            ],
+                                                            [
+                                                                'holidayCode'=> 'XU'
+                                                                ,'stared'=>'*'
+                                                                ,'dayDate'=>'2017-10-01'	
+                                                                ,'dayKey'=>'ASHURA'		
+                                                                ],
+                                                                [
+                                                                    'holidayCode'=> 'GN'
+                                                                    ,'stared'=>null
+                                                                    ,'dayDate'=>'2017-09-30'	
+                                                                    ,'dayKey'=>'DURGA-PUGA-10TH'		
+                                                                    ],
+    
 
-
-// GN		2017-03-17	17-MAR
-// GN		2017-03-26	26-MAR
-// XU		2017-04-14	BN-NOBO
-// GN		2017-05-01	MAY-DAY
-// GN	*	2017-05-10	B-PURNIMA
-// GN	*	2017-06-26	EID-UL-FITAR
-// XU	*	2017-06-27	EID-UL-FITAR
-// XU	*	2017-06-25	EID-UL-FITAR
-// GN		2017-06-23	JUMATUL-BIDAH
-// XU	*	2017-05-12	SOBE-BORAT
-// XU	*	2017-10-01	ASHURA
-// GN		2017-09-30	DURGA-PUGA-10TH
 // XU	*	2017-09-01	EID-UL-ADHA
 // GN	*	2017-09-02	EID-UL-ADHA
 // XU	*	2017-09-03	EID-UL-ADHA
