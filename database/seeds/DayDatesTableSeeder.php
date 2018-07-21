@@ -98,6 +98,7 @@ class DayDatesTableSeeder extends Seeder
                                                                     ,'dayDate'=>'2017-09-30'	
                                                                     ,'dayKey'=>'DURGA-PUGA-10TH'		
                                                                     ],
+                                                                ];
     
 
 // XU	*	2017-09-01	EID-UL-ADHA
