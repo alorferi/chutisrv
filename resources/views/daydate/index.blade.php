@@ -22,11 +22,13 @@ Genre List
     <thead>
         <tr>
         	  <td>Actions</td>
-            <td>DayKey</td>
-            <td>Stared   </td>
+            {{--  <td>DayKey</td>  --}}
+            <td>&nbsp;   </td>
             <td>DayDate </td>
             <td>Title </td>
             <td> Holiday </td>
+
+            <td> Flag </td>
 
         </tr>
     </thead>
@@ -39,12 +41,14 @@ Genre List
                 <a class="btn btn-small btn-info" href="{{ URL::to('/admin/daydate/' . $daydate->id . '/edit') }}">Edit </a>
             </td>
 
-            <td>{{ $daydate->dayKey }}</td>
+            {{--  <td>{{ $daydate->dayKey }}</td>  --}}
             <td>{{ $daydate->stared }}</td>
             <td>{{ $daydate->dayDate }}</td>
             <td>{{ $daydate->day->title }}</td>
          
             <td>{{ $daydate->holidayType->shortName }}</td>
+
+            <td>{{ $daydate->day->dayType->name }}</td>
 
 
            
