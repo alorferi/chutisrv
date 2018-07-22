@@ -16,4 +16,9 @@ class Day extends Model
     {
         return $this->belongsTo('App\Models\DayFlag','dayFlag','flag');
     }
+
+    public function religion()
+    {
+        return $this->belongsTo('App\Models\Religion','religionCode','code');
+    }
 }

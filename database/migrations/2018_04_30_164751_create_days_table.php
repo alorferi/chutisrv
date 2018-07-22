@@ -19,6 +19,8 @@ class CreateDaysTable extends Migration
             $table->string('title');
             $table->string('description')->nullable(); 
             $table->string('dayCategory',3);
+            $table->string('religionCode',3)->nullable();
+            $table->foreign('religionCode')->references('code')->on('religions')->onUpdate('cascade');
             $table->integer('dayFlag');  
             $table->foreign('dayFlag')->references('flag')->on('dayflags')->onUpdate('cascade');  
             $table->timestamps();

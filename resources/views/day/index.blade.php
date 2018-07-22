@@ -25,7 +25,7 @@ Genre List
             {{--  <td>Key</td>  --}}
             <td>Title   </td>
             <td>description </td>
-            <td>Category </td>
+            <td>Religion </td>
             <td>Flag </td>
 
         </tr>
@@ -42,7 +42,7 @@ Genre List
             {{--  <td>{{ $day->dayKey }}</td>  --}}
             <td>{{ $day->title }}</td>
             <td>{{ $day->description }}</td>
-            <td>{{ $day->dayCategory }}</td>
+            <td>{{ $day->religion->localName }}</td>
             <td>{{ $day->dayType->name }}</td>
 
 
