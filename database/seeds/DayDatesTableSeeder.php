@@ -56,69 +56,179 @@ class DayDatesTableSeeder extends Seeder
                                         ,'dayDate'=>'2017-05-10'	
                                         ,'dayKey'=>'B-PURNIMA'		
                                         ],
+                    [
+                        'holidayCode'=> 'GN'
+                        ,'stared'=>'*'
+                        ,'dayDate'=>'2017-06-26'	
+                        ,'dayKey'=>'EID-UL-FITAR'		
+                        ],
+                        [
+                            'holidayCode'=> 'XU'
+                            ,'stared'=>'*'
+                            ,'dayDate'=>'2017-06-27'	
+                            ,'dayKey'=>'EID-UL-FITAR'		
+                            ],
+                            [
+                                'holidayCode'=> 'XU'
+                                ,'stared'=>'*'
+                                ,'dayDate'=>'2017-06-25'	
+                                ,'dayKey'=>'EID-UL-FITAR'		
+                                ],
+                [
+                    'holidayCode'=> 'GN'
+                    ,'stared'=>null
+                    ,'dayDate'=>'2017-06-23'	
+                    ,'dayKey'=>'JUMATUL-BIDAH'		
+                    ],
+                    [
+                        'holidayCode'=> 'XU'
+                        ,'stared'=>'*'
+                        ,'dayDate'=>'2017-05-12'	
+                        ,'dayKey'=>'SOBE-BORAT'		
+                        ],
+                        [
+                            'holidayCode'=> 'XU'
+                            ,'stared'=>'*'
+                            ,'dayDate'=>'2017-10-01'	
+                            ,'dayKey'=>'ASHURA'		
+                            ],
+            [
+                'holidayCode'=> 'GN'
+                ,'stared'=>null
+                ,'dayDate'=>'2017-09-30'	
+                ,'dayKey'=>'DURGA-PUGA-10TH'		
+                ],
+                [
+                    'holidayCode'=> 'XU'
+                    ,'stared'=>'*'
+                    ,'dayDate'=>'2017-09-01'	
+                    ,'dayKey'=>'EID-UL-ADHA'		
+                    ],
+                    [
+                        'holidayCode'=> 'GN'
+                        ,'stared'=>'*'
+                        ,'dayDate'=>'2017-09-02'	
+                        ,'dayKey'=>'EID-UL-ADHA'		
+                        ],
+                         [
+            'holidayCode'=> 'XU'
+            ,'stared'=>'*'
+            ,'dayDate'=>'2017-09-03'	
+            ,'dayKey'=>'EID-UL-ADHA'		
+            ],
+            [
+                'holidayCode'=> 'GN'
+                ,'stared'=>null
+                ,'dayDate'=>'2017-08-14'	
+                ,'dayKey'=>'JANMO-ASTOMI'		
+                ],
+                [
+            'holidayCode'=> 'GN'
+            ,'stared'=>null
+            ,'dayDate'=>'2017-08-14'	
+            ,'dayKey'=>'JANMO-ASTOMI'		
+            ],
+            [
+                'holidayCode'=> 'GN'
+                ,'stared'=>null
+                ,'dayDate'=>'2017-08-15'	
+                ,'dayKey'=>'15-AUG'		
+                ],
+                [
+                'holidayCode'=> 'GN'
+                ,'stared'=>null
+                ,'dayDate'=>'2017-12-25'	
+                ,'dayKey'=>'BORO-DIN'		
+                ],
+                [
+                    'holidayCode'=> 'GN'
+                    ,'stared'=>null
+                    ,'dayDate'=>'2017-12-16'	
+                    ,'dayKey'=>'16-DEC'		
+                    ],
+                    [
+                        'holidayCode'=> 'GN'
+                        ,'stared'=>null
+                        ,'dayDate'=>'2017-12-01'	
+                        ,'dayKey'=>'EID-E-MILADUN'		
+                        ],
+                        [
+                            'holidayCode'=> 'GN'
+                            ,'stared'=>null
+                            ,'dayDate'=>'2018-03-17'	
+                            ,'dayKey'=>'17-MAR'		
+                            ],
+                            [
+                                'holidayCode'=> 'GN'
+                                ,'stared'=>null
+                                ,'dayDate'=>'2018-03-26'	
+                                ,'dayKey'=>'26-MAR'		
+                                ],
+                                [
+                                    'holidayCode'=> 'XU'
+                                    ,'stared'=>null
+                                    ,'dayDate'=>'2018-04-14'	
+                                    ,'dayKey'=>'BN-NOBO'		
+                                    ],
+                                    [
+                                        'holidayCode'=> 'GN'
+                                        ,'stared'=>null
+                                        ,'dayDate'=>'2018-05-01'	
+                                        ,'dayKey'=>'MAY-DAY'		
+                                        ],
                                         [
                                             'holidayCode'=> 'GN'
-                                            ,'stared'=>'*'
-                                            ,'dayDate'=>'2017-06-26'	
-                                            ,'dayKey'=>'EID-UL-FITAR'		
+                                            ,'stared'=>null
+                                            ,'dayDate'=>'2018-04-29'	
+                                            ,'dayKey'=>'B-PURNIMA'		
                                             ],
                                             [
                                                 'holidayCode'=> 'XU'
-                                                ,'stared'=>'*'
-                                                ,'dayDate'=>'2017-06-27'	
+                                                ,'stared'=>null
+                                                ,'dayDate'=>'2018-06-15'	
                                                 ,'dayKey'=>'EID-UL-FITAR'		
                                                 ],
                                                 [
-                                                    'holidayCode'=> 'XU'
-                                                    ,'stared'=>'*'
-                                                    ,'dayDate'=>'2017-06-25'	
+                                                    'holidayCode'=> 'GN'
+                                                    ,'stared'=>null
+                                                    ,'dayDate'=>'2018-06-16'	
                                                     ,'dayKey'=>'EID-UL-FITAR'		
                                                     ],
                                                     [
-                                                        'holidayCode'=> 'GN'
+                                                        'holidayCode'=> 'XU'
                                                         ,'stared'=>null
-                                                        ,'dayDate'=>'2017-06-23'	
-                                                        ,'dayKey'=>'JUMATUL-BIDAH'		
+                                                        ,'dayDate'=>'2018-06-17'	
+                                                        ,'dayKey'=>'EID-UL-FITAR'		
                                                         ],
                                                         [
                                                             'holidayCode'=> 'XU'
-                                                            ,'stared'=>'*'
-                                                            ,'dayDate'=>'2017-05-12'	
-                                                            ,'dayKey'=>'SOBE-BORAT'		
+                                                            ,'stared'=>null
+                                                            ,'dayDate'=>'2018-06-12'	
+                                                            ,'dayKey'=>'SOBE-KADOR'		
                                                             ],
                                                             [
-                                                                'holidayCode'=> 'XU'
-                                                                ,'stared'=>'*'
-                                                                ,'dayDate'=>'2017-10-01'	
-                                                                ,'dayKey'=>'ASHURA'		
+                                                                'holidayCode'=> 'GN'
+                                                                ,'stared'=>null
+                                                                ,'dayDate'=>'2018-06-15'	
+                                                                ,'dayKey'=>'JUMATUL-BIDAH'		
                                                                 ],
                                                                 [
-                                                                    'holidayCode'=> 'GN'
+                                                                    'holidayCode'=> 'XU'
                                                                     ,'stared'=>null
-                                                                    ,'dayDate'=>'2017-09-30'	
-                                                                    ,'dayKey'=>'DURGA-PUGA-10TH'		
+                                                                    ,'dayDate'=>'2018-09-21'	
+                                                                    ,'dayKey'=>'ASHURA'		
                                                                     ],
+                                                                    [
+                                                                        'holidayCode'=> 'XH'
+                                                                        ,'stared'=>null
+                                                                        ,'dayDate'=>'2018-06-15'	
+                                                                        ,'dayKey'=>'JUMATUL-BIDAH'		
+                                                                        ],
+    ];
+        
+        
     
 
-// XU	*	2017-09-01	EID-UL-ADHA
-// GN	*	2017-09-02	EID-UL-ADHA
-// XU	*	2017-09-03	EID-UL-ADHA
-// GN		2017-08-14	JANMO-ASTOMI
-// GN		2017-08-15	15-AUG
-// GN		2017-12-25	BORO-DIN
-// GN		2017-12-16	16-DEC
-// GN		2017-12-01	EID-E-MILADUN
-// GN		2018-03-17	17-MAR
-// GN		2018-03-26	26-MAR
-// XU		2018-04-14	BN-NOBO
-// GN		2018-05-01	MAY-DAY
-// GN		2018-04-29	B-PURNIMA
-// XU		2018-06-15	EID-UL-FITAR
-// GN		2018-06-16	EID-UL-FITAR
-// XU		2018-06-17	EID-UL-FITAR
-// XU		2018-06-12	SOBE-KADOR
-// GN		2018-06-15	JUMATUL-BIDAH
-// XU		2018-09-21	ASHURA
 // XH		2017-09-29	DURGA-PUGA-09TH
 // XU		2018-08-23	EID-UL-ADHA
 // GN		2018-08-22	EID-UL-ADHA
