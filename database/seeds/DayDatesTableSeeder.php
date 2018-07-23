@@ -163,142 +163,503 @@ class DayDatesTableSeeder extends Seeder
                                 ,'stared'=>null
                                 ,'dayDate'=>'2018-03-26'	
                                 ,'dayKey'=>'26-MAR'		
-                                ],
+],
+[
+'holidayCode'=> 'XU'
+,'stared'=>null
+,'dayDate'=>'2018-04-14'	
+,'dayKey'=>'BN-NOBO'		
+],
+[
+'holidayCode'=> 'GN'
+,'stared'=>null
+,'dayDate'=>'2018-05-01'	
+,'dayKey'=>'MAY-DAY'		
+],
+[
+'holidayCode'=> 'GN'
+,'stared'=>null
+,'dayDate'=>'2018-04-29'	
+,'dayKey'=>'B-PURNIMA'		
+],
+[
+'holidayCode'=> 'XU'
+,'stared'=>null
+,'dayDate'=>'2018-06-15'	
+,'dayKey'=>'EID-UL-FITAR'		
+],
+[
+'holidayCode'=> 'GN'
+,'stared'=>null
+,'dayDate'=>'2018-06-16'	
+,'dayKey'=>'EID-UL-FITAR'		
+],
+[
+'holidayCode'=> 'XU'
+,'stared'=>null
+,'dayDate'=>'2018-06-17'	
+,'dayKey'=>'EID-UL-FITAR'		
+],
+[
+'holidayCode'=> 'XU'
+,'stared'=>null
+,'dayDate'=>'2018-06-12'	
+,'dayKey'=>'SOBE-KADOR'		
+],
+[
+'holidayCode'=> 'GN'
+,'stared'=>null
+,'dayDate'=>'2018-06-15'	
+,'dayKey'=>'JUMATUL-BIDAH'		
+],
+[
+'holidayCode'=> 'XU'
+,'stared'=>null
+,'dayDate'=>'2018-09-21'	
+,'dayKey'=>'ASHURA'		
+],
+[
+'holidayCode'=> 'XH'
+,'stared'=>null
+,'dayDate'=>'2018-06-15'	
+,'dayKey'=>'JUMATUL-BIDAH'		
+],
+[
+'holidayCode'=> 'XH'
+,'stared'=>null
+,'dayDate'=>'2017-09-29'	
+,'dayKey'=>'DURGA-PUGA-09TH'		
+],
+ [
+    'holidayCode'=> 'XU'
+    ,'stared'=>null
+    ,'dayDate'=>'2018-08-23'	
+    ,'dayKey'=>'EID-UL-ADHA'		
+    ],
+[
+'holidayCode'=> 'GN'
+,'stared'=>null
+,'dayDate'=>'2018-08-22'	
+,'dayKey'=>'EID-UL-ADHA'		
+],
+[
+'holidayCode'=> 'XU'
+,'stared'=>null
+,'dayDate'=>'2018-08-21'	
+,'dayKey'=>'EID-UL-ADHA'		
+],
+[
+'holidayCode'=> 'GN'
+,'stared'=>null
+,'dayDate'=>'2018-09-02'	
+,'dayKey'=>'JANMO-ASTOMI'		
+],
+[
+'holidayCode'=> 'GN'
+,'stared'=>null
+,'dayDate'=>'2018-08-15'	
+,'dayKey'=>'15-AUG'		
+],
+[
+'holidayCode'=> 'GN'
+,'stared'=>null
+,'dayDate'=>'2018-12-25'	
+,'dayKey'=>'BORO-DIN'		
+],
+[
+'holidayCode'=> 'GN'
+,'stared'=>null
+,'dayDate'=>'2018-12-16'	
+,'dayKey'=>'16-DEC'		
+],  
+[
+'holidayCode'=> 'GN'
+,'stared'=>null
+,'dayDate'=>'2018-11-21'	
+,'dayKey'=>'EID-E-MILADUN'		
+],  
+[
+'holidayCode'=> 'XU'
+,'stared'=>null
+,'dayDate'=>'2018-05-02'	
+,'dayKey'=>'SOBE-BORAT'		
+],
+[
+'holidayCode'=> 'XM'
+,'stared'=>'*'
+,'dayDate'=>'2017-04-25'	
+,'dayKey'=>'SOBE-MIRAZ'		
+], 
+[
+'holidayCode'=> 'XM'
+,'stared'=>'*'
+,'dayDate'=>'2017-01-10'	
+,'dayKey'=>'FATEHA-E-YAJDAHUM'		
+],
+[
+'holidayCode'=> 'XU'
+,'stared'=>'*'
+,'dayDate'=>'2017-06-23'	
+,'dayKey'=>'SOBE-KADOR'		
+],
+[
+'holidayCode'=> 'XM'
+,'stared'=>'*'
+,'dayDate'=>'2017-06-28'	
+,'dayKey'=>'EID-UL-FITAR'		
+],
+[
+'holidayCode'=> 'XM'
+,'stared'=>'*'
+,'dayDate'=>'2017-09-04'	
+,'dayKey'=>'EID-UL-FITAR'		
+],
+[
+'holidayCode'=> 'XM'
+,'stared'=>'*'
+,'dayDate'=>'2017-11-15'	
+,'dayKey'=>'AKHERI-CAHAR-SOMBA'		
+], 
+[
+'holidayCode'=> 'XM'
+,'stared'=>'*'
+,'dayDate'=>'2017-12-30'	
+,'dayKey'=>'FATEHA-E-YAJDAHUM'		
+],        
+[
+'holidayCode'=> 'XH'
+,'stared'=>null
+,'dayDate'=>'2017-02-01'	
+,'dayKey'=>'SOROSOTI-PUJA'		
+],            
+[
+    'holidayCode'=> 'XH'
+    ,'stared'=>null
+    ,'dayDate'=>'2017-02-24'	
+    ,'dayKey'=>'SHIBRATRI-BROTO'		
+    ],
+    [
+        'holidayCode'=> 'XH'
+        ,'stared'=>null
+        ,'dayDate'=>'2017-03-12'	
+        ,'dayKey'=>'DOL-JATRA'		
+        ], 
+[
+'holidayCode'=> 'XH'
+,'stared'=>null
+,'dayDate'=>'2017-03-26'	
+,'dayKey'=>'THAKUR-ABIRVAB'		
+], 
+[
+'holidayCode'=> 'XH'
+,'stared'=>null
+,'dayDate'=>'2017-09-19'	
+,'dayKey'=>'MOHALYA'		
+], 
+[
+'holidayCode'=> 'XH'
+,'stared'=>null
+,'dayDate'=>'2017-10-05'	
+,'dayKey'=>'LAKSHMI-PUJA'		
+], 
+[
+'holidayCode'=> 'XH'
+,'stared'=>null
+,'dayDate'=>'2017-10-19'	
+,'dayKey'=>'SHAMA-PUJA'		
+], 
+[
+'holidayCode'=> 'XC'
+,'stared'=>null
+,'dayDate'=>'2017-01-01'	
+,'dayKey'=>'EN-NOBO'		
+], 
+[
+'holidayCode'=> 'XC'
+,'stared'=>null
+,'dayDate'=>'2017-04-14'	
+,'dayKey'=>'PUNNO-FRI'		
+], 
+[
+'holidayCode'=> 'XC'
+,'stared'=>null
+,'dayDate'=>'2017-04-13'	
+,'dayKey'=>'PUNNO-THR'		
+], 
+[
+'holidayCode'=> 'XC'
+,'stared'=>null
+,'dayDate'=>'2017-03-01'	
+,'dayKey'=>'VOSMO-WED'		
+], 
+[
+'holidayCode'=> 'XC'
+,'stared'=>null
+,'dayDate'=>'2017-04-15'	
+,'dayKey'=>'PUNNO-SAT'		
+],
+[
+'holidayCode'=> 'XC'
+,'stared'=>null
+,'dayDate'=>'2017-04-16'	
+,'dayKey'=>'ESTAR-SUN'		
+],   
+[
+'holidayCode'=> 'XC'
+,'stared'=>null
+,'dayDate'=>'2017-12-26'	
+,'dayKey'=>'BORO-DIN'		
+],
+[
+'holidayCode'=> 'XC'
+,'stared'=>null
+,'dayDate'=>'2017-12-24'	
+,'dayKey'=>'BORO-DIN'		
+],
+[
+'holidayCode'=> 'XB'
+,'stared'=>null
+,'dayDate'=>'2017-04-13'	
+,'dayKey'=>'CHYTRO-SOKGKRANTI'		
+], 
+[
+'holidayCode'=> 'XB'
+,'stared'=>null
+,'dayDate'=>'2017-02-10'	
+,'dayKey'=>'M-PURNIMA'		
+],
+[
+'holidayCode'=> 'XB'
+,'stared'=>null
+,'dayDate'=>'2017-10-04'	
+,'dayKey'=>'PROBARONA-PURNIMA'		
+],  
+[
+'holidayCode'=> 'XB'
+,'stared'=>null
+,'dayDate'=>'2017-09-05'	
+,'dayKey'=>'MODHU-PURNIMA'		
+],                    
+[
+'holidayCode'=> 'XB'
+,'stared'=>null
+,'dayDate'=>'2017-06-08'	
+,'dayKey'=>'ASHARI-PURNIMA'		
+],       
+[
+    'holidayCode'=> 'XO'
+    ,'stared'=>null
+    ,'dayDate'=>'2017-04-15'	
+    ,'dayKey'=>'OTHR'		
+    ],   
+    [
+    'holidayCode'=> 'XO'
+    ,'stared'=>null
+    ,'dayDate'=>'2017-04-15'	
+    ,'dayKey'=>'OTHR'		
+    ],   
+    [
+        'holidayCode'=> 'XO'
+        ,'stared'=>null
+        ,'dayDate'=>'2017-04-12'	
+        ,'dayKey'=>'OTHR'		
+        ],   
+[
+'holidayCode'=> 'XC'
+,'stared'=>null
+,'dayDate'=>'2018-12-24'	
+,'dayKey'=>'OTHR'		
+],   
+[
+'holidayCode'=> 'XC'
+,'stared'=>null
+,'dayDate'=>'2018-12-26'	
+,'dayKey'=>'BORO-DIN'		
+], 
+[
+'holidayCode'=> 'GN'
+,'stared'=>null
+,'dayDate'=>'2018-10-19'	
+,'dayKey'=>'DURGA-PUGA-10TH'		
+],  
+[
+'holidayCode'=> 'GN'
+,'stared'=>null
+,'dayDate'=>'2018-02-21'	
+,'dayKey'=>'21-FEB'		
+], 
+[
+'holidayCode'=> 'XM'
+,'stared'=>null
+,'dayDate'=>'2018-01-10'	
+,'dayKey'=>'FATEHA-E-YAJDAHUM'		
+], 
+[
+'holidayCode'=> 'XM'
+,'stared'=>null
+,'dayDate'=>'2018-04-15'	
+,'dayKey'=>'SOBE-MIRAZ'		
+],   
+
+[
+'holidayCode'=> 'XM'
+,'stared'=>null
+,'dayDate'=>'2018-05-16'	
+,'dayKey'=>'EID-UL-FITAR'		
+], 
+[
+'holidayCode'=> 'XM'
+,'stared'=>null
+,'dayDate'=>'2018-08-22'	
+,'dayKey'=>'EID-UL-ADHA'		
+],           
+[
+'holidayCode'=> 'XM'
+,'stared'=>null
+,'dayDate'=>'2018-11-07'	
+,'dayKey'=>'AKHERI-CAHAR-SOMBA'		
+],
+[
+'holidayCode'=> 'XM'
+,'stared'=>null
+,'dayDate'=>'2018-12-30'	
+,'dayKey'=>'FATEHA-E-YAJDAHUM'		
+],
+[
+'holidayCode'=> 'XH'
+,'stared'=>null
+,'dayDate'=>'2018-01-22'	
+,'dayKey'=>'SOROSOTI-PUJA'		
+],    
+[
+'holidayCode'=> 'XH'
+,'stared'=>null
+,'dayDate'=>'2018-02-14'	
+,'dayKey'=>'SHIBRATRI-BROTO'		
+],
+[
+'holidayCode'=> 'XH'
+,'stared'=>null
+,'dayDate'=>'2018-03-01'	
+,'dayKey'=>'DOL-JATRA'		
+],
+[
+'holidayCode'=> 'XH'
+,'stared'=>null
+,'dayDate'=>'2018-03-15'	
+,'dayKey'=>'THAKUR-ABIRVAB'		
+],
+[
+'holidayCode'=> 'XH'
+,'stared'=>null
+,'dayDate'=>'2018-10-08'	
+,'dayKey'=>'MOHALYA'		
+],
+[
+'holidayCode'=> 'XH'
+,'stared'=>null
+,'dayDate'=>'2018-10-18'	
+,'dayKey'=>'DURGA-PUGA-09TH'		
+],
+[
+'holidayCode'=> 'XH'
+,'stared'=>null
+,'dayDate'=>'2018-10-24'	
+,'dayKey'=>'LAKSHMI-PUJA'		
+],
+
+[
+'holidayCode'=> 'XH'
+,'stared'=>null
+,'dayDate'=>'2018-11-06'	
+,'dayKey'=>'SHAMA-PUJA'		
+],
+[
+    'holidayCode'=> 'XH'
+    ,'stared'=>null
+    ,'dayDate'=>'2018-10-17'	
+    ,'dayKey'=>'DURGA-PUGA-08TH'
+    ],	
+    [
+        'holidayCode'=> 'XC'
+        ,'stared'=>null
+        ,'dayDate'=>'2018-01-01'	
+        ,'dayKey'=>'EN-NOBO'
+        ],	
+        [
+            'holidayCode'=> 'XC'
+            ,'stared'=>null
+            ,'dayDate'=>'2018-03-01'	
+            ,'dayKey'=>'VOSMO-WED'
+            ],	
+            [
+                'holidayCode'=> 'XC'
+                ,'stared'=>null
+                ,'dayDate'=>'2018-04-13'	
+                ,'dayKey'=>'PUNNO-THR'
+                ],	
+                [
+                    'holidayCode'=> 'XC'
+                    ,'stared'=>null
+                    ,'dayDate'=>'2018-04-14'	
+                    ,'dayKey'=>'PUNNO-FRI'	
+                    ],
+                    [
+                        'holidayCode'=> 'XC'
+                        ,'stared'=>null
+                        ,'dayDate'=>'2018-04-15'	
+                        ,'dayKey'=>'PUNNO-SAT'
+                        ],	
+                        [
+                            'holidayCode'=> 'XC'
+                            ,'stared'=>null
+                            ,'dayDate'=>'2018-04-16'	
+                            ,'dayKey'=>'ESTAR-SUN'
+                            ],	
+                            [
+                                'holidayCode'=> 'GN'
+                                ,'stared'=>null
+                                ,'dayDate'=>'2018-12-25'	
+                                ,'dayKey'=>'BORO-DIN'
+                                ],	
                                 [
-                                    'holidayCode'=> 'XU'
+                                    'holidayCode'=> 'XB'
                                     ,'stared'=>null
-                                    ,'dayDate'=>'2018-04-14'	
-                                    ,'dayKey'=>'BN-NOBO'		
-                                    ],
+                                    ,'dayDate'=>'2018-01-31'	
+                                    ,'dayKey'=>'M-PURNIMA'
+                                    ],	
                                     [
-                                        'holidayCode'=> 'GN'
+                                        'holidayCode'=> 'XB'
                                         ,'stared'=>null
-                                        ,'dayDate'=>'2018-05-01'	
-                                        ,'dayKey'=>'MAY-DAY'		
-                                        ],
+                                        ,'dayDate'=>'2018-04-13'	
+                                        ,'dayKey'=>'CHYTRO-SOKGKRANTI'
+                                        ],	
                                         [
-                                            'holidayCode'=> 'GN'
+                                            'holidayCode'=> 'XB'
                                             ,'stared'=>null
-                                            ,'dayDate'=>'2018-04-29'	
-                                            ,'dayKey'=>'B-PURNIMA'		
-                                            ],
+                                            ,'dayDate'=>'2018-07-27'	
+                                            ,'dayKey'=>'ASHARI-PURNIMA'
+                                            ],	
                                             [
-                                                'holidayCode'=> 'XU'
+                                                'holidayCode'=> 'XB'
                                                 ,'stared'=>null
-                                                ,'dayDate'=>'2018-06-15'	
-                                                ,'dayKey'=>'EID-UL-FITAR'		
-                                                ],
+                                                ,'dayDate'=>'2018-09-25'	
+                                                ,'dayKey'=>'MODHU-PURNIMA'
+                                                ],	
                                                 [
-                                                    'holidayCode'=> 'GN'
+                                                    'holidayCode'=> 'XB'
                                                     ,'stared'=>null
-                                                    ,'dayDate'=>'2018-06-16'	
-                                                    ,'dayKey'=>'EID-UL-FITAR'		
-                                                    ],
-                                                    [
-                                                        'holidayCode'=> 'XU'
-                                                        ,'stared'=>null
-                                                        ,'dayDate'=>'2018-06-17'	
-                                                        ,'dayKey'=>'EID-UL-FITAR'		
-                                                        ],
-                                                        [
-                                                            'holidayCode'=> 'XU'
-                                                            ,'stared'=>null
-                                                            ,'dayDate'=>'2018-06-12'	
-                                                            ,'dayKey'=>'SOBE-KADOR'		
-                                                            ],
-                                                            [
-                                                                'holidayCode'=> 'GN'
-                                                                ,'stared'=>null
-                                                                ,'dayDate'=>'2018-06-15'	
-                                                                ,'dayKey'=>'JUMATUL-BIDAH'		
-                                                                ],
-                                                                [
-                                                                    'holidayCode'=> 'XU'
-                                                                    ,'stared'=>null
-                                                                    ,'dayDate'=>'2018-09-21'	
-                                                                    ,'dayKey'=>'ASHURA'		
-                                                                    ],
-                                                                    [
-                                                                        'holidayCode'=> 'XH'
-                                                                        ,'stared'=>null
-                                                                        ,'dayDate'=>'2018-06-15'	
-                                                                        ,'dayKey'=>'JUMATUL-BIDAH'		
-                                                                        ],
+                                                    ,'dayDate'=>'2018-10-24'	
+                                                    ,'dayKey'=>'PROBARONA-PURNIMA'
+                                                ],
+
+                                            
     ];
+
         
         
     
 
-// XH		2017-09-29	DURGA-PUGA-09TH
-// XU		2018-08-23	EID-UL-ADHA
-// GN		2018-08-22	EID-UL-ADHA
-// XU		2018-08-21	EID-UL-ADHA
-// GN		2018-09-02	JANMO-ASTOMI
-// GN		2018-08-15	15-AUG
-// GN		2018-12-25	BORO-DIN
-// GN		2018-12-16	16-DEC
-// GN		2018-11-21	EID-E-MILADUN
-// XU		2018-05-02	SOBE-BORAT
-// XM	*	2017-04-25	SOBE-MIRAZ
-// XM	*	2017-01-10	FATEHA-E-YAJDAHUM
-// XU	*	2017-06-23	SOBE-KADOR
-// XM	*	2017-06-28	EID-UL-FITAR
-// XM	*	2017-09-04	EID-UL-ADHA
-// XM	*	2017-11-15	AKHERI-CAHAR-SOMBA
-// XM	*	2017-12-30	FATEHA-E-YAJDAHUM
-// XH		2017-02-01	SOROSOTI-PUJA
-// XH		2017-02-24	SHIBRATRI-BROTO
-// XH		2017-03-12	DOL-JATRA
-// XH		2017-03-26	THAKUR-ABIRVAB
-// XH		2017-09-19	MOHALYA
-// XH		2017-10-05	LAKSHMI-PUJA
-// XH		2017-10-19	SHAMA-PUJA
-// XC		2017-01-01	EN-NOBO
-// XC		2017-04-14	PUNNO-FRI
-// XC		2017-04-13	PUNNO-THR
-// XC		2017-03-01	VOSMO-WED
-// XC		2017-04-15	PUNNO-SAT
-// XC		2017-04-16	ESTAR-SUN
-// XC		2017-12-26	BORO-DIN
-// XC		2017-12-24	BORO-DIN
-// XB		2017-04-13	CHYTRO-SOKGKRANTI
-// XB		2017-02-10	M-PURNIMA
-// XB		2017-10-04	PROBARONA-PURNIMA
-// XB		2017-09-05	MODHU-PURNIMA
-// XB		2017-06-08	ASHARI-PURNIMA
-// XO		2017-04-15	OTHR
-// XO		2017-04-12	OTHR
-// XC		2018-12-24	BORO-DIN
-// XC		2018-12-26	BORO-DIN
-// GN		2018-10-19	DURGA-PUGA-10TH
-// GN		2018-02-21	21-FEB
-// XM		2018-01-10	FATEHA-E-YAJDAHUM
-// XM		2018-04-15	SOBE-MIRAZ
-// XM		2018-06-16	EID-UL-FITAR
-// XM		2018-08-22	EID-UL-ADHA
-// XM		2018-11-07	AKHERI-CAHAR-SOMBA
-// XM		2018-12-30	FATEHA-E-YAJDAHUM
-// XH		2018-01-22	SOROSOTI-PUJA
-// XH		2018-02-14	SHIBRATRI-BROTO
-// XH		2018-03-01	DOL-JATRA
-// XH		2018-03-15	THAKUR-ABIRVAB
-// XH		2018-10-08	MOHALYA
-// XH		2018-10-18	DURGA-PUGA-09TH
-// XH		2018-10-24	LAKSHMI-PUJA
-// XH		2018-11-06	SHAMA-PUJA
-// XH		2018-10-17	DURGA-PUGA-08TH
-// XC		2018-01-01	EN-NOBO
-// XC		2018-03-01	VOSMO-WED
-// XC		2018-04-13	PUNNO-THR
-// XC		2018-04-14	PUNNO-FRI
-// XC		2018-04-15	PUNNO-SAT
-// XC		2018-04-16	ESTAR-SUN
-// GN		2018-12-25	BORO-DIN
-// XB		2018-01-31	M-PURNIMA
-// XB		2018-04-13	CHYTRO-SOKGKRANTI
-// XB		2018-07-27	ASHARI-PURNIMA
-// XB		2018-09-25	MODHU-PURNIMA
-// XB		2018-10-24	PROBARONA-PURNIMA
 
 
 foreach ($array as $key => $value) {
