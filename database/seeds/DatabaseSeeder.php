@@ -20,9 +20,10 @@ class DatabaseSeeder extends Seeder
          $this->call("UsersTableSeeder");
          $this->call("DayFlagsTableSeeder");
          $this->call("HolidayTypesTableSeeder");
+         $this->call("ReligionsTableSeeder");
          $this->call("DaysTableSeeder");
          $this->call("DayDatesTableSeeder");
-       
+        
 
     }
 }

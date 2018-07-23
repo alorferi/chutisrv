@@ -8,7 +8,7 @@ Genre List
 @section('content')
 
 
-<a href="daydates/create">Create</a>
+<a href="/admin/daydate/create">Create</a>
 
 
 <div class="container">
@@ -22,11 +22,13 @@ Genre List
     <thead>
         <tr>
         	  <td>Actions</td>
-            <td>DayKey</td>
-            <td>Stared   </td>
+            {{--  <td>DayKey</td>  --}}
+            <td>&nbsp;   </td>
             <td>DayDate </td>
             <td>Title </td>
-            <td>DayId </td>
+            <td> Holiday </td>
+
+            <td> Flag </td>
 
         </tr>
     </thead>
@@ -35,16 +37,18 @@ Genre List
         <tr>
         	   
             <td>
-                <a class="btn btn-small btn-success" href="{{ URL::to('days/' . $daydate->id) }}">Show </a>
-                <a class="btn btn-small btn-info" href="{{ URL::to('days/' . $daydate->id . '/edit') }}">Edit </a>
+                <a class="btn btn-small btn-success" href="{{ URL::to('/admin/daydate/' . $daydate->id) }}">Show </a>
+                <a class="btn btn-small btn-info" href="{{ URL::to('/admin/daydate/' . $daydate->id . '/edit') }}">Edit </a>
             </td>
 
-            <td>{{ $daydate->dayKey }}</td>
+            {{--  <td>{{ $daydate->dayKey }}</td>  --}}
             <td>{{ $daydate->stared }}</td>
             <td>{{ $daydate->dayDate }}</td>
             <td>{{ $daydate->day->title }}</td>
          
-            <td>{{ $daydate->dayId }}</td>
+            <td>{{ $daydate->holidayType->shortName }}</td>
+
+            <td>{{ $daydate->day->dayType->name }}</td>
 
 
            

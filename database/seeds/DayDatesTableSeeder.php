@@ -647,6 +647,7 @@ class DayDatesTableSeeder extends Seeder
                                                 ,'dayKey'=>'MODHU-PURNIMA'
                                                 ],	
                                                 [
+<<<<<<< HEAD
                                                     'holidayCode'=> 'XB'
                                                     ,'stared'=>null
                                                     ,'dayDate'=>'2018-10-24'	
@@ -658,6 +659,38 @@ class DayDatesTableSeeder extends Seeder
 
         
         
+=======
+                                                    'holidayCode'=> 'XU'
+                                                    ,'stared'=>'*'
+                                                    ,'dayDate'=>'2017-06-25'	
+                                                    ,'dayKey'=>'EID-UL-FITAR'		
+                                                    ],
+                                                    [
+                                                        'holidayCode'=> 'GN'
+                                                        ,'stared'=>null
+                                                        ,'dayDate'=>'2017-06-23'	
+                                                        ,'dayKey'=>'JUMATUL-BIDAH'		
+                                                        ],
+                                                        [
+                                                            'holidayCode'=> 'XU'
+                                                            ,'stared'=>'*'
+                                                            ,'dayDate'=>'2017-05-12'	
+                                                            ,'dayKey'=>'SOBE-BORAT'		
+                                                            ],
+                                                            [
+                                                                'holidayCode'=> 'XU'
+                                                                ,'stared'=>'*'
+                                                                ,'dayDate'=>'2017-10-01'	
+                                                                ,'dayKey'=>'ASHURA'		
+                                                                ],
+                                                                [
+                                                                    'holidayCode'=> 'GN'
+                                                                    ,'stared'=>null
+                                                                    ,'dayDate'=>'2017-09-30'	
+                                                                    ,'dayKey'=>'DURGA-PUGA-10TH'		
+                                                                    ],
+                                                                ];
+>>>>>>> bac5d8cacd1c26ab3f7bce05de5653cee523766a
     
 
 

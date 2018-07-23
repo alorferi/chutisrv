@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('back')
-<a href="{{ URL::to('apps') }}">&lt; Back</a>
+<a href="{{ URL::to('/admin/app') }}">&lt; Back</a>
 @endsection
 
 @section('title')
@@ -15,7 +15,7 @@ App - FCM
 <!-- if there are creation errors, they will show here -->
 {{ Html::ul($errors->all()) }}
 
-{{ Form::model($app, array('route' => array('apps.sendfcm', $app->id))) }}
+{{ Form::model($app, array('route' => array('app.sendfcm', $app->id))) }}
 
     <div class="form-group">
         {{ Form::label('title', 'Title') }}

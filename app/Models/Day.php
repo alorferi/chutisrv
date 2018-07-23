@@ -11,4 +11,14 @@ class Day extends Model
     {
         return $this->hasMany('App\Models\DayDate','dayId','id');
     }
+
+    public function dayType()
+    {
+        return $this->belongsTo('App\Models\DayFlag','dayFlag','flag');
+    }
+
+    public function religion()
+    {
+        return $this->belongsTo('App\Models\Religion','religionCode','code');
+    }
 }

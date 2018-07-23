@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('back')
-<a href="{{ URL::to('genre') }}">&lt; Back</a>
+<a href="{{ URL::to('/admin/country') }}">&lt; Back</a>
 @endsection
 
 @section('title')
@@ -15,7 +15,7 @@ Genre - Edit
 <!-- if there are creation errors, they will show here -->
 {{ Html::ul($errors->all()) }}
 
-{{ Form::model($genre, array('route' => array('genre.update', $genre->id), 'method' => 'PUT')) }}
+{{ Form::model($genre, array('route' => array('country.update', $genre->id), 'method' => 'PUT')) }}
 
     <div class="form-group">
         {{ Form::label('name', 'Name') }}

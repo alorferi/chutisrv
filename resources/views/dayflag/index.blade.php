@@ -8,7 +8,7 @@ Genre List
 @section('content')
 
 
-<a href="dayflag/create">Create</a>
+<a href="/admin/dayflag/create">Create</a>
 
 
 <div class="container">
@@ -33,8 +33,8 @@ Genre List
         <tr>
         	   
             <td>
-                <a class="btn btn-small btn-success" href="{{ URL::to('countries/' . $dayflag->flag) }}">Show </a>
-                <a class="btn btn-small btn-info" href="{{ URL::to('countries/' . $dayflag->flag . '/edit') }}">Edit </a>
+                <a class="btn btn-small btn-success" href="{{ URL::to('/admin/dayflag/' . $dayflag->flag) }}">Show </a>
+                <a class="btn btn-small btn-info" href="{{ URL::to('/admin/dayflag/' . $dayflag->flag . '/edit') }}">Edit </a>
             </td>
 
             <td>{{ $dayflag->flag }}</td>

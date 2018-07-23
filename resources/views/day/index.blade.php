@@ -8,7 +8,7 @@ Genre List
 @section('content')
 
 
-<a href="day/create">Create</a>
+<a href="/admin/day/create">Create</a>
 
 
 <div class="container">
@@ -22,10 +22,10 @@ Genre List
     <thead>
         <tr>
         	  <td>Actions</td>
-            <td>Key</td>
+            {{--  <td>Key</td>  --}}
             <td>Title   </td>
             <td>description </td>
-            <td>Category </td>
+            <td>Religion </td>
             <td>Flag </td>
 
         </tr>
@@ -35,15 +35,15 @@ Genre List
         <tr>
         	   
             <td>
-                <a class="btn btn-small btn-success" href="{{ URL::to('days/' . $day->id) }}">Show </a>
-                <a class="btn btn-small btn-info" href="{{ URL::to('days/' . $day->id . '/edit') }}">Edit </a>
+                <a class="btn btn-small btn-success" href="{{ URL::to('/admin/day/' . $day->id) }}">Show </a>
+                <a class="btn btn-small btn-info" href="{{ URL::to('/admin/day/' . $day->id . '/edit') }}">Edit </a>
             </td>
 
-            <td>{{ $day->dayKey }}</td>
+            {{--  <td>{{ $day->dayKey }}</td>  --}}
             <td>{{ $day->title }}</td>
             <td>{{ $day->description }}</td>
-            <td>{{ $day->dayCategory }}</td>
-            <td>{{ $day->dayFlag }}</td>
+            <td>{{ $day->religion->localName }}</td>
+            <td>{{ $day->dayType->name }}</td>
 
 
            

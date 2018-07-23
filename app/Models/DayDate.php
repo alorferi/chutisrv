@@ -14,4 +14,10 @@ class DayDate extends Model
         return $this->belongsTo('App\Models\Day','dayId','id');
     }
 
+
+    public function holidayType()
+    {
+        return $this->belongsTo('App\Models\HolidayType','holidayCode','code');
+    }
+
 }
