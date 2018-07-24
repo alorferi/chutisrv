@@ -180,14 +180,14 @@ class DaysTableSeeder extends Seeder
             'dayFlag'=>1
             ],
 
-            ['dayKey'=> 'DOL-JAT',
+            ['dayKey'=> 'DOL-JATRA',
             'title'=>'শুভ দোল যাত্রা',
             'dayCategory'=>'HDU',
             'religionCode'=>'HDU',	
             'dayFlag'=>1
             ],
 
-            ['dayKey'=> 'THAKUR-ABRAIRVAB',
+            ['dayKey'=> 'THAKUR-ABIRVAB',
             'title'=>'শ্রী শ্রী হরিচাঁদ ঠাকুরের আবির্ভাব',
             'dayCategory'=>'HDU',
             'religionCode'=>'HDU',	
@@ -258,7 +258,7 @@ class DaysTableSeeder extends Seeder
             ],
 
 
-            ['dayKey'=> 'AR-ESTSUN',
+            ['dayKey'=> 'ESTAR-SUN',
             'title'=>'ইস্টার সানডে',
             'dayCategory'=>'CRN',
             'religionCode'=>'CRN',	
@@ -286,6 +286,18 @@ class DaysTableSeeder extends Seeder
             'dayFlag'=>1
             ],
 
+            ['dayKey'=> 'MODHU-PURNIMA',
+            'title'=>'মধু পূর্ণিমা (ভাদ্র পূর্ণিমা)',
+            'dayCategory'=>'BDO',
+            'religionCode'=>'BDO',	
+            'dayFlag'=>1
+            ],
+            ['dayKey'=> 'PROBARONA-PURNIMA',
+            'title'=>'প্রবারণা পূর্ণিমা (আশ্বিনী পূর্ণিমা)',
+            'dayCategory'=>'BDO',
+            'religionCode'=>'BDO',	
+            'dayFlag'=>1
+            ],
             ['dayKey'=> 'OTHR',
             'title'=>'বৈসাবি ও পার্বত্য চট্টগ্রামের অন্যান্য ক্ষুদ্র নৃ-গোষ্ঠী সমূহের অনুরূপ সামাজিক উৎসব',
             'dayCategory'=>'OHR',

@@ -647,19 +647,6 @@ class DayDatesTableSeeder extends Seeder
                                                 ,'dayKey'=>'MODHU-PURNIMA'
                                                 ],	
                                                 [
-<<<<<<< HEAD
-                                                    'holidayCode'=> 'XB'
-                                                    ,'stared'=>null
-                                                    ,'dayDate'=>'2018-10-24'	
-                                                    ,'dayKey'=>'PROBARONA-PURNIMA'
-                                                ],
-
-                                            
-    ];
-
-        
-        
-=======
                                                     'holidayCode'=> 'XU'
                                                     ,'stared'=>'*'
                                                     ,'dayDate'=>'2017-06-25'	
@@ -690,13 +677,14 @@ class DayDatesTableSeeder extends Seeder
                                                                     ,'dayKey'=>'DURGA-PUGA-10TH'		
                                                                     ],
                                                                 ];
->>>>>>> bac5d8cacd1c26ab3f7bce05de5653cee523766a
     
 
 
 
 foreach ($array as $key => $value) {
     $day = Day::where('dayKey','=',$value['dayKey'])->first();
+  
+    if($day)
     $value['dayId'] = $day->id;
     DayDate::create($value);
  }
