@@ -15,10 +15,10 @@ class CreateDaysTable extends Migration
     {
         Schema::create('days', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('dayKey')->unique();     
+            $table->string('dayKey')->nullable()->unique();     
             $table->string('title');
             $table->string('description')->nullable(); 
-            $table->string('dayCategory',3);
+            $table->string('dayCategory',3)->nullable();
             $table->string('religionCode',3)->nullable();
             $table->foreign('religionCode')->references('code')->on('religions')->onUpdate('cascade');
             $table->integer('dayFlag');  

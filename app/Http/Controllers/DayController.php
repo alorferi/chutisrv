@@ -3,7 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Day;
+use App\Models\Religion;
+use App\Models\DayFlag;
 use Illuminate\Http\Request;
+use Session;
+use Redirect;
+use Validator;
+use Auth;
 
 class DayController extends Controller
 {
@@ -25,7 +31,9 @@ class DayController extends Controller
      */
     public function create()
     {
-        //
+        $religions = Religion::pluck('name', 'code');
+        $dayFlags = DayFlag::pluck('name', 'flag');
+        return view("day.create")->with(compact('religions','dayFlags'));
     }
 
     /**
@@ -36,7 +44,35 @@ class DayController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         // validate
+        // read more on validation at http://laravel.com/docs/validation
+        $rules = array(
+            'title'       => 'required',
+          //  'email'      => 'required|email',
+           // 'book_level' => 'required|numeric'
+        );
+        $validator = Validator::make($request->all(), $rules);
+
+        // process the login
+        if ($validator->fails()) {
+            return Redirect::to('/admin/day/create')
+                ->withErrors($validator)
+                ->withRequest($request->except('password'));
+        } else {
+            // store
+            $day = new Day;
+            $day->title       = $request->title;
+            $day->description       = $request->description;
+            $day->dayFlag      = $request->dayFlag;
+            $day->religionCode = $request->religionCode;
+            $day->save();
+
+
+            // redirect
+            Session::flash('message', 'Successfully created day!');
+            return Redirect::to('/admin/day');
+        }
+
     }
 
     /**

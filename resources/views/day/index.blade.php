@@ -1,14 +1,24 @@
 @extends('layouts.admin')
 
+@section('back')
+
+
+<nav class="navbar navbar-inverse">
+    <ul class="nav navbar-nav">
+            <li>Days List</li>    <li><a href="{{ URL::to('/admin/day/create') }}"> Create</a></li>
+    </ul>
+</nav>
+
+@endsection
 
 @section('title')
-Genre List
+
 @endsection
 
 @section('content')
 
 
-<a href="/admin/day/create">Create</a>
+{{-- <a href="/admin/day/create">Create</a> --}}
 
 
 <div class="container">

@@ -42,11 +42,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
       
 
        
-
-        Route::get('/day', 'DayController@index')->name('day');
-        Route::get('/daydate', 'DayDateController@index')->name('daydate');
-        Route::get('/dayflag', 'DayflagController@index')->name('dayflag');
-        Route::get('/holidaytype', 'HolidayTypeController@index')->name('holydaytype');
+        Route::resource('/religion', 'ReligionController');
+        Route::resource('/day', 'DayController');
+        Route::resource('/daydate', 'DayDateController');
+        Route::resource('/dayflag', 'DayflagController');
+        Route::resource('/holidaytype', 'HolidayTypeController');
    
 });
 

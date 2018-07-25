@@ -23,7 +23,7 @@ class DaysTableSeeder extends Seeder
             ,'title'=>'শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস'		
             ,'dayCategory'=>'GNL'	
             ,'religionCode'=>'GNL'	
-            ,'dayFlag'=>3
+            ,'dayFlag'=>7
             ],
             
             [
@@ -31,7 +31,7 @@ class DaysTableSeeder extends Seeder
             ,'title'=>'জাতির জনক বঙ্গবন্ধু শেখ মজিবুর রাহমান এর জন্ম দিন'
             ,'dayCategory'=>'GNL'
             ,'religionCode'=>'GNL'	
-            ,'dayFlag'=>3
+            ,'dayFlag'=>11
             ],
            
             ['dayKey'=> '26-MAR'

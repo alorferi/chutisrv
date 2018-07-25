@@ -45,7 +45,7 @@
                             <li><a class="nav-link" href="/admin/day">Day</a></li>
                             <li><a class="nav-link" href="/admin/holidaytype">Holiday Type</a></li>
                             <li><a class="nav-link" href="/admin/dayflag">Day Flag</a></li>
-
+                            <li><a class="nav-link" href="/admin/religion">Religion</a></li>
                             <li><a class="nav-link" href="/admin/app">App</a></li>
                             <li><a class="nav-link" href="/admin/country">Country</a></li>
                             <li><a class="nav-link" href="/admin/area">Area</a></li>
@@ -85,6 +85,12 @@
         </nav>
 
         <main class="py-4">
+
+        @yield('back')
+
+
+        @yield('title')
+
             @yield('content')
         </main>
     </div>
