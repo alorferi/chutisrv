@@ -20,8 +20,11 @@ class DayController extends Controller
      */
     public function index()
     {
-                 $days = Day::all();
-                 return view('day.index')->with('days', $days);
+        // Fetch day list from day table database and put it into $day variable
+        $days = Day::all();
+
+        // Passes day list to index view in view/day folder
+        return view('day.index')->with('days', $days);
     }
 
     /**
@@ -31,8 +34,12 @@ class DayController extends Controller
      */
     public function create()
     {
-        $religions = Religion::pluck('name', 'code');
+
         $dayFlags = DayFlag::pluck('name', 'flag');
+
+        $religions = Religion::pluck('localName', 'code');
+        $religions->prepend('Please Select');
+
         return view("day.create")->with(compact('religions','dayFlags'));
     }
 
@@ -48,8 +55,6 @@ class DayController extends Controller
         // read more on validation at http://laravel.com/docs/validation
         $rules = array(
             'title'       => 'required',
-          //  'email'      => 'required|email',
-           // 'book_level' => 'required|numeric'
         );
         $validator = Validator::make($request->all(), $rules);
 
@@ -61,10 +66,11 @@ class DayController extends Controller
         } else {
             // store
             $day = new Day;
-            $day->title       = $request->title;
-            $day->description       = $request->description;
-            $day->dayFlag      = $request->dayFlag;
-            $day->religionCode = $request->religionCode;
+            $day->date         = $request->date;
+            $day->title         = $request->title;
+            $day->description   = $request->description;
+            $day->dayFlag       = $request->dayFlag;
+            $day->religionCode  = $request->religionCode;
             $day->save();
 
 
@@ -92,9 +98,16 @@ class DayController extends Controller
      * @param  \App\Models\Day  $day
      * @return \Illuminate\Http\Response
      */
-    public function edit(Day $day)
+    public function edit($id)
     {
-        //
+
+        $day = Day::find($id);        
+        $dayFlags = DayFlag::pluck('name', 'flag');
+
+        $religions = Religion::pluck('localName', 'code');
+        $religions->prepend('Please Select');
+
+        return view("day.edit")->with(compact('day','religions','dayFlags'));
     }
 
     /**
@@ -104,9 +117,34 @@ class DayController extends Controller
      * @param  \App\Models\Day  $day
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Day $day)
+    public function update(Request $request, $id)
     {
-        //
+         // validate
+        // read more on validation at http://laravel.com/docs/validation
+        $rules = array(
+            'title'       => 'required',
+        );
+        $validator = Validator::make($request->all(), $rules);
+
+        // process the login
+        if ($validator->fails()) {
+            return Redirect::to('/admin/day/create')
+                ->withErrors($validator)
+                ->withRequest($request->except('password'));
+        } else {
+            // store
+            $day = Day::find($id);
+            $day->date         = $request->date;
+            $day->title         = $request->title;
+            $day->description   = $request->description;
+            $day->dayFlag       = $request->dayFlag;
+            $day->religionCode  = ($request->religionCode==0)?null:$request->religionCode;
+            $day->save();
+
+            // redirect
+            Session::flash('message', 'Successfully created day!');
+            return Redirect::to('/admin/day');
+        }
     }
 
     /**

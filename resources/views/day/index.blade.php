@@ -5,7 +5,7 @@
 
 <nav class="navbar navbar-inverse">
     <ul class="nav navbar-nav">
-            <li>Days List</li>    <li><a href="{{ URL::to('/admin/day/create') }}"> Create</a></li>
+            <li>Days List</li>    <li> <a href="{{ URL::to('/admin/day/create') }}"> Create</a></li>
     </ul>
 </nav>
 
@@ -49,10 +49,17 @@
                 <a class="btn btn-small btn-info" href="{{ URL::to('/admin/day/' . $day->id . '/edit') }}">Edit </a>
             </td>
 
-            {{--  <td>{{ $day->dayKey }}</td>  --}}
+             <td>{{ $day->date }}</td> 
             <td>{{ $day->title }}</td>
             <td>{{ $day->description }}</td>
-            <td>{{ $day->religion->localName }}</td>
+            <td>
+            @if($day->religion!=null)
+                {{ $day->religion->localName }}
+                @else
+                None
+                @endif
+            
+            </td>
             <td>{{ $day->dayType->name }}</td>
 
 

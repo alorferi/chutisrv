@@ -15,7 +15,8 @@ class CreateDaysTable extends Migration
     {
         Schema::create('days', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('dayKey')->nullable()->unique();     
+            $table->string('dayKey')->nullable()->unique();    
+            $table->date('date')->nullable(); 
             $table->string('title');
             $table->string('description')->nullable(); 
             $table->string('dayCategory',3)->nullable();

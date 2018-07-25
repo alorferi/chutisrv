@@ -19,7 +19,13 @@
 
 {{Form::open(['route' => 'day.store', 'files' => true])}}
   {{ csrf_field() }}
-    <div class="form-group">
+
+  <div class="form-group">
+        {{ Form::label('date', 'Date') }}
+        {{ Form::date('date', Request::old('date'), array('class' => 'form-control')) }}
+    </div>
+   
+  <div class="form-group">
         {{ Form::label('title', 'Title') }}
         {{ Form::text('title', Request::old('title'), array('class' => 'form-control')) }}
     </div>
