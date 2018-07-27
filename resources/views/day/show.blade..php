@@ -15,21 +15,11 @@ Tag - Edit
 <!-- if there are creation errors, they will show here -->
 {{ Html::ul($errors->all()) }}
 
-{{ Form::model($day, array('route' => array('day.update', $day->id), 'method' => 'PUT','files' => true)) }}
-
-    <div class="form-group">
-        {{ Form::label('photo', 'Photo') }}
-        {{ Form::file('photo') }}
-    </div>
+{{ Form::model($day, array('route' => array('day.update', $day->id), 'method' => 'PUT')) }}
 
     <div class="form-group">
         {{ Form::label('date', 'Date') }}
         {{ Form::date('date', Request::old('date'), array('class' => 'form-control')) }}
-    </div>
-
-    <div class="form-group">
-            {{ Form::label('isFixedDate', 'Fixed Date') }}
-            {{ Form::checkbox('isFixedDate',null, Request::old('isFixedDate')) }}
     </div>
 
 <div class="form-group">

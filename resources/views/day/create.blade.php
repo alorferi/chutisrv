@@ -21,9 +21,20 @@
   {{ csrf_field() }}
 
   <div class="form-group">
+        {{ Form::label('photo', 'Photo') }}
+        {{ Form::file('photo') }}
+  </div>
+
+  <div class="form-group">
         {{ Form::label('date', 'Date') }}
         {{ Form::date('date', Request::old('date'), array('class' => 'form-control')) }}
     </div>
+
+    <div class="form-group">
+            {{ Form::label('isFixedDate', 'FixedDate') }}
+            {{ Form::checkbox('isFixedDate',null, Request::old('isFixedDate')) }}
+        </div>
+   
    
   <div class="form-group">
         {{ Form::label('title', 'Title') }}
@@ -37,11 +48,18 @@
     </div>
 
 
+    <div class="form-group">
+            {{ Form::label('dayFlags', 'Tags') }}
+            {{-- {{ Form::select('tag_ids[]', $tags, null, ['multiple'], array('class' => 'form-control')) }} --}}
+            {{ Form::select('dayFlags[]', $dayFlags, null, ['multiple'], array('class' => 'form-control')) }}
+        </div>
+    
 
+{{-- 
     <div class="form-group">
         {{ Form::label('dayFlag', 'DayFlag') }}
         {{ Form::select('dayFlag', $dayFlags, Request::old('dayFlag'), array('class' => 'form-control')) }}
-    </div>
+    </div> --}}
 
         <div class="form-group">
             {{ Form::label('religionCode', 'Religion') }}

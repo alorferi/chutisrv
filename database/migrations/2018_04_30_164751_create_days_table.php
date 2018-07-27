@@ -15,15 +15,20 @@ class CreateDaysTable extends Migration
     {
         Schema::create('days', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('photo_name')->nullable();
+            $table->string('photo_url')->nullable();
             $table->string('dayKey')->nullable()->unique();    
             $table->date('date')->nullable(); 
+            $table->boolean('isFixedDate')->default(false); 
             $table->string('title');
-            $table->string('description')->nullable(); 
+            $table->string('titleLocale')->nullable();
+            $table->text('description')->nullable(); 
+            $table->text('descriptionLocale')->nullable(); 
             $table->string('dayCategory',3)->nullable();
             $table->string('religionCode',3)->nullable();
             $table->foreign('religionCode')->references('code')->on('religions')->onUpdate('cascade');
-            $table->integer('dayFlag');  
-            $table->foreign('dayFlag')->references('flag')->on('dayflags')->onUpdate('cascade');  
+            $table->integer('dayFlag')->nullable();  
+            //$table->foreign('dayFlag')->references('flag')->on('dayflags')->onUpdate('cascade');  
             $table->timestamps();
         });
     }

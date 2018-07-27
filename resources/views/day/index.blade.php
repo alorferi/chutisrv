@@ -31,12 +31,13 @@
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
-        	  <td>Actions</td>
-            {{--  <td>Key</td>  --}}
-            <td>Title   </td>
-            <td>description </td>
-            <td>Religion </td>
-            <td>Flag </td>
+            <td>Actions</td>
+            <td>Photo</td>
+            <td>Date</td>  
+            <td>Fxd</td>  
+            <td>Title</td>
+            <td>Description</td>
+            <td>Religion</td>
 
         </tr>
     </thead>
@@ -48,8 +49,10 @@
                 <a class="btn btn-small btn-success" href="{{ URL::to('/admin/day/' . $day->id) }}">Show </a>
                 <a class="btn btn-small btn-info" href="{{ URL::to('/admin/day/' . $day->id . '/edit') }}">Edit </a>
             </td>
-
+            <td> <img src="{{ asset("$day->photo_url")}}" width="64" height="64" /> </td>
+       
              <td>{{ $day->date }}</td> 
+             <td>{{ $day->isFixedDate }}</td> 
             <td>{{ $day->title }}</td>
             <td>{{ $day->description }}</td>
             <td>
@@ -60,7 +63,7 @@
                 @endif
             
             </td>
-            <td>{{ $day->dayType->name }}</td>
+         
 
 
            

@@ -24,34 +24,34 @@ class DayFlagsTableSeeder extends Seeder
             'flag'=> 2
             ,'name'=>'National day'		
             ],
-            [ 
-            'flag'=> 3
-            ,'name'=>'Holiday & National Day'		
-            ],
+            // [ 
+            // 'flag'=> 3
+            // ,'name'=>'Holiday & National Day'		
+            // ],
             [ 
                 'flag'=> 4
                 ,'name'=>'International Day'		
                 ],
-                [ 
-                    'flag'=> 5
-                    ,'name'=>'Holiday & International Day'		
-                    ],
-                    [ 
-                        'flag'=> 6
-                        ,'name'=>'National & International Day'		
-                        ],
-                        [ 
-                            'flag'=> 7
-                            ,'name'=>'Holiday, National Day & International Day'		
-                            ],
+                // [ 
+                //     'flag'=> 5
+                //     ,'name'=>'Holiday & International Day'		
+                //     ],
+                    // [ 
+                    //     'flag'=> 6
+                    //     ,'name'=>'National & International Day'		
+                    //     ],
+                    //     [ 
+                    //         'flag'=> 7
+                    //         ,'name'=>'Holiday, National Day & International Day'		
+                    //         ],
                             [ 
                                 'flag'=> 8
                                 ,'name'=>'Date of Birth'		
                                 ],
-                                [ 
-                                    'flag'=> 11
-                                    ,'name'=>'Holiday, National day & Birthdayday'		
-                                    ],
+                                // [ 
+                                //     'flag'=> 11
+                                //     ,'name'=>'Holiday, National day & Birthdayday'		
+                                //     ],
                                 [ 
                                     'flag'=> 16
                                     ,'name'=>'Day of Death'		

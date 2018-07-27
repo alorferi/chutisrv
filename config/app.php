@@ -161,6 +161,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -214,6 +215,7 @@ return [
         'Fcm' => Kawankoding\Fcm\FcmFacade::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Input' => Illuminate\Support\Facades\Request::class,
+        'Image' => Intervention\Image\Facades\Image::class
     ],
 
 ];

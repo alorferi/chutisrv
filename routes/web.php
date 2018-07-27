@@ -54,3 +54,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('images/{filename}/day_photo', function ($filename)
+{
+    $path = storage_path('app/public/images/day_photos/'. $filename);
+    if (!File::exists($path)) {
+        abort(404);
+    }
+    $img = Image::make($path)->resize(512, 512);
+    return $img->response('png');
+});

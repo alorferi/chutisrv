@@ -21,6 +21,7 @@ class DaysTableSeeder extends Seeder
             [ 
             'dayKey'=> '21-FEB'
             ,'date'=> '1952-02-21'	
+            ,'isFixedDate'=> true
             ,'title'=>'শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস'	
             ,'dayCategory'=>'GNL'	
             ,'religionCode'=>'GNL'	
@@ -30,6 +31,7 @@ class DaysTableSeeder extends Seeder
             [
             'dayKey'=> '17-MAR'
             ,'date'=> '1920-03-17'	
+            ,'isFixedDate'=> true
             ,'title'=>'জাতির জনক বঙ্গবন্ধু শেখ মজিবুর রাহমান এর জন্ম দিন'
             ,'dayCategory'=>'GNL'
             ,'religionCode'=>'GNL'	
@@ -38,6 +40,7 @@ class DaysTableSeeder extends Seeder
            
             ['dayKey'=> '26-MAR'
             ,'date'=> '1971-03-26'	
+            ,'isFixedDate'=> true
                 ,'title'=>'স্বাধীনতা ও জাতীয় দিবস'
                 ,'dayCategory'=>'GNL'
                 ,'religionCode'=>'GNL'	
@@ -45,6 +48,7 @@ class DaysTableSeeder extends Seeder
             
             ['dayKey'=> 'BN-NOBO',
             'date'=> '1920-04-14',	
+            'isFixedDate'=> true,
                 'title'=>'বাংলা নববর্ষ',
                 'dayCategory'=>'GNL',
                 'religionCode'=>'GNL',	
@@ -52,7 +56,8 @@ class DaysTableSeeder extends Seeder
             ],
            
             ['dayKey'=> 'MAY-DAY',
-            'date'=> '1920-05-1',	
+            'date'=> '1920-05-1',
+            'isFixedDate'=> true,	
             'title'=>'মে দিবস',
             'dayCategory'=>'GNL',
             'religionCode'=>'GNL',	
@@ -132,8 +137,9 @@ class DaysTableSeeder extends Seeder
             ],
 
             ['dayKey'=> '15-AUG',
-            'title'=>'জাতীয় শোক দিবস',
-            'date'=> '1971-08-15',	
+            'date'=> '1975-08-15',	
+            'isFixedDate'=> true,
+            'title'=>'জাতীয় শোক দিবস', 
             'dayCategory'=>'GNL',
             'religionCode'=>'GNL',	
             'dayFlag'=>3
@@ -141,6 +147,7 @@ class DaysTableSeeder extends Seeder
 
             ['dayKey'=> 'BORO-DIN',
             'date'=> '0000-12-25',	
+            'isFixedDate'=> true,
             'title'=>'যীশু খ্রীষ্টের জন্মদিন (বড়দিন)',
             'dayCategory'=>'CRN',
             'religionCode'=>'CRN',	
@@ -148,7 +155,8 @@ class DaysTableSeeder extends Seeder
             ],
 
             ['dayKey'=> '16-DEC',
-            'date'=> '0000-12-16',	
+            'date'=> '1971-12-16',	
+            'isFixedDate'=> true,
             'title'=>'বিজয় দিবস',
             'dayCategory'=>'GNL',
             'religionCode'=>'GNL',	
