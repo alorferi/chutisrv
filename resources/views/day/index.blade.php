@@ -3,8 +3,8 @@
 @section('back')
 
 
-<nav class="navbar navbar-inverse">
-    <ul class="nav navbar-nav">
+<nav cclass="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto">
             <li>Days List</li>    <li> <a href="{{ URL::to('/admin/day/create') }}"> Create</a></li>
     </ul>
 </nav>
@@ -49,7 +49,7 @@
                 <a class="btn btn-small btn-success" href="{{ URL::to('/admin/day/' . $day->id) }}">Show </a>
                 <a class="btn btn-small btn-info" href="{{ URL::to('/admin/day/' . $day->id . '/edit') }}">Edit </a>
             </td>
-            <td> <img src="{{ asset("$day->photo_url")}}" width="64" height="64" /> </td>
+            <td> <img src="{{ asset("$day->photo_url")}}" width="64"  /> </td>
        
              <td>{{ $day->date }}</td> 
              <td>{{ $day->isFixedDate }}</td> 

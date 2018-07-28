@@ -1,14 +1,26 @@
 @extends('layouts.admin')
 
+@section('back')
 
-@section('title')
-Genre List
+    <table>
+        <tr>
+      
+            <td >Day Date</td>
+            <td ><a href="/admin/daydate/create">Create</a></td>
+
+            <td ><a href="/admin/daydate/2017/holidays/">HD-2017</a></td>
+            <td ><a href="/admin/daydate/2018/holidays/">HD-2018</a></td>
+            <td ><a href="/admin/daydate/2019/holidays/">HD-2019</a></td>
+
+        </tr>
+    </table>
 @endsection
 
+{{-- @section('title')
+Genre List
+@endsection --}}
+
 @section('content')
-
-
-<a href="/admin/daydate/create">Create</a>
 
 
 <div class="container">
@@ -40,13 +52,22 @@ Genre List
                 <a class="btn btn-small btn-success" href="{{ URL::to('/admin/daydate/' . $daydate->id) }}">Show </a>
                 <a class="btn btn-small btn-info" href="{{ URL::to('/admin/daydate/' . $daydate->id . '/edit') }}">Edit </a>
             </td>
-
-            <td> <img src="{{ asset("$daydate->day->photo_url")}}" width="64" height="64" /> </td>
+          
+            <td>
+                <img src="{{  $daydate->day->photo_url }}"  width="64" /> </td>
             <td>{{ $daydate->stared }}</td>
-            <td>{{ $daydate->dayDate }}</td>
+            <td>{{ $daydate->date }}</td>
             <td>{{ $daydate->day->title }}</td>
          
-            <td>{{ $daydate->holidayType->shortName }}</td>
+            <td>
+                @if($daydate->holidayType==null)
+                @else
+                {{ $daydate->holidayType->shortName }}
+                @endif
+
+              
+            
+            </td>
 
             {{-- <td>{{ $daydate->day->dayType->name }}</td> --}}
 

@@ -39,6 +39,7 @@ class DayController extends Controller
         $dayFlags = DayFlag::pluck('name', 'flag');
 
         $religions = Religion::pluck('localName', 'code');
+
         $religions->prepend('Please Select');
 
         return view("day.create")->with(compact('religions','dayFlags'));
@@ -222,6 +223,8 @@ class DayController extends Controller
             $day->description   = $request->description;
             $day->dayFlag       = $this->getDayflagCode($request->dayFlags);
             $day->religionCode  = ($request->religionCode=="0")?null:$request->religionCode;
+           
+          //  dd($day);
             $day->save();
 
             // redirect

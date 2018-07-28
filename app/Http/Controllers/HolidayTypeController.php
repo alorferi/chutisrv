@@ -68,9 +68,9 @@ class HolidayTypeController extends Controller
      * @param  \App\Models\HolidayType  $holidayType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HolidayType $holidayType)
+    public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
