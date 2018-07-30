@@ -15,8 +15,15 @@ Tag - Edit
 <!-- if there are creation errors, they will show here -->
 {{ Html::ul($errors->all()) }}
 
-{{ Form::model($dayDate, array('route' => array('daydate.update', $dayDate->id), 'method' => 'PUT')) }}
+{{ Form::model($dayDate, array('route' => array('daydate.update', $dayDate->id), 'method' => 'PUT','files' => true)) }}
 
+
+
+<div class="form-group">
+    {{ Form::label('banner', 'Banner') }}
+    <img src="{{ asset("$dayDate->bannerUrl")}}" height="64"  />  
+    {{ Form::file('banner') }}
+</div>
 
     <div class="form-group">
         {{ Form::label('date', 'Date') }}

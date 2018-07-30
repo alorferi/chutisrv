@@ -54,19 +54,23 @@ Genre List
             </td>
           
             <td>
-                <img src="{{  $daydate->day->photo_url }}"  width="64" /> </td>
+                <img src="{{  $daydate->day->photoUrl }}"  width="64" /> </td>
             <td>{{ $daydate->stared }}</td>
             <td>{{ $daydate->date }}</td>
-            <td>{{ $daydate->day->title }}</td>
+            <td>
+                
+                {{ $daydate->day->title }}
+            </br>
+
+            <img src="{{ asset("$daydate->bannerUrl")}}" height="100" width="600"  />  
+
+            </td>
          
             <td>
                 @if($daydate->holidayType==null)
                 @else
                 {{ $daydate->holidayType->shortName }}
                 @endif
-
-              
-            
             </td>
 
             {{-- <td>{{ $daydate->day->dayType->name }}</td> --}}

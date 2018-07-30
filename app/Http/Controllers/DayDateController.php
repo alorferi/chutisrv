@@ -6,6 +6,7 @@ use App\Models\DayDate;
 use App\Models\HolidayType;
 use App\Models\Day;
 use Illuminate\Http\Request;
+use App\Utils\Dir;
 use Session;
 use Redirect;
 use Validator;
@@ -71,7 +72,17 @@ class DayDateController extends Controller
 
             $daydate = new DayDate;
             // No need to update image url
-           //
+           
+            if ( $request->hasFile('banner')) {
+                $banner = $request->file('banner');
+                if($daydate->bannerName==null){
+                    $daydate->bannerName = 'dd_bnr'.time().'.'.$banner->getClientOriginalExtension();
+                    $daydate->bannerUrl       =    Dir::dayDateBannerUrl($daydate->bannerName);
+                    }
+                $destinationPath =  Dir::dayDateBannersPath();
+                $banner->move($destinationPath,  $daydate->bannerName);
+            }
+
             $daydate->stared = $request->stared;
             $daydate->date = $request->date;
     
@@ -136,6 +147,18 @@ class DayDateController extends Controller
         } else {
 
             $daydate = DayDate::find($id);
+
+           // dd($request->hasFile('photo'));
+           if ( $request->hasFile('banner')) {
+                $banner = $request->file('banner');
+                if($daydate->bannerName==null){
+                    $daydate->bannerName = 'dd_bnr'.time().'.'.$banner->getClientOriginalExtension();
+                    $daydate->bannerUrl       =    Dir::dayDateBannerUrl($daydate->bannerName);
+                    }
+                $destinationPath =  Dir::dayDateBannersPath();
+                $banner->move($destinationPath,  $daydate->bannerName);
+            }
+
             $daydate->dayId =$request->dayId;
             $daydate->date = $request->date;
           

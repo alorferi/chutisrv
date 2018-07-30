@@ -49,7 +49,7 @@
                 <a class="btn btn-small btn-success" href="{{ URL::to('/admin/day/' . $day->id) }}">Show </a>
                 <a class="btn btn-small btn-info" href="{{ URL::to('/admin/day/' . $day->id . '/edit') }}">Edit </a>
             </td>
-            <td> <img src="{{ asset("$day->photo_url")}}" width="64"  /> </td>
+            <td> <img src="{{ asset("$day->photoUrl")}}" width="64"  /> </td>
        
              <td>{{ $day->date }}</td> 
              <td>{{ $day->isFixedDate }}</td> 

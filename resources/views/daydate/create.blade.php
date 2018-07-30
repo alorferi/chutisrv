@@ -15,7 +15,16 @@ Day Date - Create
 <!-- if there are creation errors, they will show here -->
 {{ Html::ul($errors->all()) }}
 
-{{Form::open(['route' => 'daydate.store'])}}
+{{-- {{Form::open(['route' => 'daydate.store'])}} --}}
+
+{{Form::open(['route' => 'daydate.store', 'files' => true])}}
+
+<div class="form-group">
+    {{ Form::label('banner', 'Banner') }}
+    {{-- <img src="{{ asset("$dayDate->bannerUrl")}}" height="64"  />   --}}
+    {{ Form::file('banner') }}
+</div>
+
 
 <div class="form-group">
         {{ Form::label('dayId', 'Day') }}

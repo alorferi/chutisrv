@@ -16,6 +16,8 @@ class CreateDaydatesTable extends Migration
         Schema::create('daydates', function (Blueprint $table) {
             $table->increments('id');
             $table->string('dayKey')->nullable();  
+            $table->string('bannerName')->nullable();  
+            $table->string('bannerUrl')->nullable();  
             $table->string('holidayCode',2)->nullable();
             $table->foreign('holidayCode')->references('code')->on('holidaytypes')->onUpdate('cascade');  
             $table->string('stared',1)->nullable();

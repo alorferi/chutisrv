@@ -80,13 +80,13 @@ class DayController extends Controller
             if ( $request->hasFile('photo')) {
                 $photo = $request->file('photo');
 
-                if($day->photo_name==null){
-                    $day->photo_name = 'day'.time().'.'.$photo->getClientOriginalExtension();
-                    $day->photo_url       =    Dir::dayPhotoUrl($day->photo_name);
+                if($day->photoName==null){
+                    $day->photoName = 'day'.time().'.'.$photo->getClientOriginalExtension();
+                    $day->photoUrl       =    Dir::dayPhotoUrl($day->photoName);
                 }
 
                 $destinationPath =  Dir::dayPhotosPath();
-                $photo->move($destinationPath,  $day->photo_name);
+                $photo->move($destinationPath,  $day->photoName);
             }
            
             $day->save();
@@ -207,14 +207,14 @@ class DayController extends Controller
             if ( $request->hasFile('photo')) {
                 $photo = $request->file('photo');
 
-                if($day->photo_name==null){
-                    $day->photo_name = 'day'.time().'.'.$photo->getClientOriginalExtension();
-                    $day->photo_url       =    Dir::dayPhotoUrl($day->photo_name);
+                if($day->photoName==null){
+                    $day->photoName = 'day'.time().'.'.$photo->getClientOriginalExtension();
+                    $day->photoUrl       =    Dir::dayPhotoUrl($day->photoName);
                 }
 
               
                 $destinationPath =  Dir::dayPhotosPath();
-                $photo->move($destinationPath,  $day->photo_name);
+                $photo->move($destinationPath,  $day->photoName);
             }
 
             $day->date          = $request->date;
