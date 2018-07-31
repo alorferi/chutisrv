@@ -23,7 +23,9 @@ class CreateDaydatesTable extends Migration
             $table->string('stared',1)->nullable();
             $table->date('date');   
             $table->integer('dayId')->references('id')->on('days')->nullable();  
+            $table->unique(['date', 'dayId']);
             $table->timestamps();
+          
         });
     }
 

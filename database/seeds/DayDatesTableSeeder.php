@@ -68,30 +68,6 @@ class DayDatesTableSeeder extends Seeder
                             ,'date'=>'2017-06-27'	
                             ,'dayKey'=>'EID-UL-FITAR'		
                             ],
-                            [
-                                'holidayCode'=> 'XU'
-                                ,'stared'=>'*'
-                                ,'date'=>'2017-06-25'	
-                                ,'dayKey'=>'EID-UL-FITAR'		
-                                ],
-                [
-                    'holidayCode'=> 'GN'
-                    ,'stared'=>null
-                    ,'date'=>'2017-06-23'	
-                    ,'dayKey'=>'JUMATUL-BIDAH'		
-                    ],
-                    [
-                        'holidayCode'=> 'XU'
-                        ,'stared'=>'*'
-                        ,'date'=>'2017-05-12'	
-                        ,'dayKey'=>'SOBE-BORAT'		
-                        ],
-                        [
-                            'holidayCode'=> 'XU'
-                            ,'stared'=>'*'
-                            ,'date'=>'2017-10-01'	
-                            ,'dayKey'=>'ASHURA'		
-                            ],
             [
                 'holidayCode'=> 'GN'
                 ,'stared'=>null
@@ -122,12 +98,6 @@ class DayDatesTableSeeder extends Seeder
                 ,'date'=>'2017-08-14'	
                 ,'dayKey'=>'JANMO-ASTOMI'		
                 ],
-                [
-            'holidayCode'=> 'GN'
-            ,'stared'=>null
-            ,'date'=>'2017-08-14'	
-            ,'dayKey'=>'JANMO-ASTOMI'		
-            ],
             [
                 'holidayCode'=> 'GN'
                 ,'stared'=>null
@@ -221,12 +191,6 @@ class DayDatesTableSeeder extends Seeder
 [
 'holidayCode'=> 'XH'
 ,'stared'=>null
-,'date'=>'2018-06-15'	
-,'dayKey'=>'JUMATUL-BIDAH'		
-],
-[
-'holidayCode'=> 'XH'
-,'stared'=>null
 ,'date'=>'2017-09-29'	
 ,'dayKey'=>'DURGA-PUGA-09TH'		
 ],
@@ -259,12 +223,6 @@ class DayDatesTableSeeder extends Seeder
 ,'stared'=>null
 ,'date'=>'2018-08-15'	
 ,'dayKey'=>'15-AUG'		
-],
-[
-'holidayCode'=> 'GN'
-,'stared'=>null
-,'date'=>'2018-12-25'	
-,'dayKey'=>'BORO-DIN'		
 ],
 [
 'holidayCode'=> 'GN'
@@ -446,12 +404,6 @@ class DayDatesTableSeeder extends Seeder
 ,'date'=>'2017-06-08'	
 ,'dayKey'=>'ASHARI-PURNIMA'		
 ],       
-[
-    'holidayCode'=> 'XO'
-    ,'stared'=>null
-    ,'date'=>'2017-04-15'	
-    ,'dayKey'=>'OTHR'		
-    ],   
     [
     'holidayCode'=> 'XO'
     ,'stared'=>null
@@ -506,13 +458,7 @@ class DayDatesTableSeeder extends Seeder
 ,'stared'=>null
 ,'date'=>'2018-05-16'	
 ,'dayKey'=>'EID-UL-FITAR'		
-], 
-[
-'holidayCode'=> 'XM'
-,'stared'=>null
-,'date'=>'2018-08-22'	
-,'dayKey'=>'EID-UL-ADHA'		
-],           
+],          
 [
 'holidayCode'=> 'XM'
 ,'stared'=>null
@@ -670,12 +616,7 @@ class DayDatesTableSeeder extends Seeder
                                                                 ,'date'=>'2017-10-01'	
                                                                 ,'dayKey'=>'ASHURA'		
                                                                 ],
-                                                                [
-                                                                    'holidayCode'=> 'GN'
-                                                                    ,'stared'=>null
-                                                                    ,'date'=>'2017-09-30'	
-                                                                    ,'dayKey'=>'DURGA-PUGA-10TH'		
-                                                                    ],
+                                                               
                                                                 ];
     
 
@@ -684,9 +625,12 @@ class DayDatesTableSeeder extends Seeder
 foreach ($array as $key => $value) {
     $day = Day::where('dayKey','=',$value['dayKey'])->first();
   
-    if($day)
-    $value['dayId'] = $day->id;
+    if($day){
+        $value['dayId'] = $day->id;
+    }
+   
     DayDate::create($value);
+    $day = null;
  }
 
     }
