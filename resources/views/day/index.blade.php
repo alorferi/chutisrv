@@ -53,7 +53,7 @@
        
              <td>{{ $day->date }}</td> 
              <td>{{ $day->isFixedDate }}</td> 
-            <td>{{ $day->title }}</td>
+            <td>{{ $day->titleBn }} <br/> {{ $day->titleEN }} </td>
             <td>{{ $day->description }}</td>
             <td>
             @if($day->religion!=null)

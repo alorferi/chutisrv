@@ -75,12 +75,12 @@ class DayDateController extends Controller
            
             if ( $request->hasFile('banner')) {
                 $banner = $request->file('banner');
-                if($daydate->bannerName==null){
-                    $daydate->bannerName = 'dd_bnr'.time().'.'.$banner->getClientOriginalExtension();
-                    $daydate->bannerUrl       =    Dir::dayDateBannerUrl($daydate->bannerName);
+                if($daydate->bannerFileName==null){
+                    $daydate->bannerFileName = 'dd_bnr'.time().'.'.$banner->getClientOriginalExtension();
+                    $daydate->bannerUrl       =    Dir::dayDateBannerUrl($daydate->bannerFileName);
                     }
                 $destinationPath =  Dir::dayDateBannersPath();
-                $banner->move($destinationPath,  $daydate->bannerName);
+                $banner->move($destinationPath,  $daydate->bannerFileName);
             }
 
             $daydate->stared = $request->stared;
@@ -117,7 +117,7 @@ class DayDateController extends Controller
     public function edit($id)
     {
         $dayDate = DayDate::find($id);        
-        $days = Day::pluck('title', 'id');
+        $days = Day::pluck('titleBn as title', 'id');
 
         $holidayTypes = HolidayType::pluck('longName', 'code');
         $holidayTypes->prepend('Please Select');
@@ -151,12 +151,12 @@ class DayDateController extends Controller
            // dd($request->hasFile('photo'));
            if ( $request->hasFile('banner')) {
                 $banner = $request->file('banner');
-                if($daydate->bannerName==null){
-                    $daydate->bannerName = 'dd_bnr'.time().'.'.$banner->getClientOriginalExtension();
-                    $daydate->bannerUrl       =    Dir::dayDateBannerUrl($daydate->bannerName);
+                if($daydate->bannerFileName==null){
+                    $daydate->bannerFileName = 'dd_bnr'.time().'.'.$banner->getClientOriginalExtension();
+                    $daydate->bannerUrl       =    Dir::dayDateBannerUrl($daydate->bannerFileName);
                     }
                 $destinationPath =  Dir::dayDateBannersPath();
-                $banner->move($destinationPath,  $daydate->bannerName);
+                $banner->move($destinationPath,  $daydate->bannerFileName);
             }
 
             $daydate->dayId =$request->dayId;

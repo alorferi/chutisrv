@@ -59,7 +59,9 @@ Genre List
             <td>{{ $daydate->date }}</td>
             <td>
                 
-                {{ $daydate->day->title }}
+                {{ $daydate->day->titleBn }}
+                <br/>
+                {{ $daydate->day->titleEn }}
             </br>
 
             <img src="{{ asset("$daydate->bannerUrl")}}" height="100" width="600"  />  

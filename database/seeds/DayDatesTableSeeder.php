@@ -23,19 +23,22 @@ class DayDatesTableSeeder extends Seeder
                 [ 
                     'holidayCode'=> 'GN'
                     ,'stared'=>null
-                    ,'date'=>'2017-02-21'	
+                  //  ,'date'=>'2017-02-21'
+                  ,'date'=>'2018-08-11'	
                     ,'dayKey'=>'21-FEB'		
                     ], 
                     [ 
                         'holidayCode'=> 'GN'
                         ,'stared'=>null
-                        ,'date'=>'2017-03-17'
+                        //,'date'=>'2017-03-17'
+                        ,'date'=>'2018-08-11'	
                         ,'dayKey'=>'17-MAR'		
                         ],
                         [ 
                             'holidayCode'=> 'GN'
                             ,'stared'=>null
-                            ,'date'=>'2017-03-26'	
+                            //,'date'=>'2017-03-26'	
+                            ,'date'=>'2018-08-11'	
                             ,'dayKey'=>'26-MAR'		
                             ],
                             [ 

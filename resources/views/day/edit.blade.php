@@ -34,14 +34,14 @@ Tag - Edit
     </div>
 
 <div class="form-group">
-    {{ Form::label('title', 'Title') }}
-    {{ Form::text('title', Request::old('title'), array('class' => 'form-control')) }}
+    {{ Form::label('titleBn', 'Title') }}
+    {{ Form::text('titleBn', Request::old('titleBn'), array('class' => 'form-control')) }}
 </div>
 
 <div class="form-group">
-    {{ Form::label('description', 'Description') }}
-    {{-- {{ Form::text('description', Request::old('description'), array('class' => 'form-control')) }} --}}
-    {{ Form::textarea('description', Request::old('description'), array('class' => 'form-control')) }}
+    {{ Form::label('descriptionBn', 'Description') }}
+    {{-- {{ Form::text('descriptionBn', Request::old('descriptionBn'), array('class' => 'form-control')) }} --}}
+    {{ Form::textarea('descriptionBn', Request::old('descriptionBn'), array('class' => 'form-control')) }}
 </div>
 
     <div class="form-group">

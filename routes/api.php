@@ -41,4 +41,4 @@ Route::get("holidaytypes","API\HolidayTypeController@getHolidayTypes");
 
 Route::get("daydate/{year}/holidays","API\DayDateController@getHolidays");
 
-Route::get("daydate/{date}/todays","API\DayDateController@getDays");
+Route::get("daydate/{date}/days","API\DayDateController@getDays");

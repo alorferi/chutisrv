@@ -56,7 +56,7 @@ class DayController extends Controller
          // validate
         // read more on validation at http://laravel.com/docs/validation
         $rules = array(
-            'title'       => 'required',
+            'titleBn'       => 'required',
         );
         $validator = Validator::make($request->all(), $rules);
 
@@ -71,30 +71,25 @@ class DayController extends Controller
             $day->date          = $request->date;
            // dd($request->isFixedDate);
             $day->isFixedDate   = ($request->isFixedDate=='on')?true:false;
-            $day->title         = $request->title;
-            $day->description   = $request->description;
-            $day->dayFlag       = $this->getDayflagCode($request->dayFlags);
+            $day->titleBn         = $request->titleBn;
+            $day->description   = $request->descriptionBn;
+            $day->descriptionBn       = $this->getDayflagCode($request->dayFlags);
             $day->religionCode  = ($request->religionCode=="0")?null:$request->religionCode;
            
            
             if ( $request->hasFile('photo')) {
                 $photo = $request->file('photo');
 
-                if($day->photoName==null){
-                    $day->photoName = 'day'.time().'.'.$photo->getClientOriginalExtension();
-                    $day->photoUrl       =    Dir::dayPhotoUrl($day->photoName);
+                if($day->photoFileName==null){
+                    $day->photoFileName = 'day'.time().'.'.$photo->getClientOriginalExtension();
+                    $day->photoUrl       =    Dir::dayPhotoUrl($day->photoFileName);
                 }
 
                 $destinationPath =  Dir::dayPhotosPath();
-                $photo->move($destinationPath,  $day->photoName);
+                $photo->move($destinationPath,  $day->photoFileName);
             }
            
             $day->save();
-
-
-           
-
-            
 
             // redirect
             Session::flash('message', 'Successfully created day!');
@@ -113,9 +108,11 @@ class DayController extends Controller
     {
         $day = Day::find($id);        
  
-        $dayflaglist = $this->getDayflagCodeList($day->dayFlag);
+       // $dayflaglist = $this->getDayFlagCodes($day->dayFlag);
 
-        return view("day.show")->with(compact('day','dayflaglist'));
+     //   return view("day.show")->with(compact('day','dayflaglist'));
+
+     return "noting";
     }
 
     /**
@@ -190,7 +187,7 @@ class DayController extends Controller
          // validate
         // read more on validation at http://laravel.com/docs/validation
         $rules = array(
-            'title'       => 'required',
+            'titleBn'       => 'required',
         );
         $validator = Validator::make($request->all(), $rules);
 
@@ -207,20 +204,20 @@ class DayController extends Controller
             if ( $request->hasFile('photo')) {
                 $photo = $request->file('photo');
 
-                if($day->photoName==null){
-                    $day->photoName = 'day'.time().'.'.$photo->getClientOriginalExtension();
-                    $day->photoUrl       =    Dir::dayPhotoUrl($day->photoName);
+                if($day->photoFileName==null){
+                    $day->photoFileName = 'day'.time().'.'.$photo->getClientOriginalExtension();
+                    $day->photoUrl       =    Dir::dayPhotoUrl($day->photoFileName);
                 }
 
               
                 $destinationPath =  Dir::dayPhotosPath();
-                $photo->move($destinationPath,  $day->photoName);
+                $photo->move($destinationPath,  $day->photoFileName);
             }
 
             $day->date          = $request->date;
             $day->isFixedDate   = ($request->isFixedDate=='on')?true:false;
-            $day->title         = $request->title;
-            $day->description   = $request->description;
+            $day->titleBn         = $request->titleBn;
+            $day->descriptionBn   = $request->descriptionBn;
             $day->dayFlag       = $this->getDayflagCode($request->dayFlags);
             $day->religionCode  = ($request->religionCode=="0")?null:$request->religionCode;
            
