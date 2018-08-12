@@ -39,6 +39,7 @@ Route::get("languages","API\LanguageController@getLanguages");
 
 Route::get("holidaytypes","API\HolidayTypeController@getHolidayTypes");
 
-Route::get("daydate/{year}/holidays","API\DayDateController@getHolidays");
+Route::get("daydate/{year}/holidays","API\DayDateController@getHolidaysByYear");
+Route::get("daydate/{year}/{month}/holidays","API\DayDateController@getHolidaysByYearByMonth");
 
 Route::get("daydate/{date}/days","API\DayDateController@getDays");

@@ -42,7 +42,7 @@ class DayDateController extends Controller
      */
     public function create()
     {
-        $days = Day::pluck('title', 'id');
+        $days = Day::pluck('titleBn as title', 'id');
 
         $holidayTypes = HolidayType::pluck('longName', 'code');
         $holidayTypes->prepend('Please Select');

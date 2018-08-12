@@ -10,7 +10,7 @@ use DB;
 
 class DayDateController extends Controller
 {
-    public function getHolidays($year){
+    public function getHolidaysByYear($year){
         
         $daydates = DayDate::with('day')->whereYear('date',$year)->get();
        
@@ -19,6 +19,19 @@ class DayDateController extends Controller
         return $data;
     }
 
+
+    public function getHolidaysByYearByMonth($year,$month){
+        
+        $daydates = DayDate::with('day')
+                    ->whereYear('date',$year)
+                    ->whereMonth('date',$month)
+                    ->where('holidayCode','!=',null)
+                    ->get();
+       
+        $data =   Data::data("OK",sizeof($daydates)." holidaytype(s) found",$daydates);   
+          
+        return $data;
+    }
 
     public function getDays($date){
         

@@ -72,8 +72,8 @@ class DayController extends Controller
            // dd($request->isFixedDate);
             $day->isFixedDate   = ($request->isFixedDate=='on')?true:false;
             $day->titleBn         = $request->titleBn;
-            $day->description   = $request->descriptionBn;
-            $day->descriptionBn       = $this->getDayflagCode($request->dayFlags);
+            $day->descriptionBn   = $request->descriptionBn;
+            $day->dayFlag      = $this->getDayflagCode($request->dayFlags);
             $day->religionCode  = ($request->religionCode=="0")?null:$request->religionCode;
            
            
