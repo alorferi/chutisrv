@@ -8,4 +8,10 @@ class HolidayType extends Model
 {
     //
     protected $table = 'holidaytypes';
+
+    public function dayDates()
+    {
+        return $this->hasMany('App\Models\DayDate','holidayCode');
+    }
+
 }

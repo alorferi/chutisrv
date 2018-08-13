@@ -24,6 +24,7 @@ class DayController extends Controller
         // Fetch day list from day table database and put it into $day variable
         $days = Day::all();
 
+        Session::flash('message', count( $days ). " Days found");
         // Passes day list to index view in view/day folder
         return view('day.index')->with('days', $days);
     }

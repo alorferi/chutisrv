@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\HolidayType;
 use Illuminate\Http\Request;
+use Session;
 
 class HolidayTypeController extends Controller
 {
@@ -15,6 +16,7 @@ class HolidayTypeController extends Controller
     public function index()
     {
         $holidaytypes = HolidayType::all();
+        Session::flash('message', count( $holidaytypes ). " Holiday types found");
         return view('holidaytype.index')->with('holidaytypes', $holidaytypes);
     }
 

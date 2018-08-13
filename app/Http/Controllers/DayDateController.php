@@ -24,13 +24,20 @@ class DayDateController extends Controller
           // get all the Day
           $daydates = DayDate::with('day')->get();
   
+          Session::flash('message', count( $daydates ). " dates found");
+
           // load the view and pass the Day
           return view('daydate.index')->with(compact('daydates'));
     }
 
     public function  showHolidays($year){
 
-        $daydates = DayDate::with('day')->whereYear('date',$year)->get();
+        $daydates = DayDate::with('day')
+                    ->whereYear('date',$year)
+                    ->where('holidayCode','!=',null)
+                    ->get();
+
+                    Session::flash('message', count( $daydates ). " dates found");
 
         return view('daydate.index')->with(compact('daydates'));
     }

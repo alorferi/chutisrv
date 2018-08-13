@@ -11,7 +11,7 @@ use App\Utils\Data;
 class HolidayTypeController extends Controller
 {
     public function getHolidayTypes(){
-        $holidaytypes =HolidayType::all();
+        $holidaytypes =HolidayType::with("dayDates")->get();
            
         if(sizeof($holidaytypes)==0){
           $data =   Data::data("FAILED","No holidaytype(s) found",$holidaytypes);   
