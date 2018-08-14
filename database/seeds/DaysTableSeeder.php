@@ -22,7 +22,7 @@ class DaysTableSeeder extends Seeder
             'dayKey'=> '21-FEB'
             ,'date'=> '1952-02-21'	
             ,'isFixedDate'=> true
-            ,'titleBn'=>""	
+            ,'titleBn'=>"শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"	
             ,'descriptionBn'=>''	
             ,'dayCategory'=>'GNL'	
             ,'religionCode'=>'GNL'	

@@ -11,25 +11,34 @@ use DB;
 
 class DayDateController extends Controller
 {
-    public function getHolidaysByYear($year){
+    // public function getHolidaysByYear($year){
         
-        $daydates = DayDate::with('day')->whereYear('date',$year)->get();
+    //     $daydates = DayDate::with('day')->whereYear('date',$year)->get();
        
-        $data =   Data::data("OK",sizeof($daydates)." holidaytype(s) found",$daydates);   
+    //     $data =   Data::data("OK",sizeof($daydates)." holidaytype(s) found",$daydates);   
           
-        return $data;
-    }
+    //     return $data;
+    // }
 
+    
+
+    private $selectClause =  ['dd.id'
+    , 'dd.date'
+    ,'d.photoUrl'
+    ,'dd.bannerUrl' 
+    ,'d.titleBn as title'
+    , 'd.descriptionBn as description'
+    , 'dd.holidayCode'];
+
+    public function __construct()
+    {
+       
+    }
 
     public function getHolidaysByYearByMonth($year,$month){
         
-        // $daydates = DayDate::with('day')
-        //             ->whereYear('date',$year)
-        //             ->whereMonth('date',$month)
-        //             ->where('holidayCode','!=',null)
-        //             ->get();
                     $daydates = DB::table('daydates as dd')
-                    ->select(['dd.id', 'dd.date','d.photoUrl','dd.bannerUrl' ,'d.titleBn as title', 'd.descriptionBn as description', 'dd.holidayCode'])
+                    ->select($this->selectClause)
                     ->join('days as d', 'dd.dayid', '=', 'd.id')
                     ->whereYear('dd.date',$year)
                     ->whereMonth('dd.date',$month)
@@ -62,7 +71,7 @@ class DayDateController extends Controller
             foreach( $holidaytypes as $holidaytype ){
     
                 $daydates = DB::table('daydates as dd')
-                ->select(['dd.id', 'dd.date','d.photoUrl','dd.bannerUrl' ,'d.titleBn as title', 'd.descriptionBn as description', 'dd.holidayCode'])
+                ->select($this->selectClause)
                 ->join('days as d', 'dd.dayid', '=', 'd.id')
                 ->whereYear('dd.date',$year)
                 ->whereMonth('dd.date',$month)
@@ -93,6 +102,33 @@ class DayDateController extends Controller
         return $data;
     }
 
+    public function getHolidaysByYearByTypesGroupByMonths($year,$holidayCodes){
+
+
+       $holidayCodes= explode(",",$holidayCodes);
+        
+        $months = [];
+        for($month=1;$month<=12;$month++){
+         
+                $daydates = DB::table('daydates as dd')
+                ->select($this->selectClause)
+                ->join('days as d', 'dd.dayid', '=', 'd.id')
+                ->whereYear('dd.date',$year)
+                ->whereMonth('dd.date',$month)
+                ->whereIn('holidayCode',$holidayCodes)
+                ->orderBy("dd.date")
+                ->get();
+
+            $months[]= $daydates;
+                          
+        }
+          
+    
+        $data =   Data::data("OK",sizeof($months )." holidaytype(s) found",$months );   
+       
+        return $data;
+    }
+
     public function getHolidaysByYearByMonthGroupByTypes($year,$month){
         
         $holidaytypes =HolidayTypeorderBy("orderFlag")->get();
@@ -102,7 +138,7 @@ class DayDateController extends Controller
         foreach( $holidaytypes as $holidaytype ){
 
             $daydates = DB::table('daydates as dd')
-            ->select(['dd.id', 'dd.date','d.photoUrl','dd.bannerUrl' ,'d.titleBn as title', 'd.descriptionBn as description', 'dd.holidayCode'])
+            ->select($this->selectClause)
             ->join('days as d', 'dd.dayid', '=', 'd.id')
             ->whereYear('dd.date',$year)
             ->whereMonth('dd.date',$month)
@@ -136,7 +172,7 @@ class DayDateController extends Controller
         foreach( $holidaytypes as $holidaytype ){
 
             $daydates = DB::table('daydates as dd')
-            ->select(['dd.id', 'dd.date','d.photoUrl','dd.bannerUrl' ,'d.titleBn as title', 'd.descriptionBn as description', 'dd.holidayCode'])
+            ->select($this->selectClause)
             ->join('days as d', 'dd.dayid', '=', 'd.id')
             ->whereYear('dd.date',$year)
             ->where('holidayCode',$holidaytype->code)
@@ -165,7 +201,7 @@ class DayDateController extends Controller
        
 
        $daydates = DB::table('daydates as dd')
-       ->select(['dd.id', 'dd.date','d.photoUrl','dd.bannerUrl' ,'d.titleBn as title', 'd.descriptionBn as description', 'dd.holidayCode'])
+       ->select($this->selectClause)
        ->join('days as d', 'dd.dayid', '=', 'd.id')
        ->where('dd.date',$date)
        ->get();
