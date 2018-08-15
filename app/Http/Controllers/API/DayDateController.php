@@ -83,7 +83,7 @@ class DayDateController extends Controller
                     $hd = array("code"=>$holidaytype->code
                     ,"shortName"=>$holidaytype->shortName
                     ,"longName"=>$holidaytype->longName
-                    ,"daydates"=>$daydates);
+                    ,"holidays"=>$daydates);
         
                    $hds[] = $hd;
                 }
@@ -131,7 +131,7 @@ class DayDateController extends Controller
 
     public function getHolidaysByYearByMonthGroupByTypes($year,$month){
         
-        $holidaytypes =HolidayTypeorderBy("orderFlag")->get();
+        $holidaytypes =HolidayType::orderBy("orderFlag")->get();
 
         $hds = [];
 
@@ -146,12 +146,14 @@ class DayDateController extends Controller
             ->orderBy("dd.date")
             ->get();
 
-           $hd = array("code"=>$holidaytype->code
-            ,"shortName"=>$holidaytype->shortName
-            ,"longName"=>$holidaytype->longName
-            ,"daydates"=>$daydates);
-
-           $hds[] = $hd;
+            if(count($daydates)>0){
+                $hd = array("code"=>$holidaytype->code
+                ,"shortName"=>$holidaytype->shortName
+                ,"longName"=>$holidaytype->longName
+                ,"holidays"=>$daydates);
+    
+               $hds[] = $hd;
+            }
            
         }
 
@@ -182,7 +184,7 @@ class DayDateController extends Controller
            $hd = array("code"=>$holidaytype->code
             ,"shortName"=>$holidaytype->shortName
             ,"longName"=>$holidaytype->longName
-            ,"daydates"=>$daydates);
+            ,"holidays"=>$daydates);
 
            $hds[] = $hd;
            
