@@ -11,17 +11,6 @@ use DB;
 
 class DayDateController extends Controller
 {
-    // public function getHolidaysByYear($year){
-        
-    //     $daydates = DayDate::with('day')->whereYear('date',$year)->get();
-       
-    //     $data =   Data::data("OK",sizeof($daydates)." holidaytype(s) found",$daydates);   
-          
-    //     return $data;
-    // }
-
-    
-
     private $selectClause =  ['dd.id'
     , 'dd.date'
     ,'d.photoUrl'
@@ -54,12 +43,6 @@ class DayDateController extends Controller
 
     public function getHolidaysByYearGroupByMonthsGroupByTypes($year){
         
-        // $daydates = DayDate::with('day')
-        //             ->whereYear('date',$year)
-        //             ->whereMonth('date',$month)
-        //             ->where('holidayCode','!=',null)
-        //             ->get();
-
         $holidaytypes =HolidayType::orderBy("orderFlag")->get();
 
         $months = [];
@@ -164,6 +147,44 @@ class DayDateController extends Controller
     }
 
 
+    // public function getHolidaysByYearGroupByMonthsGroupByTypes($year){
+        
+    //     $holidaytypes =HolidayType::orderBy("orderFlag")->get();
+
+    //     $holidaystypeGroupByMonth = [];
+
+    //     for($month=1;$month<=12;$month++){
+
+    //         $holidays = [];
+
+    //         foreach( $holidaytypes as $holidaytype ){
+    
+    //             $daydates = DB::table('daydates as dd')
+    //             ->select($this->selectClause)
+    //             ->join('days as d', 'dd.dayid', '=', 'd.id')
+    //             ->whereYear('dd.date',$year)
+    //             ->whereMonth('dd.date',$month)
+    //             ->where('holidayCode',$holidaytype->code)
+    //             ->orderBy("dd.date")
+    //             ->get();
+    
+    //             if(count($daydates)>0){
+    //                 $holiday = array("code"=>$holidaytype->code
+    //                 ,"shortName"=>$holidaytype->shortName
+    //                 ,"longName"=>$holidaytype->longName
+    //                 ,"holidays"=>$daydates);
+        
+    //                $holidays[] = $holiday;
+    //             }
+               
+    //         }
+
+    //         $holidaystypeGroupByMonth = $holidays;
+    //     }
+    //     $data =   Data::data("OK",sizeof($holidaystypeGroupByMonth)." holidaytype(s) found",$hds );             
+    //     return $data;
+    // }
+    
     public function getHolidaysByYearGroupByTypes($year){
 
 

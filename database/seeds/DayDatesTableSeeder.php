@@ -424,7 +424,19 @@ class DayDatesTableSeeder extends Seeder
         ,'stared'=>null
         ,'date'=>'2017-04-12'	
         ,'dayKey'=>'OTHR'		
-        ],   
+        ],  
+        [
+            'holidayCode'=> 'XO'
+            ,'stared'=>null
+            ,'date'=>'2018-04-15'	
+            ,'dayKey'=>'OTHR'		
+            ],   
+            [
+                'holidayCode'=> 'XO'
+                ,'stared'=>null
+                ,'date'=>'2018-04-12'	
+                ,'dayKey'=>'OTHR'		
+                ],   
 [
 'holidayCode'=> 'XC'
 ,'stared'=>null
