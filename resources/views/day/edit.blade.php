@@ -45,7 +45,7 @@ Tag - Edit
 </div>
 
     <div class="form-group">
-        {{ Form::label('dayFlags', 'Tags') }}
+        {{ Form::label('dayFlags', 'Flags') }}
         {{-- {{ Form::select('tag_ids[]', $tags, null, ['multiple'], array('class' => 'form-control')) }} --}}
         {{ Form::select('dayFlags[]', $dayFlags, $flag_ids, ['multiple'], array('class' => 'form-control')) }}
     </div>

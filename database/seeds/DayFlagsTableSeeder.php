@@ -18,11 +18,13 @@ class DayFlagsTableSeeder extends Seeder
         $array = [
             [ 
                 'flag'=> 1
-                ,'name'=>'Holiday'		
+                ,'name_en'=>'Holiday'		
+                ,'name_bn'=>'ছুটির দিন'		
                 ],
             [ 
             'flag'=> 2
-            ,'name'=>'National day'		
+            ,'name_en'=>'National day'
+            ,'name_bn'=>'জাতীয় দিবস'				
             ],
             // [ 
             // 'flag'=> 3
@@ -30,7 +32,8 @@ class DayFlagsTableSeeder extends Seeder
             // ],
             [ 
                 'flag'=> 4
-                ,'name'=>'International Day'		
+                ,'name_en'=>'International Day'	
+                ,'name_bn'=>'আন্তর্জাতিক দিবস'			
                 ],
                 // [ 
                 //     'flag'=> 5
@@ -46,7 +49,8 @@ class DayFlagsTableSeeder extends Seeder
                     //         ],
                             [ 
                                 'flag'=> 8
-                                ,'name'=>'Date of Birth'		
+                                ,'name_en'=>'Date of Birth'	
+                                ,'name_bn'=>'জন্ম দিন'			
                                 ],
                                 // [ 
                                 //     'flag'=> 11
@@ -54,7 +58,8 @@ class DayFlagsTableSeeder extends Seeder
                                 //     ],
                                 [ 
                                     'flag'=> 16
-                                    ,'name'=>'Day of Death'		
+                                    ,'name_en'=>'Day of Death'		
+                                    ,'name_bn'=>'মৃত্যুর দিন'		
                                     ],
             ];
             foreach ($array as $key => $value) {

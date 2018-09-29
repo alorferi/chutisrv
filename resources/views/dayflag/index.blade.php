@@ -38,11 +38,7 @@ Genre List
             </td>
 
             <td>{{ $dayflag->flag }}</td>
-            <td>{{ $dayflag->name }}</td>
-
-
-
-           
+            <td>{{ $dayflag->name_bn }} - {{ $dayflag->name_en }} </td>        
         </tr>
     @endforeach
     </tbody>

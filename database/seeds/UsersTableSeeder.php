@@ -26,7 +26,7 @@ class UsersTableSeeder extends Seeder
         $iqbal = User::create([
             'firstName'     => 'Iqbal',
             'lastName'     => 'Ahmad',
-            'email'    => 'iqbalh@gmail.com',
+            'email'    => 'iqbalh8622@gmail.com',
             'password' => Hash::make('123456'),
        
         ]);

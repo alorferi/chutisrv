@@ -22,7 +22,7 @@ class DayController extends Controller
     public function index()
     {
         // Fetch day list from day table database and put it into $day variable
-        $days = Day::all();
+        $days = Day::orderBy('date')->get();
 
         Session::flash('message', count( $days ). " Days found");
         // Passes day list to index view in view/day folder
@@ -37,7 +37,7 @@ class DayController extends Controller
     public function create()
     {
 
-        $dayFlags = DayFlag::pluck('name', 'flag');
+        $dayFlags = DayFlag::pluck('name_bn', 'flag');
 
         $religions = Religion::pluck('localName', 'code');
 
@@ -126,7 +126,7 @@ class DayController extends Controller
     {
 
         $day = Day::find($id);        
-        $dayFlags = DayFlag::pluck('name', 'flag');
+        $dayFlags = DayFlag::pluck('name_bn', 'flag');
 
         $flag_ids = $this->getDayFlagCodes($day->dayFlag);
         $religions = Religion::pluck('localName', 'code');

@@ -15,7 +15,8 @@ class CreateDayflagsTable extends Migration
     {
         Schema::create('dayflags', function (Blueprint $table) {
             $table->integer('flag')->primary();
-            $table->string('name');
+            $table->string('name_en');
+            $table->string('name_bn');
             $table->timestamps();
         });
     }

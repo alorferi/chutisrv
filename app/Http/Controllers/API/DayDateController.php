@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Utils\Data;
 use App\Models\DayDate;
+use App\Models\DayFlag;
 use App\Models\HolidayType;
 use DB;
 
@@ -40,6 +41,52 @@ class DayDateController extends Controller
         return $data;
     }
 
+
+    public function getDaysByYearGroupByMonthsGroupByFlags($year){
+
+        $dayFlags =DayFlag::where('flag','!=','1')->orderBy("flag")->get();
+
+
+       
+        $months = [];
+        for($month=1;$month<=12;$month++){
+           
+        
+            $hds = [];
+    
+            foreach( $dayFlags as $dayFlag ){
+    
+                $daydates = DB::table('daydates as dd')
+                ->select($this->selectClause)
+                ->join('days as d', 'dd.dayid', '=', 'd.id')
+                ->whereYear('dd.date',$year)
+                ->whereMonth('dd.date',$month)
+                ->where('d.dayFlag','&',$dayFlag->flag)
+                ->orderBy("dd.date")
+                ->get();
+    
+                if(count($daydates)>0){
+                    $hd = array("flag"=>$dayFlag->flag
+                    ,"name"=>$dayFlag->name_bn
+                    ,"daydates"=>$daydates);
+        
+                   $hds[] = $hd;
+                }
+              
+               
+            }
+
+            $months[]= $hds;
+            
+
+        }
+          
+       
+        $data =   Data::data("OK",sizeof($months )." month(s) found",$months );   
+          
+        return $data;
+
+        }    
 
     public function getHolidaysByYearGroupByMonthsGroupByTypes($year){
         
