@@ -20,11 +20,13 @@ class DayFlagsTableSeeder extends Seeder
                 'flag'=> 1
                 ,'name_en'=>'Holiday'		
                 ,'name_bn'=>'ছুটির দিন'		
+                ,'display_order'=>0		
                 ],
             [ 
             'flag'=> 2
             ,'name_en'=>'National day'
-            ,'name_bn'=>'জাতীয় দিবস'				
+            ,'name_bn'=>'জাতীয় দিবস'
+            ,'display_order'=>2						
             ],
             // [ 
             // 'flag'=> 3
@@ -33,7 +35,8 @@ class DayFlagsTableSeeder extends Seeder
             [ 
                 'flag'=> 4
                 ,'name_en'=>'International Day'	
-                ,'name_bn'=>'আন্তর্জাতিক দিবস'			
+                ,'name_bn'=>'আন্তর্জাতিক দিবস'
+                ,'display_order'=>1					
                 ],
                 // [ 
                 //     'flag'=> 5
@@ -50,7 +53,8 @@ class DayFlagsTableSeeder extends Seeder
                             [ 
                                 'flag'=> 8
                                 ,'name_en'=>'Date of Birth'	
-                                ,'name_bn'=>'জন্ম দিন'			
+                                ,'name_bn'=>'জন্ম দিন'
+                                ,'display_order'=>3					
                                 ],
                                 // [ 
                                 //     'flag'=> 11
@@ -59,8 +63,15 @@ class DayFlagsTableSeeder extends Seeder
                                 [ 
                                     'flag'=> 16
                                     ,'name_en'=>'Day of Death'		
-                                    ,'name_bn'=>'মৃত্যুর দিন'		
+                                    ,'name_bn'=>'মৃত্যুর দিন'	
+                                    ,'display_order'=>4			
                                     ],
+                                    [ 
+                                        'flag'=> 32
+                                        ,'name_en'=>'Events'		
+                                        ,'name_bn'=>'ঘটনাবলী'	
+                                        ,'display_order'=>5			
+                                        ],
             ];
             foreach ($array as $key => $value) {
                 DayFlag::create($value);

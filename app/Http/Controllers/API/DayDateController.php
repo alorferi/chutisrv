@@ -44,7 +44,7 @@ class DayDateController extends Controller
 
     public function getDaysByYearGroupByMonthsGroupByFlags($year){
 
-        $dayFlags =DayFlag::where('flag','!=','1')->orderBy("flag")->get();
+        $dayFlags =DayFlag::where('flag','!=','1')->orderBy("display_order")->get();
 
 
        
@@ -52,7 +52,7 @@ class DayDateController extends Controller
         for($month=1;$month<=12;$month++){
            
         
-            $hds = [];
+            $dds = [];
     
             foreach( $dayFlags as $dayFlag ){
     
@@ -70,13 +70,13 @@ class DayDateController extends Controller
                     ,"name"=>$dayFlag->name_bn
                     ,"daydates"=>$daydates);
         
-                   $hds[] = $hd;
+                   $dds[] = $hd;
                 }
               
                
             }
 
-            $months[]= $hds;
+            $months[]= $dds;
             
 
         }
@@ -90,7 +90,7 @@ class DayDateController extends Controller
 
     public function getHolidaysByYearGroupByMonthsGroupByTypes($year){
         
-        $holidaytypes =HolidayType::orderBy("orderFlag")->get();
+        $holidaytypes =HolidayType::orderBy("display_order")->get();
 
         $months = [];
         for($month=1;$month<=12;$month++){
@@ -100,7 +100,7 @@ class DayDateController extends Controller
     
             foreach( $holidaytypes as $holidaytype ){
     
-                $daydates = DB::table('daydates as dd')
+                $holidays = DB::table('daydates as dd')
                 ->select($this->selectClause)
                 ->join('days as d', 'dd.dayid', '=', 'd.id')
                 ->whereYear('dd.date',$year)
@@ -109,11 +109,11 @@ class DayDateController extends Controller
                 ->orderBy("dd.date")
                 ->get();
     
-                if(count($daydates)>0){
+                if(count($holidays)>0){
                     $hd = array("code"=>$holidaytype->code
                     ,"shortName"=>$holidaytype->shortName
                     ,"longName"=>$holidaytype->longName
-                    ,"holidays"=>$daydates);
+                    ,"holidays"=>$holidays);
         
                    $hds[] = $hd;
                 }
