@@ -44,15 +44,45 @@ class DayDateController extends Controller
 
     public function getDaysByYearGroupByMonthsGroupByFlags($year){
 
+        $holidaytypes =HolidayType::orderBy("display_order")->get();
+
+
         $dayFlags =DayFlag::where('flag','!=','1')->orderBy("display_order")->get();
 
 
        
         $months = [];
         for($month=1;$month<=12;$month++){
+
+
+
+            $hds = [];
+    
+            foreach( $holidaytypes as $holidaytype ){
+    
+                $holidays = DB::table('daydates as dd')
+                ->select($this->selectClause)
+                ->join('days as d', 'dd.dayid', '=', 'd.id')
+                ->whereYear('dd.date',$year)
+                ->whereMonth('dd.date',$month)
+                ->where('holidayCode',$holidaytype->code)
+                ->orderBy("dd.date")
+                ->get();
+    
+                if(count($holidays)>0){
+                    $hd = array("code"=>$holidaytype->code
+                    ,"shortName"=>$holidaytype->shortName
+                    ,"longName"=>$holidaytype->longName
+                    ,"holidays"=>$holidays);
+        
+                   $hds[] = $hd;
+                }
+              
+               
+            }
            
         
-            $dds = [];
+            $ods = [];
     
             foreach( $dayFlags as $dayFlag ){
     
@@ -66,17 +96,17 @@ class DayDateController extends Controller
                 ->get();
     
                 if(count($daydates)>0){
-                    $hd = array("flag"=>$dayFlag->flag
+                    $df = array("flag"=>$dayFlag->flag
                     ,"name"=>$dayFlag->name_bn
                     ,"daydates"=>$daydates);
         
-                   $dds[] = $hd;
+                   $ods[] = $df;
                 }
               
                
             }
 
-            $months[]= $dds;
+            $months[]= array('hds'=>$hds,"ods"=> $ods);
             
 
         }
