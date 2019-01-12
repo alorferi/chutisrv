@@ -19,7 +19,7 @@ Tag - Edit
 
     <div class="form-group">
         {{ Form::label('photo', 'Photo') }}
-        <img src="{{ asset("$day->photoUrl")}}" width="64"  />  
+        <img src="{{ asset("$day->photoUrl")}}" width="64"  />
         {{ Form::file('photo') }}
     </div>
 
