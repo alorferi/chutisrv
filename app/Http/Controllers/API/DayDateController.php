@@ -191,7 +191,7 @@ class DayDateController extends Controller
 
     public function getHolidaysByYearByMonthGroupByTypes($year,$month){
         
-        $holidaytypes =HolidayType::orderBy("orderFlag")->get();
+        $holidaytypes =HolidayType::orderBy("display_order")->get();
 
         $hds = [];
 
@@ -223,6 +223,39 @@ class DayDateController extends Controller
         return $data;
     }
 
+
+    public function getHolidaysByDateGroupByTypes($date){
+        
+        $holidaytypes =HolidayType::orderBy("display_order")->get();
+
+        $hds = [];
+
+        foreach( $holidaytypes as $holidaytype ){
+
+            $daydates = DB::table('daydates as dd')
+            ->select($this->selectClause)
+            ->join('days as d', 'dd.dayid', '=', 'd.id')
+            ->where('dd.date',$date)
+            ->where('holidayCode',$holidaytype->code)
+            ->orderBy("dd.date")
+            ->get();
+
+            if(count($daydates)>0){
+                $hd = array("code"=>$holidaytype->code
+                ,"shortName"=>$holidaytype->shortName
+                ,"longName"=>$holidaytype->longName
+                ,"holidays"=>$daydates);
+    
+               $hds[] = $hd;
+            }
+           
+        }
+
+       
+        $data =   Data::data("OK",sizeof($hds)." holidaytype(s) found",$hds );   
+          
+        return $data;
+    }
 
     // public function getHolidaysByYearGroupByMonthsGroupByTypes($year){
         
