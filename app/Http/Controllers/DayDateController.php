@@ -79,17 +79,7 @@ class DayDateController extends Controller
 
             $daydate = new DayDate;
             // No need to update image url
-           
-            if ( $request->hasFile('banner')) {
-                $banner = $request->file('banner');
-                if($daydate->bannerFileName==null){
-                    $daydate->bannerFileName = 'dd_bnr'.time().'.'.$banner->getClientOriginalExtension();
-                    $daydate->bannerUrl       =    Dir::dayDateBannerUrl($daydate->bannerFileName);
-                    }
-                $destinationPath =  Dir::dayDateBannersPath();
-                $banner->move($destinationPath,  $daydate->bannerFileName);
-            }
-
+    
             $daydate->stared = $request->stared;
             $daydate->date = $request->date;
     
@@ -98,6 +88,16 @@ class DayDateController extends Controller
            // dd($daydate);
             $daydate->save();
            
+            if ( $request->hasFile('banner')) {
+                $banner = $request->file('banner');
+                if($daydate->bannerFileName==null){
+                    $daydate->bannerFileName = Dir::dayDateBannerNameFromPhoto($daydate,$banner);
+                    $daydate->bannerUrl       =    Dir::dayDateBannerUrl($daydate->bannerFileName);
+                    }
+                $destinationPath =  Dir::dayDateBannersPath();
+                $banner->move($destinationPath,  $daydate->bannerFileName);
+            }
+
             // redirect
             Session::flash('message',  "Day date successfull saved.");
             return Redirect::to('/admin/daydate');
@@ -156,15 +156,15 @@ class DayDateController extends Controller
             $daydate = DayDate::find($id);
 
            // dd($request->hasFile('photo'));
-           if ( $request->hasFile('banner')) {
-                $banner = $request->file('banner');
-                if($daydate->bannerFileName==null){
-                    $daydate->bannerFileName = 'dd_bnr'.time().'.'.$banner->getClientOriginalExtension();
-                    $daydate->bannerUrl       =    Dir::dayDateBannerUrl($daydate->bannerFileName);
-                    }
-                $destinationPath =  Dir::dayDateBannersPath();
-                $banner->move($destinationPath,  $daydate->bannerFileName);
-            }
+        //    if ( $request->hasFile('banner')) {
+        //         $banner = $request->file('banner');
+        //         if($daydate->bannerFileName==null){
+        //             $daydate->bannerFileName = 'dd_bnr'.time().'.'.$banner->getClientOriginalExtension();
+        //             $daydate->bannerUrl       =    Dir::dayDateBannerUrl($daydate->bannerFileName);
+        //             }
+        //         $destinationPath =  Dir::dayDateBannersPath();
+        //         $banner->move($destinationPath,  $daydate->bannerFileName);
+        //     }
 
             $daydate->dayId =$request->dayId;
             $daydate->date = $request->date;
@@ -176,6 +176,17 @@ class DayDateController extends Controller
           //  dd($daydate);
             $daydate->save();
            
+            if ( $request->hasFile('banner')) {
+                    
+                    $banner = $request->file('banner');
+                    $daydate->bannerFileName = Dir::dayDateBannerNameFromPhoto($daydate,$banner);
+                    $daydate->bannerUrl   =  Dir::dayDateBannerUrl($daydate->bannerFileName);
+                    $daydate->save();
+
+                $destinationPath =  Dir::dayDateBannersPath();
+                $banner->move($destinationPath,  $daydate->bannerFileName);
+            }
+
             // redirect
             Session::flash('message',  "Day date successfull saved.");
             return Redirect::to('/admin/daydate');

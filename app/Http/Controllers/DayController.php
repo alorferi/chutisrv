@@ -76,21 +76,21 @@ class DayController extends Controller
             $day->descriptionBn   = $request->descriptionBn;
             $day->dayFlag      = $this->getDayflagCode($request->dayFlags);
             $day->religionCode  = ($request->religionCode=="0")?null:$request->religionCode;
-           
-           
+              
+            $day->save();
+
+
             if ( $request->hasFile('photo')) {
                 $photo = $request->file('photo');
 
                 if($day->photoFileName==null){
-                    $day->photoFileName = 'day'.time().'.'.$photo->getClientOriginalExtension();
+                    $day->photoFileName = Dir::dayPhotoNameFromPhoto($day,$photo );
                     $day->photoUrl       =    Dir::dayPhotoUrl($day->photoFileName);
                 }
 
                 $destinationPath =  Dir::dayPhotosPath();
                 $photo->move($destinationPath,  $day->photoFileName);
             }
-           
-            $day->save();
 
             // redirect
             Session::flash('message', 'Successfully created day!');
@@ -201,20 +201,6 @@ class DayController extends Controller
             // retrive day from table
             $day = Day::find($id);
 
-           // dd($request->hasFile('photo'));
-            if ( $request->hasFile('photo')) {
-                $photo = $request->file('photo');
-
-                if($day->photoFileName==null){
-                    $day->photoFileName = 'day'.time().'.'.$photo->getClientOriginalExtension();
-                    $day->photoUrl       =    Dir::dayPhotoUrl($day->photoFileName);
-                }
-
-              
-                $destinationPath =  Dir::dayPhotosPath();
-                $photo->move($destinationPath,  $day->photoFileName);
-            }
-
             $day->date          = $request->date;
             $day->isFixedDate   = ($request->isFixedDate=='on')?true:false;
             $day->titleBn         = $request->titleBn;
@@ -222,8 +208,24 @@ class DayController extends Controller
             $day->dayFlag       = $this->getDayflagCode($request->dayFlags);
             $day->religionCode  = ($request->religionCode=="0")?null:$request->religionCode;
            
-          //  dd($day);
+           // dd($day);
             $day->save();
+
+           // dd($day);
+
+                //dd($request->hasFile('photo'));
+               if ( $request->hasFile('photo')) {
+                
+                    $photo = $request->file('photo');             
+                    $day->photoFileName = Dir::dayPhotoNameFromPhoto($day,$photo);
+                   // dd($day->photoFileName );
+                    $day->photoUrl       =    Dir::dayPhotoUrl($day->photoFileName);
+                    $day->save();
+                   // dd($day->photoUrl);
+            
+                $destinationPath =  Dir::dayPhotosPath();
+                $photo->move($destinationPath,  $day->photoFileName);
+            }
 
             // redirect
             Session::flash('message', 'Successfully created day!');
