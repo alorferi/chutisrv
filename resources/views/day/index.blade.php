@@ -35,8 +35,7 @@
             <td>Photo</td>
             <td>Date</td>  
             <td>Fxd</td>  
-            <td>Title</td>
-            <td>Description</td>
+            <td>Details</td>
             <td>Religion</td>
 
         </tr>
@@ -53,8 +52,15 @@
        
              <td>{{ $day->date }}</td> 
              <td>{{ $day->isFixedDate }}</td> 
-            <td>{{ $day->titleBn }} <br/> {{ $day->titleEN }} </td>
-            <td>{{ $day->description }}</td>
+            <td>
+                
+            <h5>  {{ $day->titleBn }} <br/> {{ $day->titleEN }} </h5>
+
+            {{ $day->descriptionBn }}
+            
+            
+            </td>
+
             <td>
             @if($day->religion!=null)
                 {{ $day->religion->localName }}
