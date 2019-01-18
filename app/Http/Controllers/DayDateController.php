@@ -11,6 +11,7 @@ use Session;
 use Redirect;
 use Validator;
 use Auth;
+use DB;
 
 class DayDateController extends Controller
 {
@@ -29,7 +30,7 @@ class DayDateController extends Controller
 
         $daydates = DayDate::with('day')
                     ->whereYear('date',$year)
-                    ->where('holidayCode','!=',null)
+                   //->where('holidayCode','!=',null)
                     ->orderBy("date")
                     ->get();
 
@@ -45,7 +46,10 @@ class DayDateController extends Controller
      */
     public function create()
     {
-        $days = Day::pluck('titleBn as title', 'id');
+       // $days = Day::pluck("'titleBn'  as title", 'id');
+      
+          $days = Day::select(DB::raw("CONCAT(IFNULL(days.date,'NO DATE'),': ',days.titleBn) AS title"),'id')->get()->pluck('title','id');
+          $days->prepend('Please Select');
 
         $holidayTypes = HolidayType::pluck('longName', 'code');
         $holidayTypes->prepend('Please Select');
