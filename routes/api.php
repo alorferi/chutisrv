@@ -54,6 +54,8 @@ Route::get("daydate/{year}/HolidaysGroupByMonthsGroupByTypes","API\DayDateContro
 
 Route::get("daydate/{year}/DaysGroupByMonthsGroupByFlags","API\DayDateController@getDaysByYearGroupByMonthsGroupByFlags");
 
+Route::get("daydate/{date}/HolidaysAndOtherDaysGroupByTypes","API\DayDateController@getHolidaysAndOtherDaysByDateGroupByTypes");
+
 Route::get("daydate/{year}/{holidayTypes}/HolidaysByYearByTypesGroupByMonths","API\DayDateController@getHolidaysByYearByTypesGroupByMonths");
 
 Route::get("daydate/{date}/days","API\DayDateController@getDays");

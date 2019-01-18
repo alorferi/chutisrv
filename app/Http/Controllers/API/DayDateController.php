@@ -110,13 +110,79 @@ class DayDateController extends Controller
             
 
         }
-          
-       
         $data =   Data::data("OK",sizeof($months )." month(s) found",$months );   
           
         return $data;
 
         }    
+
+        function getHolidaysAndOtherDaysByDateGroupByTypes($date){
+
+            $holidaytypes =HolidayType::orderBy("display_order")->get();
+
+            $dayFlags =DayFlag::where('flag','!=','1')->orderBy("display_order")->get();
+    
+                $dds= [];   
+
+                $hds = [];
+        
+                foreach( $holidaytypes as $holidaytype ){
+        
+                    $holidays = DB::table('daydates as dd')
+                    ->select($this->selectClause)
+                    ->join('days as d', 'dd.dayid', '=', 'd.id')
+                    ->where('dd.date',$date)
+                    ->where('holidayCode',$holidaytype->code)
+                    ->orderBy("dd.date")
+                    ->get();
+        
+                    if(count($holidays)>0){
+                        $hd = array("code"=>$holidaytype->code
+                        ,"shortName"=>$holidaytype->shortName
+                        ,"longName"=>$holidaytype->longName
+                        ,"holidays"=>$holidays);
+            
+                       $hds[] = $hd;
+                    }
+                  
+                   
+                }
+               
+            
+                $ods = [];
+        
+                foreach( $dayFlags as $dayFlag ){
+        
+                    $daydates = DB::table('daydates as dd')
+                    ->select($this->selectClause)
+                    ->join('days as d', 'dd.dayid', '=', 'd.id')
+                    ->where('dd.date',$date)
+                    ->where('d.dayFlag','&',$dayFlag->flag)
+                    ->orderBy("dd.date")
+                    ->get();
+        
+                    if(count($daydates)>0){
+                        $df = array("flag"=>$dayFlag->flag
+                        ,"name"=>$dayFlag->name_bn
+                        ,"daydates"=>$daydates);
+            
+                       $ods[] = $df;
+                    }
+                  
+                   
+                }
+    
+                $dds[]= array('hds'=>$hds,"ods"=> $ods);
+                
+    
+            
+            $data =   Data::data("OK",sizeof($dds )." month(s) found",$dds);   
+              
+            return $data;
+
+
+
+        }
 
     public function getHolidaysByYearGroupByMonthsGroupByTypes($year){
         

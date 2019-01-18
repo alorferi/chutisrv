@@ -41,7 +41,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 
       
 
-       
         Route::resource('/religion', 'ReligionController');
         Route::resource('/day', 'DayController');
         Route::get('/daydate/{year}/holidays', 'DayDateController@showHolidays');

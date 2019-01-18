@@ -58,13 +58,12 @@ Genre List
             <td>{{ $daydate->stared }}</td>
             <td>{{ $daydate->date }}</td>
             <td>
-                
-                {{ $daydate->day->titleBn }}
-                <br/>
-                {{ $daydate->day->titleEn }}
-            </br>
 
-            <img src="{{ asset("$daydate->bannerUrl")}}" height="100" width="600"  />  
+                <p>  <img src="{{ asset("$daydate->bannerUrl")}}" height="100" width="600"  />  </p>
+                
+                {{ $daydate->day->titleBn }} - {{ $daydate->day->titleEn }}
+          
+                <p>    {{ $day->descriptionBn }}  </p>
 
             </td>
          
