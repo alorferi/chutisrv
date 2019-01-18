@@ -122,7 +122,7 @@ class DayDateController extends Controller
 
             $dayFlags =DayFlag::where('flag','!=','1')->orderBy("display_order")->get();
     
-                $dds= [];   
+            
 
                 $hds = [];
         
@@ -172,11 +172,11 @@ class DayDateController extends Controller
                    
                 }
     
-                $dds[]= array('hds'=>$hds,"ods"=> $ods);
+                $dds = array('hds'=>$hds,"ods"=> $ods);
                 
     
             
-            $data =   Data::data("OK",sizeof($dds )." month(s) found",$dds);   
+            $data =   Data::data("OK","Fetched",$dds);   
               
             return $data;
 
