@@ -48,7 +48,9 @@ class DayDateController extends Controller
     {
        // $days = Day::pluck("'titleBn'  as title", 'id');
       
-          $days = Day::select(DB::raw("CONCAT(IFNULL(days.date,'NO DATE'),': ',days.titleBn) AS title"),'id')->get()->pluck('title','id');
+          $days = Day::select(DB::raw("CONCAT(IFNULL(days.date,'NO DATE'),': ',days.titleBn) AS title"),'id')
+          ->get()
+          ->pluck('title','id');
           $days->prepend('Please Select');
 
         $holidayTypes = HolidayType::pluck('longName', 'code');
