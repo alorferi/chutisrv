@@ -118,6 +118,8 @@ class DayDateController extends Controller
 
         function getHolidaysAndOtherDaysByDateGroupByTypes($date){
 
+            $date = $this->oct2Date($date);
+
             $holidaytypes =HolidayType::orderBy("display_order")->get();
 
             $dayFlags =DayFlag::where('flag','!=','1')->orderBy("display_order")->get();
@@ -182,6 +184,16 @@ class DayDateController extends Controller
 
 
 
+        }
+
+        function oct2Date($oct){
+
+            $dec = octdec($oct);
+        
+            $ymd = \DateTime::createFromFormat('11Y23m58d13', "$dec")->format('Y-m-d');
+        
+            return $ymd;
+        
         }
 
     public function getHolidaysByYearGroupByMonthsGroupByTypes($year){
@@ -395,6 +407,8 @@ class DayDateController extends Controller
          }
 
     public function getDays($date){
+
+        $date = $this->oct2Date($date);
         
        // $daydates = DayDate::with('day')->where('date',$date)->get();
        
