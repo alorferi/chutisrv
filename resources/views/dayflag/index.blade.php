@@ -24,8 +24,7 @@ Genre List
         	  <td>Actions</td>
             <td>Flag</td>
             <td>Name   </td>
-
-
+            <td>Order   </td>
         </tr>
     </thead>
     <tbody>
@@ -38,7 +37,8 @@ Genre List
             </td>
 
             <td>{{ $dayflag->flag }}</td>
-            <td>{{ $dayflag->name_bn }} - {{ $dayflag->name_en }} </td>        
+            <td>{{ $dayflag->name_bn }} - {{ $dayflag->name_en }} </td>   
+            <td>{{ $dayflag->display_order }}  </td>        
         </tr>
     @endforeach
     </tbody>

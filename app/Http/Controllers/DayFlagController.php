@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\DayFlag;
 use Illuminate\Http\Request;
+use Validator;
+use Session;
+use Redirect;
 
 class DayFlagController extends Controller
 {
@@ -25,7 +28,7 @@ class DayFlagController extends Controller
      */
     public function create()
     {
-        //
+        return view("dayflag.create");
     }
 
     /**
@@ -36,7 +39,35 @@ class DayFlagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+         // validate
+        // read more on validation at http://laravel.com/docs/validation
+        $rules = array(
+            'name_en'       => 'required',
+            'name_bn'       => 'required',
+        );
+        $validator = Validator::make($request->all(), $rules);
+
+        // process the login
+        if ($validator->fails()) {
+            return Redirect::to('/admin/dayflag/create')
+                ->withErrors($validator)
+                ->withRequest($request->except('password'));
+        } else {
+            // store
+            $day = new DayFlag;
+         
+            $day->flag   = $request->flag;
+            $day->name_en   = $request->name_en;
+            $day->name_bn   = $request->name_bn;
+            $day->display_order  =$request->display_order;
+              
+            $day->save();
+
+            // redirect
+            Session::flash('message', 'Day Flag Successfully created!');
+            return Redirect::to('/admin/dayflag');
+        }
     }
 
     /**
@@ -56,9 +87,10 @@ class DayFlagController extends Controller
      * @param  \App\Models\DayFlag  $dayFlag
      * @return \Illuminate\Http\Response
      */
-    public function edit(DayFlag $dayFlag)
+    public function edit($id)
     {
-        //
+        $dayflag = DayFlag::where('flag',$id)->first();     
+        return view("dayflag.edit")->with(compact('dayflag'));
     }
 
     /**
@@ -68,9 +100,34 @@ class DayFlagController extends Controller
      * @param  \App\Models\DayFlag  $dayFlag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DayFlag $dayFlag)
+    public function update(Request $request,  $id)
     {
-        //
+         // validate
+        // read more on validation at http://laravel.com/docs/validation
+        $rules = array(
+            'name_en'       => 'required',
+            'name_bn'       => 'required',
+        );
+        $validator = Validator::make($request->all(), $rules);
+
+        // process the login
+        if ($validator->fails()) {
+            return Redirect::to("/admin/dayflag/$id/edit")
+                ->withErrors($validator)
+                ->withRequest($request->except('password'));
+        } else {
+            // store
+            $day = DayFlag::where("flag",$id)->first();
+            $day->name_en   = $request->name_en;
+            $day->name_bn   = $request->name_bn;
+            $day->display_order  =$request->display_order;
+              
+            $day->save();
+
+            // redirect
+            Session::flash('message', 'Day Flag Successfully Updated!');
+            return Redirect::to('/admin/dayflag');
+        }
     }
 
     /**

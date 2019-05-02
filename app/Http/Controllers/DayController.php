@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Day;
 use App\Models\Religion;
 use App\Models\DayFlag;
+use App\Models\HolidayType;
 use App\Utils\Dir;
 use Illuminate\Http\Request;
 use Session;
@@ -43,7 +44,10 @@ class DayController extends Controller
 
         $religions->prepend('Please Select');
 
-        return view("day.create")->with(compact('religions','dayFlags'));
+        $holidayTypes = HolidayType::pluck('longName', 'code');
+        $holidayTypes->prepend('Please Select');
+
+        return view("day.create")->with(compact('religions','dayFlags','holidayTypes'));
     }
 
     /**
@@ -132,7 +136,10 @@ class DayController extends Controller
         $religions = Religion::pluck('localName', 'code');
         $religions->prepend('Please Select');
 
-        return view("day.edit")->with(compact('day','religions','dayFlags','flag_ids'));
+        $holidayTypes = HolidayType::pluck('longName', 'code');
+        $holidayTypes->prepend('Please Select');
+
+        return view("day.edit")->with(compact('day','religions','dayFlags','flag_ids','holidayTypes'));
     }
 
 
