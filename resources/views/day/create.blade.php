@@ -49,22 +49,23 @@
 
 
     <div class="form-group">
-            {{ Form::label('dayFlags', 'Tags') }}
+            {{ Form::label('dayFlags', 'Day Flags') }}
             {{-- {{ Form::select('tag_ids[]', $tags, null, ['multiple'], array('class' => 'form-control')) }} --}}
             {{ Form::select('dayFlags[]', $dayFlags, null, ['multiple'], array('class' => 'form-control')) }}
         </div>
     
-
-{{-- 
-    <div class="form-group">
-        {{ Form::label('dayFlag', 'DayFlag') }}
-        {{ Form::select('dayFlag', $dayFlags, Request::old('dayFlag'), array('class' => 'form-control')) }}
-    </div> --}}
-
         <div class="form-group">
             {{ Form::label('religionCode', 'Religion') }}
             {{ Form::select('religionCode', $religions, Request::old('religionCode'), array('class' => 'form-control')) }}
         </div>
+        
+        <div class="form-group">
+            {{ Form::label('holidayCode', 'Holiday Type') }}
+            {{ Form::select('holidayCode', $holidayTypes, Request::old('holidayCode'), array('class' => 'form-control')) }}
+        </div>
+
+     
+
 
 
     {{ Form::submit('Save', array('class' => 'btn btn-primary')) }}

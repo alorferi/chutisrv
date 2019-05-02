@@ -36,8 +36,10 @@
             <td>Date</td>  
             <td>Fxd</td>  
             <td>Details</td>
+            <td>Day Flags</td>
+           
             <td>Religion</td>
-
+            <td>Holiday Type</td>
         </tr>
     </thead>
     <tbody>
@@ -61,6 +63,12 @@
             
             </td>
 
+        
+
+            <td>
+            {{ $day->dayFlag }}
+            </td>
+         
             <td>
             @if($day->religion!=null)
                 {{ $day->religion->localName }}
@@ -69,9 +77,9 @@
                 @endif
             
             </td>
-         
-
-
+            <td>
+            {{ $day->holidayCode }}
+            </td>
            
         </tr>
     @endforeach

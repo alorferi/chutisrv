@@ -79,6 +79,7 @@ class DayController extends Controller
             $day->titleBn         = $request->titleBn;
             $day->descriptionBn   = $request->descriptionBn;
             $day->dayFlag      = $this->getDayflagCode($request->dayFlags);
+            $day->holidayCode      = ($request->holidayCode=="0")? null:$request->holidayCode;
             $day->religionCode  = ($request->religionCode=="0")?null:$request->religionCode;
               
             $day->save();
@@ -213,6 +214,7 @@ class DayController extends Controller
             $day->titleBn         = $request->titleBn;
             $day->descriptionBn   = $request->descriptionBn;
             $day->dayFlag       = $this->getDayflagCode($request->dayFlags);
+            $day->holidayCode      = ($request->holidayCode=="0")? null:$request->holidayCode;
             $day->religionCode  = ($request->religionCode=="0")?null:$request->religionCode;
            
            // dd($day);
