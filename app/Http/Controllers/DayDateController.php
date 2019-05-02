@@ -80,7 +80,7 @@ class DayDateController extends Controller
 
         // process the login
         if ($validator->fails()) {
-            return Redirect::to("/admin/daydate/$id/edit")
+            return Redirect::to("/admin/daydate/create")
                 ->withErrors($validator)
                 ->withInput($request->except('password'));
         } else {
