@@ -30,6 +30,17 @@ class DataController extends Controller
             $daydates_updated_at =  "2018-01-01";
         }
 
+        if( isset($headers['auth_pub_key'])){
+            $auth_pub_key =$headers['auth_pub_key'];
+            if($auth_pub_key == null or $auth_pub_key== ""){
+                $data =   Data::data("FAILED","Invalid credential.",null);  
+                return $data; 
+            }
+        }else{
+            $data =   Data::data("FAILED","Illegal attempt to access.",null);  
+            return $data; 
+        }
+
         $daydates = DayDate::whereYear('date',$year)
         ->whereNotNull('holidayCode')
         ->where('updated_at',">",$daydates_updated_at)
@@ -46,6 +57,6 @@ class DataController extends Controller
         
         $data =   Data::data("OK",$message,$array);   
 
-        return $data;
+        return response()->json($data);
     }
 }

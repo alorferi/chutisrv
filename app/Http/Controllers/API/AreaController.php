@@ -19,7 +19,6 @@ class AreaController extends Controller
                 }else{
                     $data =   Data::data("OK",sizeof($areas)." area(s) found",$areas);   
                     }
-                    
                     return $data;
     }
   
