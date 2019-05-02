@@ -8,9 +8,9 @@
             <td >Day Date</td>
             <td ><a href="/admin/daydate/create">Create</a></td>
 
-            <td ><a href="/admin/daydate/2017/holidays/">HD-2017</a></td>
-            <td ><a href="/admin/daydate/2018/holidays/">HD-2018</a></td>
-            <td ><a href="/admin/daydate/2019/holidays/">HD-2019</a></td>
+            <td >&nbsp;&nbsp;<a href="/admin/daydate/{{$backYear}}/holidays/">&lt;&lt;</a></td>
+            <td >{{$currentYear}}</td>
+            <td ><a href="/admin/daydate/{{$nextYear}}/holidays/">&gt;&gt;</a></td>
 
         </tr>
     </table>

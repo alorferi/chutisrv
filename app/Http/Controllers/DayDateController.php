@@ -20,9 +20,11 @@ class DayDateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($year=0)
     {
-        $year = date("Y");
+        if($year==0){
+            $year = date("Y");
+        }
         return $this->showHolidays($year);
     }
 
@@ -34,9 +36,13 @@ class DayDateController extends Controller
                     ->orderBy("date")
                     ->get();
 
+                    $backYear = $year - 1; 
+                    $currentYear = $year;
+                    $nextYear = $year + 1; 
+
                     Session::flash('message', count( $daydates ). " dates found");
 
-        return view('daydate.index')->with(compact('daydates'));
+        return view('daydate.index')->with(compact('daydates', 'backYear', 'currentYear', 'nextYear'));
     }
 
     /**
