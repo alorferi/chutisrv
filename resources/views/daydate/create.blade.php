@@ -1,16 +1,21 @@
 @extends('layouts.admin')
 
 @section('back')
-<a href="{{ URL::to('/admin/day') }}">&lt; Back</a>
+
+        <a href="/admin/daydate/{{$currentYear}}/holidays/">&lt; Back</a>
+
+            &nbsp;&nbsp;| <a href="/admin/daydate/{{$backYear}}/create/">&lt;&lt;</a>
+           <a href="/admin/daydate/{{$currentYear}}/create/">{{$currentYear}}</a>
+           <a href="/admin/daydate/{{$nextYear}}/create/">&gt;&gt;</a>
+
 @endsection
 
 @section('title')
-Day Date - Create
+<h4> Create DayDate </h4>
 @endsection
 
 @section('content')
 
-<h1> Create DayDate </h1>
 
 <!-- if there are creation errors, they will show here -->
 {{ Html::ul($errors->all()) }}
@@ -33,15 +38,8 @@ Day Date - Create
 
     <div class="form-group">
         {{ Form::label('date', 'Date') }}
-        {{ Form::date('date', Request::old('date'), array('class' => 'form-control')) }}
+        {{ Form::date('date', $date, array('class' => 'form-control')) }}
     </div>
-
-        <div class="form-group">
-            {{ Form::label('stared', 'Stared') }}
-            {{ Form::text('stared', Request::old('stared'), array('class' => 'form-control')) }}
-        </div>
-
-
 
         <div class="form-group">
             {{ Form::label('holidayCode', 'Holiday Type') }}

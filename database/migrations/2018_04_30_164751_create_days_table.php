@@ -22,6 +22,7 @@ class CreateDaysTable extends Migration
             $table->string('dayKey')->nullable()->unique();    
             $table->date('date')->nullable(); 
             $table->boolean('isFixedDate')->default(false); 
+            $table->boolean('isMultiDate')->default(false); 
             $table->string('titleEn')->nullable();
             $table->string('titleBn')->nullable();
             $table->text('descriptionEn')->nullable(); 

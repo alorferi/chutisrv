@@ -33,7 +33,12 @@
     <div class="form-group">
             {{ Form::label('isFixedDate', 'FixedDate') }}
             {{ Form::checkbox('isFixedDate',null, Request::old('isFixedDate')) }}
-        </div>
+    </div>
+
+    <div class="form-group">
+            {{ Form::label('isMultiDate', 'isMultiDate') }}
+            {{ Form::checkbox('isMultiDate',null, Request::old('isMultiDate')) }}
+    </div>
    
    
   <div class="form-group">

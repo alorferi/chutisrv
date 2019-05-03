@@ -38,6 +38,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 
         Route::resource('/religion', 'ReligionController');
         Route::resource('/day', 'DayController');
+        Route::get('/daydate/{year}/create', 'DayDateController@create');
         Route::get('/daydate/{year}/holidays', 'DayDateController@showHolidays');
         Route::get('/daydate/{year}/generate-dates', 'DayDateController@generateDates');
         Route::resource('/daydate', 'DayDateController');

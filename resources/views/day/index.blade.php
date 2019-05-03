@@ -34,10 +34,10 @@
             <td>Actions</td>
             <td>Photo</td>
             <td>Date</td>  
-            <td>Fxd</td>  
+            <td>FIX DT</td>  
+            <td>MULTI DT</td>  
             <td>Details</td>
-            <td>Day Flags</td>
-           
+            <td>Day Flags</td> 
             <td>Religion</td>
             <td>Holiday Type</td>
         </tr>
@@ -54,6 +54,7 @@
        
              <td>{{ $day->date }}</td> 
              <td>{{ $day->isFixedDate }}</td> 
+             <td>{{ $day->isMultiDate }}</td> 
             <td>
                 
             <h5>  {{ $day->titleBn }} <br/> {{ $day->titleEN }} </h5>
@@ -78,7 +79,10 @@
             
             </td>
             <td>
-            {{ $day->holidayCode }}
+               @if($day->holidayType==null)
+                @else
+                {{ $day->holidayType->longName }}
+                @endif
             </td>
            
         </tr>

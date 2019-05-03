@@ -16,4 +16,9 @@ class Day extends Model
     {
         return $this->belongsTo('App\Models\Religion','religionCode','code');
     }
+
+    public function holidayType()
+    {
+        return $this->belongsTo('App\Models\HolidayType','holidayCode','code');
+    }
 }

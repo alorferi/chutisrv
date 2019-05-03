@@ -30,10 +30,10 @@ Tag - Edit
         {{ Form::date('date', Request::old('date'), array('class' => 'form-control')) }}
     </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
             {{ Form::label('stared', 'Stared') }}
             {{ Form::text('stared', Request::old('stared'), array('class' => 'form-control')) }}
-        </div>
+        </div> -->
 
     <div class="form-group">
         {{ Form::label('dayId', 'Day') }}

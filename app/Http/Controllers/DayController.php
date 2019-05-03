@@ -86,7 +86,8 @@ class DayController extends Controller
             $day = new Day;
             $day->date          = $request->date;
            // dd($request->isFixedDate);
-            $day->isFixedDate   = ($request->isFixedDate=='on')?true:false;
+            $day->isFixedDate   = ($request->isFixedDate=='on')?true:false;  
+            $day->isMultiDate   = ($request->isMultiDate=='on')?true:false;
             $day->titleBn         = $request->titleBn;
             $day->descriptionBn   = $request->descriptionBn;
             $day->dayFlag      = $this->getDayflagCode($request->dayFlags);
@@ -222,6 +223,7 @@ class DayController extends Controller
 
             $day->date          = $request->date;
             $day->isFixedDate   = ($request->isFixedDate=='on')?true:false;
+            $day->isMultiDate   = ($request->isMultiDate=='on')?true:false;
             $day->titleBn         = $request->titleBn;
             $day->descriptionBn   = $request->descriptionBn;
             $day->dayFlag       = $this->getDayflagCode($request->dayFlags);

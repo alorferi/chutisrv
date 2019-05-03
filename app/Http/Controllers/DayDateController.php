@@ -10,6 +10,7 @@ use App\Utils\Dir;
 use Session;
 use Redirect;
 use Validator;
+use DateTime;
 use Auth;
 use DB;
 
@@ -61,19 +62,34 @@ class DayDateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($year =0)
     {
-       // $days = Day::pluck("'titleBn'  as title", 'id');
-      
-          $days = Day::select(DB::raw("CONCAT(IFNULL(days.date,'NO DATE'),': ',days.titleBn) AS title"),'id')
-          ->get()
-          ->pluck('title','id');
-          $days->prepend('Please Select');
+        if($year==0){
+            $year = date("Y");
+        }
+    
+          $dayIds = DayDate::whereYear('date',$year)->get(['dayId']);
+
+          //$days = Day::select(DB::raw("CONCAT(IFNULL(days.date,'NO DATE'),': ',days.titleBn) AS title"),'days.id as dayId')
+          $days = Day::where("isFixedDate",false)
+          ->whereNotIn('id',$dayIds)
+          ->orWhere('isMultiDate',true)
+          ->get(['id','titleBn as title'])
+         ->pluck('title','id')
+         ->prepend('Please Select...',0);
+
+       //  return $days;
 
         $holidayTypes = HolidayType::pluck('longName', 'code');
-        $holidayTypes->prepend('Please Select');
+        $holidayTypes->prepend('Please Select...',null);
 
-        return view("daydate.create")->with(compact('days','holidayTypes'));
+        $backYear = $year - 1; 
+        $currentYear = $year;
+        $nextYear = $year + 1; 
+
+        $date= "$year-01-01";
+
+        return view("daydate.create")->with(compact('days','holidayTypes','backYear','currentYear','nextYear','date'));
     }
 
     /**
@@ -97,15 +113,15 @@ class DayDateController extends Controller
         } else {
 
             $daydate = new DayDate;
-            // No need to update image url
-    
-            $daydate->stared = $request->stared;
+
             $daydate->date = $request->date;
+            $daydate->dayId =$request->dayId;
     
             $daydate->holidayCode = $request->holidayCode=="0"?null:$request->holidayCode;
-            $daydate->dayId =$request->dayId;
-           // dd($daydate);
-            $daydate->save();
+          //  dd($daydate);
+           $daydate->save();
+
+           // dd($result);
            
             if ( $request->hasFile('banner')) {
                 $banner = $request->file('banner');
@@ -127,8 +143,59 @@ class DayDateController extends Controller
     public function generateDates($year){
 
 
+        $days = Day::where('isFixedDate',true)->get();
 
-    }
+        
+        foreach($days as $day){
+
+            try{
+
+                $date = new DateTime($day->date);
+                $dateForDay  = $date->format("$year-m-d"); 
+
+                $daydate = DayDate::where('date',$dateForDay)->where("dayId",$day->id)->first();
+
+                if($daydate==null ){
+                    $daydate = new DayDate;
+                }
+           
+    
+            $daydate->dayId =$day->id;
+
+         
+            $daydate->date = $dateForDay;
+    
+            $daydate->holidayCode = $day->holidayCode;
+
+            $daydate->bannerFileName = $day->photoFileName;
+
+            $daydate->bannerUrl       =  $day->photoUrl;
+
+            $daydate->save();
+
+            } catch(QueryException $e){
+
+                switch($e->errorInfo){    
+                    case '23000':
+                    Session::flash('message',  $e->errorInfo[0]);
+                    break;
+            
+                    default:
+                   
+            
+                }     
+            }
+            catch(Exception $e){
+                    Session::flash('message',  $e->getMessage());
+            }
+           
+            }
+           
+            return $this->showHolidays($year);
+        }
+
+
+    
 
     /**
      * Display the specified resource.
@@ -195,8 +262,6 @@ class DayDateController extends Controller
             $daydate->dayId =$request->dayId;
             $daydate->date = $request->date;
           
-            $daydate->stared = $request->stared;
-        
             $daydate->holidayCode = $request->holidayCode=="0"?null:$request->holidayCode;
          
           //  dd($daydate);

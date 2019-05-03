@@ -2,17 +2,12 @@
 
 @section('back')
 
-    <table>
-        <tr>
-      
-            <td >Day Date</td>
-            <td ><a href="/admin/daydate/create">Create</a></td>
-
-            <td >&nbsp;&nbsp;<a href="/admin/daydate/{{$backYear}}/holidays/">&lt;&lt;</a></td>
-            <td ><a href="/admin/daydate/{{$currentYear}}/holidays/">{{$currentYear}}</a></td>
-            <td ><a href="/admin/daydate/{{$nextYear}}/holidays/">&gt;&gt;</a></td>
-            <!-- <td ><a href="/admin/daydate/{{$currentYear}}/generate-dates/">Generate</a></td> -->
-
+ <h4> Day Date</h4>
+           <a href="/admin/daydate/{{$currentYear}}/create">Create</a>
+           &nbsp;|&nbsp;<a href="/admin/daydate/{{$currentYear}}/generate-dates/">Generate</a>
+           &nbsp;|&nbsp;&nbsp;&nbsp;<a href="/admin/daydate/{{$backYear}}/holidays/">&lt;&lt;</a>
+           <a href="/admin/daydate/{{$currentYear}}/holidays/">{{$currentYear}}</a>
+           <a href="/admin/daydate/{{$nextYear}}/holidays/">&gt;&gt;</a>
         </tr>
     </table>
 @endsection
@@ -61,7 +56,7 @@ Genre List
 
                 <p>  <img src="{{ asset("$daydate->bannerUrl")}}" height="100" width="600"  />  </p>
                 
-                <h5> {{ $daydate->stared }} {{ $daydate->day->titleBn }} - {{ $daydate->day->titleEn }} </h5>
+                <h5> {{ $daydate->day->titleBn }} - {{ $daydate->day->titleEn }} </h5>
           
                 <p>  {{ $daydate->day->descriptionBn }}    </p>
 
@@ -70,7 +65,7 @@ Genre List
             <td>
                 @if($daydate->holidayType==null)
                 @else
-                {{ $daydate->holidayType->shortName }}
+                {{ $daydate->holidayType->longName }}
                 @endif
             </td>
            
