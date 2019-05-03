@@ -134,7 +134,7 @@ class DayDateController extends Controller
                     ->select($this->selectClause)
                     ->join('days as d', 'dd.dayid', '=', 'd.id')
                     ->where('dd.date',$date)
-                    ->where('holidayCode',$holidaytype->code)
+                    ->where('dd.holidayCode',$holidaytype->code)
                     ->orderBy("dd.date")
                     ->get();
         
