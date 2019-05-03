@@ -13,11 +13,6 @@
 
 Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
 Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 
     
@@ -44,6 +39,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
         Route::resource('/religion', 'ReligionController');
         Route::resource('/day', 'DayController');
         Route::get('/daydate/{year}/holidays', 'DayDateController@showHolidays');
+        Route::get('/daydate/{year}/generate-dates', 'DayDateController@generateDates');
         Route::resource('/daydate', 'DayDateController');
         Route::resource('/dayflag', 'DayFlagController');
         Route::resource('/holidaytype', 'HolidayTypeController');

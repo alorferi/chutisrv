@@ -15,6 +15,17 @@ use DB;
 
 class DayDateController extends Controller
 {
+
+      /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -110,6 +121,13 @@ class DayDateController extends Controller
             Session::flash('message',  "Day date successfull saved.");
             return Redirect::to('/admin/daydate');
         }
+    }
+
+
+    public function generateDates($year){
+
+
+
     }
 
     /**

@@ -9,8 +9,9 @@
             <td ><a href="/admin/daydate/create">Create</a></td>
 
             <td >&nbsp;&nbsp;<a href="/admin/daydate/{{$backYear}}/holidays/">&lt;&lt;</a></td>
-            <td >{{$currentYear}}</td>
+            <td ><a href="/admin/daydate/{{$currentYear}}/holidays/">{{$currentYear}}</a></td>
             <td ><a href="/admin/daydate/{{$nextYear}}/holidays/">&gt;&gt;</a></td>
+            <!-- <td ><a href="/admin/daydate/{{$currentYear}}/generate-dates/">Generate</a></td> -->
 
         </tr>
     </table>
