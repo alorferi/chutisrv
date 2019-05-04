@@ -151,27 +151,34 @@ class DayDateController extends Controller
             try{
 
                 $date = new DateTime($day->date);
-                $dateForDay  = $date->format("$year-m-d"); 
 
+                $dateForDay  = $date->format("$year-m-d"); 
+               
                 $daydate = DayDate::where('date',$dateForDay)->where("dayId",$day->id)->first();
 
                 if($daydate==null ){
                     $daydate = new DayDate;
+                    $daydate->dayId =$day->id;
+                    $daydate->date = $dateForDay;
+                    $daydate->bannerFileName = $day->photoFileName;
+                    $daydate->bannerUrl       =  $day->photoUrl;
+
+                }else{
+                    
+                    if($daydate->bannerFileName==null){
+                        $daydate->bannerFileName = $day->photoFileName;
+                    }
+
+                    if($daydate->bannerUrl ==null){
+                        $daydate->bannerUrl       =  $day->photoUrl;
+                    }
                 }
-           
-    
-            $daydate->dayId =$day->id;
 
-         
-            $daydate->date = $dateForDay;
-    
-            $daydate->holidayCode = $day->holidayCode;
 
-            $daydate->bannerFileName = $day->photoFileName;
+                $daydate->holidayCode = $day->holidayCode;
+               
 
-            $daydate->bannerUrl       =  $day->photoUrl;
-
-            $daydate->save();
+                $daydate->save();
 
             } catch(QueryException $e){
 
@@ -220,7 +227,9 @@ class DayDateController extends Controller
         $days = Day::pluck('titleBn as title', 'id');
 
         $holidayTypes = HolidayType::pluck('longName', 'code');
-        $holidayTypes->prepend('Please Select');
+        $holidayTypes->prepend('Please Select',null);
+
+       return $dayDate;
 
         return view("daydate.edit")->with(compact('dayDate','days','holidayTypes'));
     }
@@ -247,17 +256,6 @@ class DayDateController extends Controller
         } else {
 
             $daydate = DayDate::find($id);
-
-           // dd($request->hasFile('photo'));
-        //    if ( $request->hasFile('banner')) {
-        //         $banner = $request->file('banner');
-        //         if($daydate->bannerFileName==null){
-        //             $daydate->bannerFileName = 'dd_bnr'.time().'.'.$banner->getClientOriginalExtension();
-        //             $daydate->bannerUrl       =    Dir::dayDateBannerUrl($daydate->bannerFileName);
-        //             }
-        //         $destinationPath =  Dir::dayDateBannersPath();
-        //         $banner->move($destinationPath,  $daydate->bannerFileName);
-        //     }
 
             $daydate->dayId =$request->dayId;
             $daydate->date = $request->date;

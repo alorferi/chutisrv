@@ -21,13 +21,13 @@ class DataController extends Controller
         if(isset($headers['days_updated_at'])){
             $days_updated_at =$headers['days_updated_at'];
         }else{
-            $days_updated_at = "2018-01-01"; 
+            $days_updated_at = "2015-01-01"; 
         }
 
         if( isset($headers['daydates_updated_at'])){
             $daydates_updated_at =$headers['daydates_updated_at'];
         }else{
-            $daydates_updated_at =  "2018-01-01";
+            $daydates_updated_at =  "2015-01-01";
         }
 
         if( isset($headers['auth_pub_key'])){
@@ -43,9 +43,16 @@ class DataController extends Controller
 
         $daydates = DayDate::whereYear('date',$year)
         ->whereNotNull('holidayCode')
-        ->where('updated_at',">",$daydates_updated_at)
-        ->get();
-        
+        ->where('updated_at',">",$daydates_updated_at);
+      
+        // $foo_sql = $daydates->toSql();
+        // dd($foo_sql);
+
+        $daydates = $daydates->get();
+
+       
+
+
         $days = Day::whereRaw('dayFlag & 1 = 1')
                     ->where('updated_at',">",$days_updated_at)
                     ->get();
