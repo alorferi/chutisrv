@@ -41,21 +41,10 @@ class DataController extends Controller
             return $data; 
         }
 
-        $daydates = DayDate::whereYear('date',$year)
-        ->whereNotNull('holidayCode')
-        ->where('updated_at',">",$daydates_updated_at);
-      
-        // $foo_sql = $daydates->toSql();
-        // dd($foo_sql);
+        
+        $daydates = $this->getDayDates($year,$daydates_updated_at);
 
-        $daydates = $daydates->get();
-
-       
-
-
-        $days = Day::whereRaw('dayFlag & 1 = 1')
-                    ->where('updated_at',">",$days_updated_at)
-                    ->get();
+        $days = $this->getDays($days_updated_at);
 
       
         $array= array("dayDates"=> $daydates,"days"=>$days);
@@ -66,4 +55,26 @@ class DataController extends Controller
 
         return response()->json($data);
     }
+
+    function getDays($days_updated_at){
+
+        $days = Day::whereRaw('dayFlag & 1 = 1')
+        ->where('updated_at',">",$days_updated_at)
+        ->get();
+
+        return $days;
+    }
+
+    function getDayDates($year, $daydates_updated_at){
+       $daydates = DayDate::whereYear('date',$year)
+        ->whereNotNull('holidayCode')
+        ->where('updated_at',">",$daydates_updated_at);
+    
+        // $foo_sql = $daydates->toSql();
+        // dd($foo_sql);
+
+        $daydates = $daydates->get();
+        return $daydates;
+    }
+
 }
