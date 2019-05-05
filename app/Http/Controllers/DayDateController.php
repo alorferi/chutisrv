@@ -229,8 +229,6 @@ class DayDateController extends Controller
         $holidayTypes = HolidayType::pluck('longName', 'code');
         $holidayTypes->prepend('Please Select',null);
 
-       return $dayDate;
-
         return view("daydate.edit")->with(compact('dayDate','days','holidayTypes'));
     }
 
