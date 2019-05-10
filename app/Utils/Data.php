@@ -12,4 +12,12 @@ class Data
     ] ;
     return $data;
     }
+
+    public static function jsonResponse($status,$message,$result){
+    
+        $data = Data::data($status,$message,$result);
+
+        return response()->json($data);
+
+    }
 }

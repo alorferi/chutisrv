@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\API\V1;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\DayDate;
 use App\Models\Day;
@@ -19,21 +18,24 @@ class DataController extends Controller
         $daydates_updated_at =  null;
        
         if(isset($headers['days_updated_at'])){
-            $days_updated_at =$headers['days_updated_at'];
+            $days_updated_at =  $headers['days_updated_at'];
         }else{
-            $days_updated_at = "2015-01-01"; 
+            return Data::jsonResponse("FAILED","Invalid date params.",null);
         }
 
         if( isset($headers['daydates_updated_at'])){
-            $daydates_updated_at =$headers['daydates_updated_at'];
+            $daydates_updated_at =  $headers['daydates_updated_at'];
         }else{
-            $daydates_updated_at =  "2015-01-01";
+            return Data::jsonResponse("FAILED","Invalid date params.",null);
         }
+
+        // $arr = ['days_updated_at' => $daydates_updated_at ,'daydates_updated_at' => $daydates_updated_at];
+        //   return Data::jsonResponse("FAILED","Invalid date params.", $arr);
 
         if( isset($headers['auth_pub_key'])){
             $auth_pub_key =$headers['auth_pub_key'];
             if($auth_pub_key == null || $auth_pub_key== ""){   
-                return Data::jsonResponse("FAILED","Invalid credential.",null); ; 
+                return Data::jsonResponse("FAILED","Invalid credential.",null);
             }
         }else{
             return Data::jsonResponse("FAILED","Illegal attempt to access.",null);  ; 
@@ -71,28 +73,6 @@ class DataController extends Controller
         return $daydates;
     }
 
-    function getDayDatesByUpdatedAt($year){
-       
-        $headers = apache_request_headers();
-
-        //return  $headers;
-
-        $last_updated_at =  null;
-       
-        if(isset($headers['last_updated_at'])){
-            $last_updated_at =$headers['last_updated_at'];
-        }else{
-            $last_updated_at = "2015-01-01"; 
-        }
-
-        $daydates = $this->getDayDates($year, $last_updated_at);
-
-        $message = ", DayDates: ".count($daydates);
-        
-        $response =   Data::jsonResponse("OK",$message,$daydates);   
-
-        return $response;
-
-    }
+     
 
 }

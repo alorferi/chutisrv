@@ -62,4 +62,8 @@ Route::get("daydate/{date}/days","API\DayDateController@getDays");
 
 Route::get("data/{year}/data","API\DataController@getData");
 
+Route::get("data/{year}/{last_updated_at}/daydates","API\DataController@getDayDates");
+
+Route::get("data/{year}/daydates","API\DataController@getDayDatesByUpdatedAt");
+
 Route::get("user/all","API\UserController@index");
