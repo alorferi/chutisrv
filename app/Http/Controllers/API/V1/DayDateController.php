@@ -11,6 +11,7 @@ use App\Models\DayDate;
 use App\Models\DayFlag;
 use App\Models\HolidayType;
 use DB;
+use DateTime;
 
 class DayDateController extends Controller
 {
@@ -146,11 +147,9 @@ class DayDateController extends Controller
             
                        $hds[] = $hd;
                     }
-                  
-                   
+       
                 }
-               
-            
+
                 $ods = [];
         
                 foreach( $dayFlags as $dayFlag ){
@@ -170,23 +169,83 @@ class DayDateController extends Controller
             
                        $ods[] = $df;
                     }
-                  
                    
                 }
     
                 $dds = array('hds'=>$hds,"ods"=> $ods);
                 
-    
-            
-            $data =   Data::data("OK","Fetched",$dds);   
+                $data =   Data::data("OK","Fetched",$dds);   
               
             return $data;
-
-
-
         }
 
-     
+        function getHolidaysAndOtherDaysByDateGroupByTypesByMonthAndYear($date){
+
+           $date = Crypto::oct2Date($date);
+
+           $date = DateTime::createFromFormat('Y-m-d',  $date);
+
+            $month=$date->format('m');
+
+            $year=$date->format('Y');
+
+            $holidaytypes =HolidayType::orderBy("display_order")->get();
+
+            $dayFlags =DayFlag::where('flag','!=','1')->orderBy("display_order")->get();
+    
+                $hds = [];
+        
+                foreach( $holidaytypes as $holidaytype ){
+        
+                    $holidays = DB::table('daydates as dd')
+                    ->select($this->selectClause)
+                    ->join('days as d', 'dd.dayid', '=', 'd.id')
+                    ->whereYear('dd.date',$year)
+                    ->whereMonth('dd.date',$month)
+                    ->where('dd.holidayCode',$holidaytype->code)
+                    ->orderBy("dd.date")
+                    ->get();
+        
+                    if(count($holidays)>0){
+                        $hd = array("code"=>$holidaytype->code
+                        ,"shortName"=>$holidaytype->shortName
+                        ,"longName"=>$holidaytype->longName
+                        ,"holidays"=>$holidays);
+            
+                       $hds[] = $hd;
+                    }
+       
+                }
+
+                $ods = [];
+        
+                foreach( $dayFlags as $dayFlag ){
+        
+                    $daydates = DB::table('daydates as dd')
+                    ->select($this->selectClause)
+                    ->join('days as d', 'dd.dayid', '=', 'd.id')
+                    ->whereYear('dd.date',$year)
+                    ->whereMonth('dd.date',$month)
+                    ->where('d.dayFlag','&',$dayFlag->flag)
+                    ->orderBy("dd.date")
+                    ->get();
+        
+                    if(count($daydates)>0){
+                        $df = array("flag"=>$dayFlag->flag
+                        ,"name"=>$dayFlag->name_bn
+                        ,"daydates"=>$daydates);
+            
+                       $ods[] = $df;
+                    }
+                   
+                }
+    
+                $dds = array('hds'=>$hds,"ods"=> $ods);
+                
+                $data =   Data::data("OK","Fetched",$dds);   
+              
+            return $data;
+        }
 
     public function getHolidaysByYearGroupByMonthsGroupByTypes($year){
         
