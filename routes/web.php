@@ -11,7 +11,11 @@
 |
 */
 
-Auth::routes();
+Route::get('/', 'HomeController@index');
+
+Auth::routes([ 'register' => false ]);
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 
