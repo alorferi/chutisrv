@@ -66,9 +66,9 @@ class DataController extends Controller
     function getDayDates($year, $last_updated_at){
        
         $daydates = DayDate::whereYear('date',$year)
-        ->whereNotNull('holidayCode')
+       // ->whereNotNull('holidayCode')
         ->where('updated_at',">",$last_updated_at);
-
+        //dd($daydates->toSql());
         $daydates = $daydates->get();
         return $daydates;
     }

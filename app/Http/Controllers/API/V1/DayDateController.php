@@ -123,13 +123,13 @@ class DayDateController extends Controller
 
             $date = Crypto::oct2Date($date);
 
-            $holidaytypes =HolidayType::orderBy("display_order")->get();
+            $holidayTypes =HolidayType::orderBy("display_order")->get();
 
             $dayFlags =DayFlag::where('flag','!=','1')->orderBy("display_order")->get();
     
                 $hds = [];
         
-                foreach( $holidaytypes as $holidaytype ){
+                foreach( $holidayTypes as $holidaytype ){
         
                     $holidays = DB::table('daydates as dd')
                     ->select($this->selectClause)
@@ -166,7 +166,6 @@ class DayDateController extends Controller
                         $df = array("flag"=>$dayFlag->flag
                         ,"name"=>$dayFlag->name_bn
                         ,"daydates"=>$daydates);
-            
                        $ods[] = $df;
                     }
                    
