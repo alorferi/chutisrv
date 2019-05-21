@@ -46,6 +46,8 @@ Genre List
             <td>
                 <a class="btn btn-small btn-success" href="{{ URL::to('/admin/daydate/' . $daydate->id) }}">Show </a>
                 <a class="btn btn-small btn-info" href="{{ URL::to('/admin/daydate/' . $daydate->id . '/edit') }}">Edit </a>
+                <a class="btn btn-small btn-danger" href="{{ URL::to('/admin/daydate/' . $daydate->id . '/edit') }}">Delete </a>
+           
             </td>
           
             <td>

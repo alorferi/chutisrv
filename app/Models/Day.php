@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Day extends Model
 {
-   
+    use SoftDeletes;
     public function dayDates()
     {
         return $this->hasMany('App\Models\DayDate','dayId','id');

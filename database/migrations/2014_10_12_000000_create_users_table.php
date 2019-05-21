@@ -19,12 +19,18 @@ class CreateUsersTable extends Migration
             $table->string('lastName',30);
             $table->string('email',50)->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('mobile',20)->unique();
+            $table->string('mobile',20)->unique()->nullable();
             $table->timestamp('mobile_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
+            $table->integer('created_by')->nullable();
+            //$table->foreign('created_by')->references('id')->on('users');//->onUpdate('cascade')->onDelete('cascade');  
+            $table->integer('updated_by')->nullable();
+            //$table->foreign('updated_by')->references('id')->on('users');//->onUpdate('cascade')->onDelete('cascade');   
+            $table->integer('deleted_by')->nullable();
+            //$table->foreign('deleted_by')->references('id')->on('users');//->onUpdate('cascade')->onDelete('cascade');  
         });
     }
 

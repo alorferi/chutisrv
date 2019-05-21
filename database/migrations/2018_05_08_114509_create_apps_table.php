@@ -22,6 +22,12 @@ class CreateAppsTable extends Migration
             $table->string('versionName');
             $table->timestamps();
             $table->softDeletes();
+            $table->integer('created_by')->unsigned()->nullable();
+            $table->foreign('created_by')->references('id')->on('users');  
+            $table->integer('updated_by')->unsigned()->nullable();
+            $table->foreign('updated_by')->references('id')->on('users');   
+            $table->integer('deleted_by')->unsigned()->nullable();
+            $table->foreign('deleted_by')->references('id')->on('users'); 
         });
     }
 
