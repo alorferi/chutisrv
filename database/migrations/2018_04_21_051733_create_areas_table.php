@@ -20,6 +20,7 @@ class CreateAreasTable extends Migration
             $table->string('countryCode',2)->nullable();
             $table->foreign('countryCode')->references('code')->on('countries')->onUpdate('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

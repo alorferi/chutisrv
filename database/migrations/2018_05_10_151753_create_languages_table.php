@@ -18,6 +18,7 @@ class CreateLanguagesTable extends Migration
             $table->string('name',20);
             $table->string('localName',50);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

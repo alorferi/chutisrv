@@ -27,7 +27,7 @@ class CreateDaydatesTable extends Migration
             $table->integer('dayId')->references('id')->on('days')->nullable();  
             $table->unique(['date', 'dayId']);
             $table->timestamps();
-          
+            $table->softDeletes();
         });
     }
 

@@ -23,6 +23,7 @@ class CreateRamadansTable extends Migration
             $table->foreign('areaCode')->references('code')->on('areas')->onUpdate('cascade');
             $table->unique(['date', 'areaCode']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

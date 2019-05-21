@@ -19,6 +19,7 @@ class CreateDayflagsTable extends Migration
             $table->string('name_bn');
             $table->integer('display_order');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

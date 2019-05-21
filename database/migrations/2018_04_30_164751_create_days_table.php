@@ -35,6 +35,7 @@ class CreateDaysTable extends Migration
             $table->string('holidayCode',2)->nullable();
             $table->foreign('holidayCode')->references('code')->on('holidaytypes')->onUpdate('cascade');   
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

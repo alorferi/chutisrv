@@ -20,6 +20,7 @@ class CreateHolidaytypesTable extends Migration
             $table->integer('display_order');       
             $table->boolean('showInCalendar');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

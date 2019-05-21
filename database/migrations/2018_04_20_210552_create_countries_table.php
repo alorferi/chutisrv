@@ -18,6 +18,7 @@ class CreateCountriesTable extends Migration
             $table->string('name',30)->unique()->nullable(false);
             $table->string('localName',50)->unique()->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

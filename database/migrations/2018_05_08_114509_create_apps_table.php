@@ -21,6 +21,7 @@ class CreateAppsTable extends Migration
             $table->integer('versionCode'); 
             $table->string('versionName');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
