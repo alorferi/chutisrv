@@ -45,6 +45,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
         Route::get('/daydate/{year}/create', 'DayDateController@create');
         Route::get('/daydate/{year}/holidays', 'DayDateController@showHolidays');
         Route::get('/daydate/{year}/generate-dates', 'DayDateController@generateDates');
+        Route::get('/daydate/{id}/trash', 'DayDateController@trash');
+        Route::get('/daydate/{id}/delete', 'DayDateController@delete');
+        Route::delete('/daydate/{id}/confirm-trash', 'DayDateController@confirmTrash')->name('daydate.confirm.trash');
+        Route::get('/daydate/{id}/restore', 'DayDateController@restore');
+        Route::patch('/daydate/{id}/confirm-restore', 'DayDateController@confirmRestore')->name('daydate.confirm.restore');
         Route::resource('/daydate', 'DayDateController');
         Route::resource('/dayflag', 'DayFlagController');
         Route::resource('/holidaytype', 'HolidayTypeController');

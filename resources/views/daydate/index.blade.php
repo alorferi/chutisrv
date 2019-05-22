@@ -25,12 +25,13 @@ Genre List
 @if (Session::has('message'))
     <div class="alert alert-info">{{ Session::get('message') }}</div>
 @endif
-
+ {!! $daydates->links() !!}
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
         	  <td>Actions</td>
-             <td>Photo</td> 
+             <th>No</th>
+             <td>Photo</td>
             <td>DayDate </td>
             <td>Title </td>
             <td> Holiday </td>
@@ -40,16 +41,28 @@ Genre List
         </tr>
     </thead>
     <tbody>
-    @foreach($daydates as $key => $daydate)
+    @foreach($daydates as $daydate)
         <tr>
-        	   
+
             <td>
-                <a class="btn btn-small btn-success" href="{{ URL::to('/admin/daydate/' . $daydate->id) }}">Show </a>
-                <a class="btn btn-small btn-info" href="{{ URL::to('/admin/daydate/' . $daydate->id . '/edit') }}">Edit </a>
-                <a class="btn btn-small btn-danger" href="{{ URL::to('/admin/daydate/' . $daydate->id . '/edit') }}">Delete </a>
-           
+                <a class="btn btn-small btn-info" href="{{ URL::to('/admin/daydate/' . $daydate->id) }}">Show </a>
+                <a class="btn btn-small btn-primary" href="{{ URL::to('/admin/daydate/' . $daydate->id . '/edit') }}">Edit </a>
+             
+                @if ($daydate->trashed()) 
+                <a class="btn btn-small btn-success" href="{{ URL::to('/admin/daydate/' . $daydate->id . '/restore') }}">Restore </a>
+               
+                   <a class="btn btn-small btn-danger" href="{{ URL::to('/admin/daydate/' . $daydate->id . '/delete') }}">Delete </a>
+               
+                @else
+
+                <a class="btn btn-small btn-warning" href="{{ URL::to('/admin/daydate/' . $daydate->id . '/trash') }}">Trash </a>
+               
+                  @endif
+             
             </td>
-          
+
+               <td>{{ ++$i }}</td>
+
             <td>
                 <img src="{{  $daydate->day->photoUrl }}"  width="64" /> </td>
 
@@ -57,24 +70,24 @@ Genre List
             <td>
 
                 <p>  <img src="{{ asset("$daydate->bannerUrl")}}" height="100" width="600"  />  </p>
-                
+
                 <h5> {{ $daydate->day->titleBn }} - {{ $daydate->day->titleEn }} </h5>
-          
+
                 <p>  {{ $daydate->day->descriptionBn }}    </p>
 
             </td>
-         
+
             <td>
                 @if($daydate->holidayType==null)
                 @else
                 {{ $daydate->holidayType->longName }}
                 @endif
             </td>
-           
+
         </tr>
     @endforeach
     </tbody>
 </table>
 
-
+ {!! $daydates->links() !!}
 @endsection
