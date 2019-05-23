@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('back')
-<a href="{{ URL::to('areas') }}">&lt; Back</a>
+<a href="{{ URL::to('admin/area') }}">&lt; Back</a>
 @endsection
 
 @section('title')

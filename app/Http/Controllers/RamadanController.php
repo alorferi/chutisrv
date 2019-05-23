@@ -25,11 +25,11 @@ class RamadanController extends Controller
     public function index()
     {  
                // get all the tag
-        $ramadans = Ramadan::all();
+        $ramadans = Ramadan::paginate(30);;
   
         // load the view and pass the tag
-        return view('ramadan.index')
-            ->with('ramadans', $ramadans);
+        return view('ramadan.index',compact('ramadans'))
+            ->with('i', (request()->input('page', 1) - 1) * 30);;
 
     }
 

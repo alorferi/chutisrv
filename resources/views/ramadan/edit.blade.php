@@ -15,7 +15,7 @@ ramadan - Edit
 <!-- if there are creation errors, they will show here -->
 {{ Html::ul($errors->all()) }}
 
-{{ Form::model($ramadan, array('route' => array('ramadans.update', $ramadan->id), 'method' => 'PUT')) }}
+{{ Form::model($ramadan, array('route' => array('ramadan.update', $ramadan->id), 'method' => 'PUT')) }}
 
     <div class="form-group">
         {{ Form::label('date', 'Date') }}

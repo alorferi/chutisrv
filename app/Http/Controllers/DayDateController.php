@@ -13,6 +13,7 @@ use Validator;
 use DateTime;
 use Auth;
 use DB;
+use Carbon\Carbon;
 
 class DayDateController extends Controller
 {
@@ -122,8 +123,9 @@ class DayDateController extends Controller
             $daydate->dayId =$request->dayId;
 
             $daydate->holidayCode = $request->holidayCode=="0"?null:$request->holidayCode;
-          //  dd($daydate);
-           $daydate->save();
+            
+            $daydate->created_by = Auth::id();
+            $daydate->save();
 
            // dd($result);
 
@@ -166,6 +168,7 @@ class DayDateController extends Controller
                     $daydate->date = $dateForDay;
                     $daydate->bannerFileName = $day->photoFileName;
                     $daydate->bannerUrl       =  $day->photoUrl;
+                    $daydate->created_by = Auth::id();
 
                 }else{
 
@@ -176,6 +179,8 @@ class DayDateController extends Controller
                     if($daydate->bannerUrl ==null){
                         $daydate->bannerUrl       =  $day->photoUrl;
                     }
+
+                    $daydate->updated_by = Auth::id();
                 }
 
 
@@ -219,30 +224,6 @@ class DayDateController extends Controller
         $dayDate = DayDate::find($id);
 
         return view("daydate.show")->with(compact('dayDate'));
-    }
-
-    public function trash($id)
-    {
-        $dayDate = DayDate::find($id);
-
-        return view("daydate.trash")->with(compact('dayDate'));
-    }
-
-
-     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\DayDate  $dayDate
-     * @return \Illuminate\Http\Response
-     */
-    public function confirmTrash($id)
-    {
-        $dayDate = DayDate::find($id);
-
-        $dayDate->delete();
-      //dd($dayDate->id);
-        return redirect()->route('daydate.index')
-                        ->with('message', 'Daydate deleted successfully');
     }
 
     /**
@@ -290,7 +271,7 @@ class DayDateController extends Controller
 
             $daydate->holidayCode = $request->holidayCode=="0"?null:$request->holidayCode;
 
-          //  dd($daydate);
+            $daydate->updated_by = Auth::id();
             $daydate->save();
 
             if ( $request->hasFile('banner')) {
@@ -308,6 +289,34 @@ class DayDateController extends Controller
             Session::flash('message',  "Day date successfull saved.");
             return Redirect::to('/admin/daydate');
         }
+    }
+
+
+    public function trash($id)
+    {
+        $dayDate = DayDate::find($id);
+
+        return view("daydate.trash")->with(compact('dayDate'));
+    }
+
+
+     /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\DayDate  $dayDate
+     * @return \Illuminate\Http\Response
+     */
+    public function confirmTrash($id)
+    {
+        $dayDate = DayDate::find($id);
+
+        $dayDate->delete();
+
+        $dayDate->deleted_by = Auth::id();
+        $dayDate->save();
+
+        return redirect()->route('daydate.index')
+                        ->with('message', 'Daydate deleted successfully');
     }
 
 
@@ -329,7 +338,12 @@ class DayDateController extends Controller
     {
         $dayDate = DayDate::withTrashed()->find($id);
 
-      $dayDate->restore();
+       $dayDate->restore();
+
+      $dayDate->restored_at = Carbon::now()->toDateTimeString();
+      $dayDate->restored_by = Auth::id();
+      $dayDate->save();
+
       //dd($dayDate->id);
         return redirect()->route('daydate.index')
                         ->with('message', 'Daydate restored successfully');

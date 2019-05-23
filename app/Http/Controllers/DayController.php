@@ -34,11 +34,10 @@ class DayController extends Controller
     public function index()
     {
         // Fetch day list from day table database and put it into $day variable
-        $days = Day::orderBy('date')->get();
+        $days = Day::orderBy('date')->paginate(10);
 
-        Session::flash('message', count( $days ). " Days found");
         // Passes day list to index view in view/day folder
-        return view('day.index')->with('days', $days);
+        return view('day.index',compact('days'))->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     /**
@@ -93,7 +92,7 @@ class DayController extends Controller
             $day->dayFlag      = $this->getDayflagCode($request->dayFlags);
             $day->holidayCode      = ($request->holidayCode=="0")? null:$request->holidayCode;
             $day->religionCode  = ($request->religionCode=="0")?null:$request->religionCode;
-              
+            $day->created_by = Auth::id();  
             $day->save();
 
 
@@ -230,7 +229,7 @@ class DayController extends Controller
             $day->holidayCode      = ($request->holidayCode=="0")? null:$request->holidayCode;
             $day->religionCode  = ($request->religionCode=="0")?null:$request->religionCode;
            
-           // dd($day);
+            $day->updated_by = Auth::id();  
             $day->save();
 
            // dd($day);

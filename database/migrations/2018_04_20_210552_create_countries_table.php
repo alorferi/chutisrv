@@ -24,7 +24,10 @@ class CreateCountriesTable extends Migration
             $table->integer('updated_by')->unsigned()->nullable();
             $table->foreign('updated_by')->references('id')->on('users');   
             $table->integer('deleted_by')->unsigned()->nullable();
-            $table->foreign('deleted_by')->references('id')->on('users');  
+            $table->foreign('deleted_by')->references('id')->on('users');
+            $table->timestamp("restored_at")->nullable();
+            $table->integer('restored_by')->unsigned()->nullable();
+            $table->foreign('restored_by')->references('id')->on('users');   
         });
     }
 

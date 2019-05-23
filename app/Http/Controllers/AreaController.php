@@ -126,8 +126,8 @@ class AreaController extends Controller
    */
   public function edit($id)
   {
-    $area = Area::find($id);
-     return  \View::make('area.edit')->with('tag', $area);
+    $area = Area::where("code",$id)->first();
+     return  view('area.edit')->with(compact('area'));
   }
 
   /**

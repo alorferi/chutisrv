@@ -31,6 +31,10 @@ class CreateUsersTable extends Migration
             //$table->foreign('updated_by')->references('id')->on('users');//->onUpdate('cascade')->onDelete('cascade');   
             $table->integer('deleted_by')->nullable();
             //$table->foreign('deleted_by')->references('id')->on('users');//->onUpdate('cascade')->onDelete('cascade');  
+            $table->timestamp("restored_at")->nullable();
+            $table->integer('restored_by')->unsigned()->nullable();
+            // $table->foreign('restored_by')->references('id')->on('users'); 
+
         });
     }
 

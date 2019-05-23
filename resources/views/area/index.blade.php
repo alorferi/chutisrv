@@ -8,7 +8,7 @@ Area List
 @section('content')
 
 
-<a href="areas/create">Create</a>
+<a href="area/create">Create</a>
 
 
 <div class="container">
@@ -33,9 +33,9 @@ Area List
     @foreach($areas as $key => $value)
         <tr>
             <td>
-                <a class="btn btn-small btn-success" href="{{ URL::to('areas/' . $value->code) }}">Show </a>
-                <a class="btn btn-small btn-info" href="{{ URL::to('areas/' . $value->code . '/edit') }}">Edit </a>
-                <a class="btn btn-small btn-info" href="{{ URL::to('areas/' . $value->code . '/fcm') }}">FCM </a>
+                <a class="btn btn-small btn-success" href="{{ URL::to('admin/area/' . $value->code) }}">Show </a>
+                <a class="btn btn-small btn-info" href="{{ URL::to('admin/area/' . $value->code . '/edit') }}">Edit </a>
+                <a class="btn btn-small btn-info" href="{{ URL::to('admin/area' . $value->code . '/fcm') }}">FCM </a>
             </td>
 
             <td>{{ $value->code }}</td>

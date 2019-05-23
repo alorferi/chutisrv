@@ -1,21 +1,21 @@
 @extends('layouts.admin')
 
 @section('back')
-<a href="{{ URL::to('areas') }}">&lt; Back</a>
+<a href="{{ URL::to('admin/area') }}">&lt; Back</a>
 @endsection
 
 @section('title')
-Genre - Edit
+Area - Edit
 @endsection
 
 @section('content')
 
-<h1>Edit {{ $genre->name }}</h1>
+<h1>Edit {{ $area->name }}</h1>
 
 <!-- if there are creation errors, they will show here -->
 {{ Html::ul($errors->all()) }}
 
-{{ Form::model($genre, array('route' => array('genre.update', $genre->id), 'method' => 'PUT')) }}
+{{ Form::model($area, array('route' => array('area.update', $area->code), 'method' => 'PUT')) }}
 
     <div class="form-group">
         {{ Form::label('name', 'Name') }}

@@ -8,7 +8,7 @@ ramadans List
 @section('content')
 
 
-<a href="ramadans/create">Create</a>
+<a href="admin/ramadan/create">Create</a>
 
 
 <div class="container">
@@ -17,12 +17,12 @@ ramadans List
 @if (Session::has('message'))
     <div class="alert alert-info">{{ Session::get('message') }}</div>
 @endif
-
+{!! $ramadans->links() !!}
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
         	  <td>Actions</td>
-            <td>ID</td>
+            <td>SL</td>
             <td> Date  </td>
             <td>Sher Time  </td>
             <td>Fajor Time  </td>
@@ -32,29 +32,25 @@ ramadans List
         </tr>
     </thead>
     <tbody>
-    @foreach($ramadans as $key => $value)
+    @foreach($ramadans as $ramadan)
         <tr>
 
             <td>
-
-
-
-                <a class="btn btn-small btn-success" href="{{ URL::to('ramadans/' . $value->id) }}">Show </a>
-                <a class="btn btn-small btn-info" href="{{ URL::to('ramadans/' . $value->id . '/edit') }}">Edit </a>
-
+                <a class="btn btn-small btn-info" href="{{ URL::to('admin/ramadan/' . $ramadan->id) }}">Show </a>
+                <a class="btn btn-small btn-primary" href="{{ URL::to('admin/ramadan/' . $ramadan->id . '/edit') }}">Edit </a>
             </td>
-            <td>{{ $value->id }}</td>
-            <td>{{ $value->date }}</td>
-            <td>{{ $value->sehrTime }}  </td>
-            <td>{{ $value->fajrTime }}  </td>
-            <td>{{ $value->iftarTime }}  </td>
-            <td>{{ $value->area->name }}  </td>
+            <td>{{ ++$i }}</td>
+            <td>{{ $ramadan->date }}</td>
+            <td>{{ $ramadan->sehrTime }}  </td>
+            <td>{{ $ramadan->fajrTime }}  </td>
+            <td>{{ $ramadan->iftarTime }}  </td>
+            <td>{{ $ramadan->area->name }}  </td>
   
 
         </tr>
     @endforeach
     </tbody>
 </table>
-
+{!! $ramadans->links() !!}
 
 @endsection

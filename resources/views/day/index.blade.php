@@ -27,19 +27,20 @@
 @if (Session::has('message'))
     <div class="alert alert-info">{{ Session::get('message') }}</div>
 @endif
-
+{!! $days->links() !!}
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <td>Actions</td>
-            <td>Photo</td>
-            <td>Date</td>  
-            <td>FIX DT</td>  
-            <td>MULTI DT</td>  
-            <td>Details</td>
-            <td>Day Flags</td> 
-            <td>Religion</td>
-            <td>Holiday Type</td>
+            <th>Actions</th>
+            <th>SL</th>
+            <th>Photo</th>
+            <th>Date</th>  
+            <th>FIX DT</th>  
+            <th>MULTI DT</th>  
+            <th>Details</th>
+            <th>Day Flags</th> 
+            <th>Religion</th>
+            <th>Holiday Type</th>
         </tr>
     </thead>
     <tbody>
@@ -50,6 +51,7 @@
                 <a class="btn btn-small btn-success" href="{{ URL::to('/admin/day/' . $day->id) }}">Show </a>
                 <a class="btn btn-small btn-info" href="{{ URL::to('/admin/day/' . $day->id . '/edit') }}">Edit </a>
             </td>
+            <td>{{ ++$i }}</td>
             <td> <img src="{{ asset("$day->photoUrl")}}" width="64"  /> </td>
        
              <td>{{ $day->date }}</td> 
@@ -90,5 +92,5 @@
     </tbody>
 </table>
 
-
+{!! $days->links() !!}
 @endsection
