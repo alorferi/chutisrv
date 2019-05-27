@@ -14,7 +14,7 @@ class CreateDaydatesTable extends Migration
     public function up()
     {
         Schema::create('daydates', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('dayKey')->nullable();  
             $table->string('bannerFileName')->nullable();  
             $table->string('bannerCaptionEn')->nullable();  
@@ -24,18 +24,18 @@ class CreateDaydatesTable extends Migration
             $table->foreign('holidayCode')->references('code')->on('holidaytypes')->onUpdate('cascade');  
             $table->string('stared',1)->nullable();
             $table->date('date');   
-            $table->integer('dayId')->references('id')->on('days')->nullable();  
+            $table->bigInteger('dayId')->references('id')->on('days')->nullable();  
             $table->unique(['date', 'dayId']);
             $table->timestamps();
             $table->softDeletes();
-            $table->integer('created_by')->unsigned()->nullable();
+            $table->bigInteger('created_by')->unsigned()->nullable();
             $table->foreign('created_by')->references('id')->on('users');  
-            $table->integer('updated_by')->unsigned()->nullable();
+            $table->bigInteger('updated_by')->unsigned()->nullable();
             $table->foreign('updated_by')->references('id')->on('users');   
-            $table->integer('deleted_by')->unsigned()->nullable();
+            $table->bigInteger('deleted_by')->unsigned()->nullable();
             $table->foreign('deleted_by')->references('id')->on('users'); 
             $table->timestamp("restored_at")->nullable();
-            $table->integer('restored_by')->unsigned()->nullable();
+            $table->bigInteger('restored_by')->unsigned()->nullable();
             $table->foreign('restored_by')->references('id')->on('users');   
         });
     }

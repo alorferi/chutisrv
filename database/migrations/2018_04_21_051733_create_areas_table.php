@@ -21,14 +21,14 @@ class CreateAreasTable extends Migration
             $table->foreign('countryCode')->references('code')->on('countries')->onUpdate('cascade');
             $table->timestamps();
             $table->softDeletes();
-            $table->integer('created_by')->unsigned()->nullable();
+            $table->bigInteger('created_by')->unsigned()->nullable();
             $table->foreign('created_by')->references('id')->on('users');  
-            $table->integer('updated_by')->unsigned()->nullable();
+            $table->bigInteger('updated_by')->unsigned()->nullable();
             $table->foreign('updated_by')->references('id')->on('users');   
-            $table->integer('deleted_by')->unsigned()->nullable();
+            $table->bigInteger('deleted_by')->unsigned()->nullable();
             $table->foreign('deleted_by')->references('id')->on('users'); 
             $table->timestamp("restored_at")->nullable();
-            $table->integer('restored_by')->unsigned()->nullable();
+            $table->bigInteger('restored_by')->unsigned()->nullable();
             $table->foreign('restored_by')->references('id')->on('users');   
         });
     }

@@ -16,7 +16,7 @@ class DaysTableSeeder extends Seeder
         // $table->string('titleBn');
         // $table->string('description')->nullable(); 
         // $table->string('dayCategory',3);
-        // $table->integer('dayFlag');  
+        // $table->bigInteger('dayFlag');  
         $array = [
             [ 
             'dayKey'=> '21-FEB'

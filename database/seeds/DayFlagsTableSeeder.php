@@ -12,7 +12,7 @@ class DayFlagsTableSeeder extends Seeder
      */
     public function run()
     {
-        // $table->integer('flag')->primary();
+        // $table->bigInteger('flag')->primary();
         // $table->string('name');
 
         $array = [
