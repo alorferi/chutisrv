@@ -17,3 +17,6 @@ Route::get('area/{areaCode}/{year}/ramadans', 'V3\AreaController@getRamadansByAr
 Route::get('/country/all', 'V3\CountryController@getCountries');
 Route::get('country/{countryCode}/areas', 'V3\CountryController@getAreasByCountryCode');
 Route::get('countries/{countryCode}/areas', 'V3\CountryController@getAreasByCountryCode');
+Route::post('userdevice/register', 'V3\UserDeviceController@register');
+
+Route::get('cricket/live-score', 'V3\CricketController@fetchLiveScore');

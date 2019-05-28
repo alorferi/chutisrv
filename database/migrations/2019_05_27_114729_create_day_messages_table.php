@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Utils\TableUtils;
 
-class CreateStickersTable extends Migration
+class CreateDayMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +14,13 @@ class CreateStickersTable extends Migration
      */
     public function up()
     {
-        Schema::create('stickers', function (Blueprint $table) {
+        Schema::create('day_messages', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->text('text');
+            $table->bigInteger('day_id')->unsigned()->nullable();
+            $table->foreign('day_id')->references('id')->on('days');  
             $table->timestamps();
+            TableUtils::dmlBy($table);
         });
     }
 
@@ -26,6 +31,6 @@ class CreateStickersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stickers');
+        Schema::dropIfExists('day_messages');
     }
 }

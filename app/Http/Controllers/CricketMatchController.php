@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CricketMatch;
 use Illuminate\Http\Request;
-use App\Models\UserDevice;
-class UserDeviceController extends Controller
+
+class CricketMatchController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,10 +14,9 @@ class UserDeviceController extends Controller
      */
     public function index()
     {
-        $devices = UserDevice::paginate(10);
-        return view("userdevice.index",compact('devices'))->with('i', (request()->input('page', 1) - 1) * 10);;
+      $matches =  CricketMatch::all();;
+       return view("cricketmatch.index",compact('matches'));
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -42,10 +42,10 @@ class UserDeviceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\CricketMatch  $cricketMatch
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(CricketMatch $cricketMatch)
     {
         //
     }
@@ -53,10 +53,10 @@ class UserDeviceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\CricketMatch  $cricketMatch
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(CricketMatch $cricketMatch)
     {
         //
     }
@@ -65,10 +65,10 @@ class UserDeviceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\CricketMatch  $cricketMatch
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, CricketMatch $cricketMatch)
     {
         //
     }
@@ -76,10 +76,10 @@ class UserDeviceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\CricketMatch  $cricketMatch
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(CricketMatch $cricketMatch)
     {
         //
     }

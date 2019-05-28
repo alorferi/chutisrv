@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use App\Utils\TableUtils;
 
-class CreateAppsTable extends Migration
+class CreateCricketStadiumsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,13 @@ class CreateAppsTable extends Migration
      */
     public function up()
     {
-        Schema::create('apps', function (Blueprint $table) {
+        Schema::create('cricket_stadiums', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name',30)->unique();
-            $table->string('localName',50)->nullable();
-            $table->string('bundleId',100)->unique()->nullable();
-            $table->bigInteger('versionCode'); 
-            $table->string('versionName');
+            $table->string('name')->unique();
+            $table->string('photo_name')->nullable();
+            $table->string('photo_url')->nullable();
+            $table->string('country_code',2)->nullable();
+            $table->foreign('country_code')->references('code')->on('countries')->onUpdate('cascade');
             $table->timestamps();
             TableUtils::dmlBy($table);
         });
@@ -33,6 +33,6 @@ class CreateAppsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apps');
+        Schema::dropIfExists('cricket_stadiums');
     }
 }

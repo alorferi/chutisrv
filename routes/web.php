@@ -53,6 +53,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
         Route::resource('/daydate', 'DayDateController');
         Route::resource('/dayflag', 'DayFlagController');
         Route::resource('/holidaytype', 'HolidayTypeController');
+        Route::resource('userdevice', 'UserDeviceController');
+
+        //Cricket
+        Route::resource('match', 'CricketMatchController');
+        Route::resource('team', 'CricketTeamController');
+        Route::resource('tournament', 'CricketTournamentController');
    
 });
 

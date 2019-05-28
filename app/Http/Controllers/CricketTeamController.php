@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CricketTeam;
 use Illuminate\Http\Request;
-use App\Models\UserDevice;
-class UserDeviceController extends Controller
+
+class CricketTeamController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,10 +14,9 @@ class UserDeviceController extends Controller
      */
     public function index()
     {
-        $devices = UserDevice::paginate(10);
-        return view("userdevice.index",compact('devices'))->with('i', (request()->input('page', 1) - 1) * 10);;
+        $teams = CricketTeam::all();
+        return view("cricketteam.index",compact('teams'));
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -25,7 +25,7 @@ class UserDeviceController extends Controller
      */
     public function create()
     {
-        //
+        return view("cricketteam.create");//
     }
 
     /**
@@ -42,10 +42,10 @@ class UserDeviceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\CricketTeam  $cricketTeam
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(CricketTeam $cricketTeam)
     {
         //
     }
@@ -53,10 +53,10 @@ class UserDeviceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\CricketTeam  $cricketTeam
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(CricketTeam $cricketTeam)
     {
         //
     }
@@ -65,10 +65,10 @@ class UserDeviceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\CricketTeam  $cricketTeam
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, CricketTeam $cricketTeam)
     {
         //
     }
@@ -76,10 +76,10 @@ class UserDeviceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\CricketTeam  $cricketTeam
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(CricketTeam $cricketTeam)
     {
         //
     }

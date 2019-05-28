@@ -24,6 +24,9 @@
                     <ul class="navbar-nav ml-auto">
 
 
+                            <li><a class="nav-link" href="/admin/match">Match</a></li>
+                            <li><a class="nav-link" href="/admin/team">Team</a></li>
+                            <li><a class="nav-link" href="/admin/tournament">Tournament</a></li>
                             <li><a class="nav-link" href="/admin/daydate">DayDate</a></li>
                             <li><a class="nav-link" href="/admin/day">Day</a></li>
                             <li><a class="nav-link" href="/admin/holidaytype">Holiday Type</a></li>
@@ -33,6 +36,7 @@
                             <li><a class="nav-link" href="/admin/country">Country</a></li>
                             <li><a class="nav-link" href="/admin/area">Area</a></li>
                             <li><a class="nav-link" href="/admin/ramadan">Ramadan</a></li>
+                            <li><a class="nav-link" href="/admin/userdevice">Device</a></li>
 
                         <!-- Authentication Links -->
                         @guest

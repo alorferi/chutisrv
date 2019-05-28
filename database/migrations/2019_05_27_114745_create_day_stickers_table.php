@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use App\Utils\TableUtils;
 
-class CreateAppsTable extends Migration
+class CreateDayStickersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,12 @@ class CreateAppsTable extends Migration
      */
     public function up()
     {
-        Schema::create('apps', function (Blueprint $table) {
+        Schema::create('day_stickers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name',30)->unique();
-            $table->string('localName',50)->nullable();
-            $table->string('bundleId',100)->unique()->nullable();
-            $table->bigInteger('versionCode'); 
-            $table->string('versionName');
+            $table->string('sticker_name')->nullable();  
+            $table->string('sticker_url')->nullable();              
+            $table->bigInteger('day_id')->unsigned()->nullable();
+            $table->foreign('day_id')->references('id')->on('days');  
             $table->timestamps();
             TableUtils::dmlBy($table);
         });
@@ -33,6 +32,6 @@ class CreateAppsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apps');
+        Schema::dropIfExists('day_stickers');
     }
 }
