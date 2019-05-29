@@ -16,9 +16,10 @@ class CreateCricketTeamsTable extends Migration
     {
         Schema::create('cricket_teams', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name')->unique();;
             $table->string('logo_name')->nullable();
             $table->string('logo_url')->nullable();
+            $table->string('short_name')->unique();
+            $table->string('long_name')->unique();
             $table->string('country_code',2)->nullable();
             $table->foreign('country_code')->references('code')->on('countries')->onUpdate('cascade');
             $table->timestamps();

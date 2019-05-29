@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\CricketMatch;
 use Illuminate\Http\Request;
+use App\Models\CricketTournament;
+use App\Models\CricketTeam;
+use App\Models\CricketStadium;
+use Illuminate\Support\Facades\Redirect;
+use Validator;
+use Session;
 
 class CricketMatchController extends Controller
 {
@@ -25,7 +31,10 @@ class CricketMatchController extends Controller
      */
     public function create()
     {
-        //
+        $tournaments = CricketTournament::pluck('name', 'id') ->prepend('Please Select...',0);
+        $teams = CricketTeam::pluck('long_name', 'id') ->prepend('Please Select...',0);
+        $stadiums = CricketStadium::pluck('name', 'id') ->prepend('Please Select...',0);
+        return view("cricketmatch.create",compact('tournaments','teams','stadiums'));//
     }
 
     /**
@@ -36,7 +45,34 @@ class CricketMatchController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       // validate
+        // read more on validation at http://laravel.com/docs/validation
+        $rules = array(
+            'start_date'       => 'required',
+            'start_time'       => 'required',
+            'team_a_id'       => 'required',
+            'team_b_id'       => 'required|different:team_a_id',
+        );
+        $validator = Validator::make($request->all(), $rules);
+
+        // process the login
+        if ($validator->fails()) {
+            return Redirect::to('/admin/match/create')
+                ->withErrors($validator)
+                ->withRequest($request->except('password'));
+        } else {
+
+            $match = new CricketMatch();
+            $match->start_date          = $request->start_date;
+            $match->start_time          = $request->start_time;
+
+            $match->team_a_id   = $request->team_a_id;
+            $match->team_b_id   = $request->team_b_id;
+            $match->save();
+            // redirect
+            Session::flash('message', 'Successfully created day!');
+            return Redirect::to('/admin/match');
+        }
     }
 
     /**
@@ -56,9 +92,13 @@ class CricketMatchController extends Controller
      * @param  \App\Models\CricketMatch  $cricketMatch
      * @return \Illuminate\Http\Response
      */
-    public function edit(CricketMatch $cricketMatch)
+    public function edit(CricketMatch $match)
     {
-        //
+        $tournaments = CricketTournament::pluck('name', 'id') ->prepend('Please Select...',0);
+        $teams = CricketTeam::pluck('long_name', 'id') ->prepend('Please Select...',0);
+        $stadiums = CricketStadium::pluck('name', 'id') ->prepend('Please Select...',0);
+        
+        return view("cricketmatch.edit",compact('tournaments','teams','stadiums','match'));//
     }
 
     /**
@@ -70,7 +110,34 @@ class CricketMatchController extends Controller
      */
     public function update(Request $request, CricketMatch $cricketMatch)
     {
-        //
+         // validate
+        // read more on validation at http://laravel.com/docs/validation
+        $rules = array(
+            'start_date'       => 'required',
+            'start_time'       => 'required',
+            'team_a_id'       => 'required',
+            'team_b_id'       => 'required|different:team_a_id',
+        );
+        $validator = Validator::make($request->all(), $rules);
+
+        // process the login
+        if ($validator->fails()) {
+            return Redirect::to('/admin/match/create')
+                ->withErrors($validator)
+                ->withRequest($request->except('password'));
+        } else {
+
+            $match = new CricketMatch();
+            $match->start_date          = $request->start_date;
+            $match->start_time          = $request->start_time;
+
+            $match->team_a_id   = $request->team_a_id;
+            $match->team_b_id   = $request->team_b_id;
+            $match->save();
+            // redirect
+            Session::flash('message', 'Successfully created day!');
+            return Redirect::to('/admin/match');
+        }
     }
 
     /**

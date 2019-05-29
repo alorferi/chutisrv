@@ -8,7 +8,7 @@ Genre List
 @section('content')
 
 
-<a href="/admin/country/create">Create</a>
+<a href="/admin/match/create">Create</a>
 
 
 <div class="container">
@@ -23,8 +23,8 @@ Genre List
         <tr>
         	  <td>Actions</td>
             <td>Code</td>
-            <td>Name   </td>
-            <td>Local Name  </td>
+            <td> VS   </td>
+            <td>Stidum  </td>
 
         </tr>
     </thead>
@@ -33,12 +33,17 @@ Genre List
         <tr>
         	   
             <td>
-                <a class="btn btn-small btn-success" href="{{ URL::to('/admin/country/' . $match->id) }}">Show </a>
-                <a class="btn btn-small btn-info" href="{{ URL::to('/admin/country/' . $match->id . '/edit') }}">Edit </a>
+                <a class="btn btn-small btn-success" href="{{ URL::to('/admin/match/' . $match->id) }}">Show </a>
+                <a class="btn btn-small btn-info" href="{{ URL::to('/admin/match/' . $match->id . '/edit') }}">Edit </a>
             </td>
 
-            <td>{{ $match->code }}</td>
-            <td>{{ $match->name }}</td>
+            <td>{{ $match->start_date }} {{ $match->start_time }}</td>
+            <td>
+
+            {{ $match->teamA->short_name }} vs {{ $match->teamB->short_name  }}
+
+
+            </td>
 
    <td>{{ $match->localName }}</td>
 

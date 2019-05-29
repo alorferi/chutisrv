@@ -8,7 +8,7 @@ Genre List
 @section('content')
 
 
-<a href="/admin/team/create">Create</a>
+<a href="/admin/stadium/create">Create</a>
 
 
 <div class="container">
@@ -22,25 +22,27 @@ Genre List
     <thead>
         <tr>
         	  <td>Actions</td>
-            <td>Logo</td>
+
             <td>Name   </td>
-            <td>Country  </td>
+            <td>Country   </td>
+
 
         </tr>
     </thead>
     <tbody>
-    @foreach($teams as  $team)
+    @foreach($stadiums as $stadium)
         <tr>
         	   
             <td>
-                <a class="btn btn-small btn-success" href="{{ URL::to('/admin/country/' . $team->id) }}">Show </a>
-                <a class="btn btn-small btn-info" href="{{ URL::to('/admin/country/' . $team->id . '/edit') }}">Edit </a>
+                <a class="btn btn-small btn-success" href="{{ URL::to('/admin/country/' . $stadium->code) }}">Show </a>
+                <a class="btn btn-small btn-info" href="{{ URL::to('/admin/country/' . $stadium->code . '/edit') }}">Edit </a>
             </td>
 
-            <td>{{ $team->code }}</td>
-            <td>{{ $team->short_name }}-{{ $team->long_name }}</td>
 
-             <td>{{ $team->country_code }}</td>
+            <td>{{ $stadium->name }}</td>
+            <td>{{ $stadium->country_code }}</td>
+
+
 
            
         </tr>

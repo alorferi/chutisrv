@@ -58,7 +58,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
         //Cricket
         Route::resource('match', 'CricketMatchController');
         Route::resource('team', 'CricketTeamController');
-        Route::resource('tournament', 'CricketTournamentController');
+       // Route::resource('tournament', 'CricketTournamentController');
+        Route::resource('stadium', 'CricketStadiumController');
    
 });
 

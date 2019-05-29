@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
          $this->call("ReligionsTableSeeder");
          $this->call("DaysTableSeeder");
          $this->call("DayDatesTableSeeder");
+         $this->call("CricketTeamsTableSeeder");
+         $this->call("CricketStadiumsTableSeeder");
         
 
     }

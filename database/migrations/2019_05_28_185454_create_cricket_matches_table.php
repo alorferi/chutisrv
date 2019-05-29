@@ -16,16 +16,20 @@ class CreateCricketMatchesTable extends Migration
     {
         Schema::create('cricket_matches', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->dateTime('starts_at');
-            $table->bigInteger('team_a_id')->unsigned()->nullable();
+            $table->date('start_date');
+            $table->time('start_time');
+            $table->bigInteger('team_a_id')->unsigned();
             $table->foreign('team_a_id')->references('id')->on('cricket_teams')->onUpdate('cascade');
-            $table->bigInteger('team_b_id')->unsigned()->nullable();
+            $table->bigInteger('team_b_id')->unsigned();
             $table->foreign('team_b_id')->references('id')->on('cricket_teams')->onUpdate('cascade');
             $table->bigInteger('stadium_id')->unsigned()->nullable();
             $table->foreign('stadium_id')->references('id')->on('cricket_stadiums')->onUpdate('cascade');
             $table->string('cric_info_url',300)->nullable();;
             $table->timestamps();
             TableUtils::dmlBy($table);
+            $table->unique(['start_date', 'team_a_id']);
+            $table->unique(['start_date', 'team_b_id']);
+            $table->unique(['start_date','team_a_id' ,'team_b_id',]);
         });
     }
 

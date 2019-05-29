@@ -17,10 +17,15 @@ class CountriesTableSeeder extends Seeder
                 'code' => "BD",
                 'name' => "Bangladesh",
                 'localName' => "বাংলাদেশ",
-            ], [
+            ], 
+            [
                 'code' => "AF",
                 'name' => "Afghanistan",
                 'localName' => "افغانستان",
+            ],
+            [
+                'code' => "UK",
+                'name' => "United Kingdom",
             ],
          ];
 

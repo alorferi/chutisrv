@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CricketTeam;
+use App\Models\CricketStadium;
 use Illuminate\Http\Request;
-use App\Models\Country;
-use Illuminate\Support\Facades\Redirect;
 
-class CricketTeamController extends Controller
+class CricketStadiumController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,11 @@ class CricketTeamController extends Controller
      */
     public function index()
     {
-        $teams = CricketTeam::all();
-        return view("cricketteam.index",compact('teams'));
+        $stadiums = CricketStadium::all();
+
+
+        //  return  $stadiums;
+        return view("cricketstadium.index",compact('stadiums'));
     }
 
     /**
@@ -27,9 +28,7 @@ class CricketTeamController extends Controller
      */
     public function create()
     {
-        $countries = Country::pluck('name', 'code') ->prepend('Please Select...',0);
-  
-        return view("cricketteam.create",compact('countries'));//
+        //
     }
 
     /**
@@ -40,20 +39,16 @@ class CricketTeamController extends Controller
      */
     public function store(Request $request)
     {
-        $team = new CricketTeam; 
-        $team->name = $request->name;
-        $team->country_code =  ($request->country_code==0)?null:$request->country_code;
-        $team->save();
-        return Redirect::to('/admin/team');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\CricketTeam  $cricketTeam
+     * @param  \App\Models\CricketStadium  $cricketStadium
      * @return \Illuminate\Http\Response
      */
-    public function show(CricketTeam $cricketTeam)
+    public function show(CricketStadium $cricketStadium)
     {
         //
     }
@@ -61,10 +56,10 @@ class CricketTeamController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\CricketTeam  $cricketTeam
+     * @param  \App\Models\CricketStadium  $cricketStadium
      * @return \Illuminate\Http\Response
      */
-    public function edit(CricketTeam $cricketTeam)
+    public function edit(CricketStadium $cricketStadium)
     {
         //
     }
@@ -73,10 +68,10 @@ class CricketTeamController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\CricketTeam  $cricketTeam
+     * @param  \App\Models\CricketStadium  $cricketStadium
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CricketTeam $cricketTeam)
+    public function update(Request $request, CricketStadium $cricketStadium)
     {
         //
     }
@@ -84,10 +79,10 @@ class CricketTeamController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\CricketTeam  $cricketTeam
+     * @param  \App\Models\CricketStadium  $cricketStadium
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CricketTeam $cricketTeam)
+    public function destroy(CricketStadium $cricketStadium)
     {
         //
     }

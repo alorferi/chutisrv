@@ -24,9 +24,12 @@
                     <ul class="navbar-nav ml-auto">
 
 
+                            {{--  <li><a class="nav-link" href="/admin/stadium">Stadium</a></li>  --}}
                             <li><a class="nav-link" href="/admin/match">Match</a></li>
                             <li><a class="nav-link" href="/admin/team">Team</a></li>
-                            <li><a class="nav-link" href="/admin/tournament">Tournament</a></li>
+
+                            <li><a class="nav-link" href="/admin/stadium">Stadium</a></li>
+                            {{--  <li><a class="nav-link" href="/admin/tournament">Tournament</a></li>  --}}
                             <li><a class="nav-link" href="/admin/daydate">DayDate</a></li>
                             <li><a class="nav-link" href="/admin/day">Day</a></li>
                             <li><a class="nav-link" href="/admin/holidaytype">Holiday Type</a></li>

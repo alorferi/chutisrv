@@ -13,7 +13,8 @@ Genre - Create
 <!-- if there are creation errors, they will show here -->
 {{ Html::ul($errors->all()) }}
 
-{{Form::open(['route' => 'match.store'])}}
+{{--  {{Form::open(['route' => 'match.store'])}}  --}}
+{{ Form::model($match, array('route' => array('match.update', $match->id), 'method' => 'PUT','files' => true)) }}
   {{ csrf_field() }}
    
   <div class="form-group">
@@ -35,6 +36,7 @@ Genre - Create
     {{ Form::label('team_b_id', 'Team B') }}
     {{ Form::select('team_b_id', $teams, Request::old('team_a_id'), array('class' => 'form-control')) }}
 </div>
+
   <div class="form-group">
     {{ Form::label('stadium_id', 'Stadium') }}
     {{ Form::select('stadium_id', $stadiums, Request::old('stadium_id'), array('class' => 'form-control')) }}
