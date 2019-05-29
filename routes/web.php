@@ -57,6 +57,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 
         //Cricket
         Route::resource('match', 'CricketMatchController');
+        Route::get('match/{id}/live', 'CricketMatchController@fetchLive');
         Route::resource('team', 'CricketTeamController');
        // Route::resource('tournament', 'CricketTournamentController');
         Route::resource('stadium', 'CricketStadiumController');
@@ -83,6 +84,18 @@ Route::get('images/{filename}/day_photo', function ($filename)
 Route::get('images/{filename}/daydate_banner', function ($filename)
 {
     $path = storage_path('app/public/images/daydate_banners/'. $filename);
+    if (!File::exists($path)) {
+        abort(404);
+    }
+    $img = Image::make($path)->resize(512, 512);
+    return $img->response('png');
+});
+
+
+
+Route::get('images/{filename}/cricket_team_logo', function ($filename)
+{
+    $path = storage_path('app/public/images/cricket_team_logos/'. $filename);
     if (!File::exists($path)) {
         abort(404);
     }

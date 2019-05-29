@@ -33,11 +33,11 @@ Genre List
         <tr>
         	   
             <td>
-                <a class="btn btn-small btn-success" href="{{ URL::to('/admin/country/' . $team->id) }}">Show </a>
-                <a class="btn btn-small btn-info" href="{{ URL::to('/admin/country/' . $team->id . '/edit') }}">Edit </a>
+                <a class="btn btn-small btn-success" href="{{ URL::to('/admin/team/' . $team->id) }}">Show </a>
+                <a class="btn btn-small btn-info" href="{{ URL::to('/admin/team/' . $team->id . '/edit') }}">Edit </a>
             </td>
 
-            <td>{{ $team->code }}</td>
+            <td> <img src="{{ asset("$team->logo_url")}}" width="32"  /></td>
             <td>{{ $team->short_name }}-{{ $team->long_name }}</td>
 
              <td>{{ $team->country_code }}</td>

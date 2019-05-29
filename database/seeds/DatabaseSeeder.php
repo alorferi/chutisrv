@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
          $this->call("DayDatesTableSeeder");
          $this->call("CricketTeamsTableSeeder");
          $this->call("CricketStadiumsTableSeeder");
+         $this->call("CricketMatchesTableSeeder");
         
-
     }
 }

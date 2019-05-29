@@ -10,6 +10,7 @@ use App\Models\CricketStadium;
 use Illuminate\Support\Facades\Redirect;
 use Validator;
 use Session;
+use App\Http\Controllers\API\V3\CricketController;
 
 class CricketMatchController extends Controller
 {
@@ -68,6 +69,7 @@ class CricketMatchController extends Controller
 
             $match->team_a_id   = $request->team_a_id;
             $match->team_b_id   = $request->team_b_id;
+            $match->stadium_id   = $request->stadium_id;
             $match->save();
             // redirect
             Session::flash('message', 'Successfully created day!');
@@ -108,7 +110,7 @@ class CricketMatchController extends Controller
      * @param  \App\Models\CricketMatch  $cricketMatch
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CricketMatch $cricketMatch)
+    public function update(Request $request, CricketMatch $match)
     {
          // validate
         // read more on validation at http://laravel.com/docs/validation
@@ -127,17 +129,23 @@ class CricketMatchController extends Controller
                 ->withRequest($request->except('password'));
         } else {
 
-            $match = new CricketMatch();
+           // $match = CricketMatch::find();
             $match->start_date          = $request->start_date;
             $match->start_time          = $request->start_time;
-
             $match->team_a_id   = $request->team_a_id;
             $match->team_b_id   = $request->team_b_id;
+            $match->stadium_id   = $request->stadium_id;
+            $match->cric_info_url   = $request->cric_info_url;
             $match->save();
             // redirect
             Session::flash('message', 'Successfully created day!');
             return Redirect::to('/admin/match');
         }
+    }
+
+  public function  fetchLive($id){
+        $controller = new CricketController();
+        return $controller->fetchLiveScore($id);
     }
 
     /**

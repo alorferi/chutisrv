@@ -18,4 +18,13 @@ class CricketMatch extends Model
         return $this->belongsTo('App\Models\CricketTeam','team_b_id','id');
     }
 
+    public function stadium()
+    {
+        return $this->belongsTo('App\Models\CricketStadium','stadium_id','id');
+    }
+
+    public function tournament()
+    {
+        return $this->belongsTo('App\Models\CricketTournament','tournament_id','id');
+    }
 }

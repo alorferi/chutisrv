@@ -23,8 +23,8 @@ Genre List
         <tr>
         	  <td>Actions</td>
             <td>Code</td>
-            <td>Name   </td>
-            <td>Local Name  </td>
+            <td>Name</td>
+            <td>Local Name</td>
 
         </tr>
     </thead>

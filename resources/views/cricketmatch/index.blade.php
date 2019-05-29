@@ -35,17 +35,18 @@ Genre List
             <td>
                 <a class="btn btn-small btn-success" href="{{ URL::to('/admin/match/' . $match->id) }}">Show </a>
                 <a class="btn btn-small btn-info" href="{{ URL::to('/admin/match/' . $match->id . '/edit') }}">Edit </a>
+                <a class="btn btn-small btn-info" href="{{ URL::to('/admin/match/' . $match->id . '/live') }}">Live </a>
             </td>
 
             <td>{{ $match->start_date }} {{ $match->start_time }}</td>
             <td>
 
-            {{ $match->teamA->short_name }} vs {{ $match->teamB->short_name  }}
+            {{ $match->teamA->long_name }} vs {{ $match->teamB->long_name  }}
 
 
             </td>
 
-   <td>{{ $match->localName }}</td>
+   <td>{{ $match->stadium->name }}, {{ $match->tournament->name }}</td>
 
            
         </tr>

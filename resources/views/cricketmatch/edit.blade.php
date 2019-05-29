@@ -42,6 +42,16 @@ Genre - Create
     {{ Form::select('stadium_id', $stadiums, Request::old('stadium_id'), array('class' => 'form-control')) }}
 </div>
 
+<div class="form-group">
+  {{ Form::label('cric_info_url', 'Url') }}
+  {{ Form::text('cric_info_url', Input::old('cric_info_url'), array('class' => 'form-control')) }}
+</div>
+
+<div class="form-group">
+  {{ Form::label('tournament_id', 'Tournament') }}
+  {{ Form::select('tournament_id', $tournaments, Request::old('tournament_id'), array('class' => 'form-control')) }}
+</div>
+
     {{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}

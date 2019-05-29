@@ -25,6 +25,8 @@ class CreateCricketMatchesTable extends Migration
             $table->bigInteger('stadium_id')->unsigned()->nullable();
             $table->foreign('stadium_id')->references('id')->on('cricket_stadiums')->onUpdate('cascade');
             $table->string('cric_info_url',300)->nullable();;
+            $table->bigInteger('tournament_id')->unsigned()->nullable();
+            $table->foreign('tournament_id')->references('id')->on('cricket_tournaments');  
             $table->timestamps();
             TableUtils::dmlBy($table);
             $table->unique(['start_date', 'team_a_id']);

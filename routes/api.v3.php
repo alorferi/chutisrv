@@ -20,3 +20,4 @@ Route::get('countries/{countryCode}/areas', 'V3\CountryController@getAreasByCoun
 Route::post('userdevice/register', 'V3\UserDeviceController@register');
 
 Route::get('cricket/live-score', 'V3\CricketController@fetchLiveScore');
+Route::get('cricket/matches', 'V3\CricketController@getMatches');
