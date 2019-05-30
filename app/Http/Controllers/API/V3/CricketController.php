@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Goutte\Client;
 use App\Utils\Data;
-use Psy\Exception\ErrorException;
 use App\Models\CricketMatch;
 use App\Http\Resources\V3\CricketTeamResource;
 use App\Models\CricketTeam;
@@ -30,6 +29,14 @@ class CricketController extends Controller
         try{
         
            $match = CricketMatch::find($id);
+
+           if($match==null){
+                 return Data::jsonResponse("FAILED","Invalid Id",null);
+           }
+
+           if($match->cric_info_url==null){
+            return Data::jsonResponse("FAILED","Match Url not set",null);
+      }
             $client = new Client();
             // $crawler = $client->request('GET', "http://www.espncricinfo.com/series/19134/game/1173354/bangladesh-vs-india-world-cup-warm-up-2019");
             // $crawler = $client->request('GET', "http://www.espncricinfo.com/series/19134/scorecard/1173353/new-zealand-vs-west-indies-world-cup-warm-up-2019");
@@ -44,20 +51,20 @@ class CricketController extends Controller
         try{
             $crr = $crawler->filterXPath("//*[@id='main-container']/div/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/p")->text();
         }catch(\InvalidArgumentException $e) {
-         
-        }catch(Exception $e) {
-
-        }finally{
             $crr = 0;
+        }catch(Exception $e) {
+            $crr = 0;
+        }finally{
+           
         }
         try{
             $rrr = $crawler->filterXPath("//*[@id='main-container']/div/div[3]/div[1]/div[1]/div[1]/div[2]/div[2]/p")->text();
         }catch(\InvalidArgumentException $e) {
-         
-        }catch(Exception $e) {
-
-        }finally{
             $rrr = 0;
+        }catch(Exception $e) {
+            $rrr = 0;
+        }finally{
+           
         }
 
             $cscore_notes_game = $crawler->filterXPath("//*[@id='main-container']/div/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div/span")->text();

@@ -132,10 +132,10 @@ class DayDateController extends Controller
             if ( $request->hasFile('banner')) {
                 $banner = $request->file('banner');
                 if($daydate->bannerFileName==null){
-                    $daydate->bannerFileName = Dir::dayDateBannerNameFromPhoto($daydate,$banner);
-                    $daydate->bannerUrl       =    Dir::dayDateBannerUrl($daydate->bannerFileName);
+                    $daydate->bannerFileName = $daydate->dayDateBannerNameFromPhoto($daydate,$banner);
+                    $daydate->bannerUrl       =    $daydate->dayDateBannerUrl($daydate->bannerFileName);
                     }
-                $destinationPath =  Dir::dayDateBannersPath();
+                $destinationPath =  $daydate->dayDateBannersPath();
                 $banner->move($destinationPath,  $daydate->bannerFileName);
             }
 
@@ -277,11 +277,11 @@ class DayDateController extends Controller
             if ( $request->hasFile('banner')) {
 
                     $banner = $request->file('banner');
-                    $daydate->bannerFileName = Dir::dayDateBannerNameFromPhoto($daydate,$banner);
-                    $daydate->bannerUrl   =  Dir::dayDateBannerUrl($daydate->bannerFileName);
+                    $daydate->bannerFileName = $daydate->dayDateBannerNameFromPhoto($daydate,$banner);
+                    $daydate->bannerUrl   =  $daydate->dayDateBannerUrl($daydate->bannerFileName);
                     $daydate->save();
 
-                $destinationPath =  Dir::dayDateBannersPath();
+                $destinationPath =  $daydate->dayDateBannersPath();
                 $banner->move($destinationPath,  $daydate->bannerFileName);
             }
 

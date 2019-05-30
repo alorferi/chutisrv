@@ -22,4 +22,17 @@ class Day extends Model
     {
         return $this->belongsTo('App\Models\HolidayType','holidayCode','code');
     }
+
+    public function dayPhotosPath(){    
+        return  storage_path("app/public/images/day_photos");
+      }
+
+      public  function dayPhotoUrl($photo_name){  
+        return  "/images/$photo_name/day_photo";
+         }
+
+      
+         public function  dayPhotoNameFromPhoto($day,$photo){
+          return "day_pto_$day->id.".$photo->getClientOriginalExtension();
+        }
 }

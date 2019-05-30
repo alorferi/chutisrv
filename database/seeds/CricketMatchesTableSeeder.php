@@ -38,6 +38,7 @@ class CricketMatchesTableSeeder extends Seeder
                 ,'team_b_id'=>$teamB->id
                 ,'stadium_id'=>$stadium->id
                 , 'tournament_id' => $tournament->id
+                , 'cric_info_url' => "http://www.espncricinfo.com/series/8039/game/1144483/england-vs-south-africa-1st-match-icc-cricket-world-cup-2019"
             ]
         );
         // Pakistan v West Indies at Nottingham
