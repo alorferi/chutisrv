@@ -23,6 +23,11 @@ class Day extends Model
         return $this->belongsTo('App\Models\HolidayType','holidayCode','code');
     }
 
+    public function country()
+    {
+        return $this->belongsTo('App\Models\Country','country_code');
+    }
+
     public function dayPhotosPath(){    
         return  storage_path("app/public/images/day_photos");
       }

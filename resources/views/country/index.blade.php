@@ -29,7 +29,7 @@ Genre List
         </tr>
     </thead>
     <tbody>
-    @foreach($countries as $key => $value)
+    @foreach($countries as $value)
         <tr>
         	   
             <td>
@@ -37,7 +37,7 @@ Genre List
                 <a class="btn btn-small btn-info" href="{{ URL::to('/admin/country/' . $value->code . '/edit') }}">Edit </a>
             </td>
 
-            <td>{{ $value->code }}</td>
+            <td>{{ $value->code."" }}</td>
             <td>{{ $value->name }}</td>
 
    <td>{{ $value->localName }}</td>

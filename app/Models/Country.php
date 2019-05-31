@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Country extends Model
 {
     use SoftDeletes;
+    
+  //  protected $primaryKey  = 'code';
+
     public function areas()
     {
         return $this->hasMany('App\Models\Area','countryCode','code');

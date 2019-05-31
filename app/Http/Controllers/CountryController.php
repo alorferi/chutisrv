@@ -25,11 +25,10 @@ class CountryController extends Controller
     public function index()
     {
   
-               // get all the tag
-        $countries = Country::all();
-  
-        // load the view and pass the tag
-        return view('country.index')->with('countries', $countries);
+        $countries = Country::whereNull('deleted_at')->get();
+       // dd(Country::whereNull('deleted_at')->toSql());
+        //return $countries;
+        return view('country.index')->with(compact('countries'));
   
     }
     

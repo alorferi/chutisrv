@@ -35,6 +35,8 @@ class CreateDaysTable extends Migration
             //$table->foreign('dayFlag')->references('flag')->on('dayflags')->onUpdate('cascade'); 
             $table->string('holidayCode',2)->nullable();
             $table->foreign('holidayCode')->references('code')->on('holidaytypes')->onUpdate('cascade');   
+            $table->string('country_code',2)->nullable();
+            $table->foreign('country_code')->references('code')->on('countries')->onUpdate('cascade');
             $table->timestamps();
             TableUtils::dmlBy($table);
         });

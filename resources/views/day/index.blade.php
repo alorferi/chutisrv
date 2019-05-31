@@ -41,6 +41,7 @@
             <th>Day Flags</th> 
             <th>Religion</th>
             <th>Holiday Type</th>
+            <th>Country</th>
         </tr>
     </thead>
     <tbody>
@@ -84,6 +85,12 @@
                @if($day->holidayType==null)
                 @else
                 {{ $day->holidayType->longName }}
+                @endif
+            </td>
+            <td>
+               @if($day->country==null)
+                @else
+                {{ $day->country->name }}
                 @endif
             </td>
            

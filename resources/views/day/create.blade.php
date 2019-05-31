@@ -70,6 +70,10 @@
         </div>
 
      
+    <div class="form-group">
+        {{ Form::label('country_code', 'Country') }}
+        {{ Form::select('country_code', $countries, Input::old('country_code'), array('class' => 'form-control')) }}
+    </div>
 
 
 

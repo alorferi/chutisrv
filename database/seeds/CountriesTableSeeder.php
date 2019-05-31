@@ -29,7 +29,54 @@ class CountriesTableSeeder extends Seeder
             ],
          ];
 
-         foreach ($array as $key => $value) {
+         Country::create(
+            [
+                'code'=>"AU"
+                ,'name'=>"Australia"
+            ]
+        );
+       
+        Country::create(
+            [
+                'code'=>"IN"
+                ,'name'=>"India"
+            ]
+        );
+        Country::create(
+            [
+                'code'=>"NZ"
+                ,'name'=>"New Zealand"
+            ]
+        );
+        Country::create(
+            [
+                'code'=>"PK"
+                ,'name'=>"Pakistan"
+            ]
+        );
+       
+        Country::create(
+            [
+                'code'=>"ZA"
+                ,'name'=>"South Africa"
+            ]
+        );
+
+        Country::create(
+            [
+                'code'=>"LK"
+                ,'name'=>"Sri Lanka"
+            ]
+        );
+        
+        Country::create(
+            [
+                'code'=>"WI"
+                ,'name'=>"West Indies"
+            ]
+        );
+    
+         foreach ($array as $value) {
             Country::create($value);
          }
     }

@@ -6,7 +6,7 @@ use App\Models\Day;
 use App\Models\Religion;
 use App\Models\DayFlag;
 use App\Models\HolidayType;
-use App\Utils\Dir;
+use App\Models\Country;
 use Illuminate\Http\Request;
 use Session;
 use Redirect;
@@ -56,8 +56,9 @@ class DayController extends Controller
 
         $holidayTypes = HolidayType::pluck('longName', 'code');
         $holidayTypes->prepend('Please Select');
-
-        return view("day.create")->with(compact('religions','dayFlags','holidayTypes'));
+        $countries = Country::pluck('name', 'code') ->prepend('Please Select...',0);
+  
+        return view("day.create")->with(compact('religions','dayFlags','holidayTypes','countries'));
     }
 
     /**
@@ -92,6 +93,7 @@ class DayController extends Controller
             $day->dayFlag      = $this->getDayflagCode($request->dayFlags);
             $day->holidayCode      = ($request->holidayCode=="0")? null:$request->holidayCode;
             $day->religionCode  = ($request->religionCode=="0")?null:$request->religionCode;
+            $day->country_code  = ($request->country_code=="0")?null:$request->country_code;
             $day->created_by = Auth::id();  
             $day->save();
 
@@ -150,8 +152,10 @@ class DayController extends Controller
 
         $holidayTypes = HolidayType::pluck('longName', 'code');
         $holidayTypes->prepend('Please Select');
-
-        return view("day.edit")->with(compact('day','religions','dayFlags','flag_ids','holidayTypes'));
+      
+        $countries = Country::pluck('name', 'code') ->prepend('Please Select...',0);
+  
+        return view("day.edit")->with(compact('day','religions','dayFlags','flag_ids','holidayTypes','countries'));
     }
 
 
@@ -228,7 +232,7 @@ class DayController extends Controller
             $day->dayFlag       = $this->getDayflagCode($request->dayFlags);
             $day->holidayCode      = ($request->holidayCode=="0")? null:$request->holidayCode;
             $day->religionCode  = ($request->religionCode=="0")?null:$request->religionCode;
-           
+            $day->country_code  = ($request->country_code=="0")?null:$request->country_code;
             $day->updated_by = Auth::id();  
             $day->save();
 
