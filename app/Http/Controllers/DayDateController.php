@@ -14,6 +14,7 @@ use DateTime;
 use Auth;
 use DB;
 use Carbon\Carbon;
+use Illuminate\Database\QueryException;
 
 class DayDateController extends Controller
 {
