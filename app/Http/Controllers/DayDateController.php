@@ -39,29 +39,53 @@ class DayDateController extends Controller
         if($year==0){
             $year = date("Y");
         }
-        return $this->showHolidays($year);
+        $month=0;
+         if($month==0){
+            $month = date("m");
+        }
+          $day=0;
+         if($day==0){
+            $day = date("d");
+        }
+        return $this->showHolidays($year,$month,$day);
     }
 
-    public function  showHolidays($year){
 
-        $daydates = DayDate::with('day')
-                    ->whereYear('date',$year)
+  
+    public function  showHolidays($year,$month,$day){
+
+         $daydates = DayDate::with('day')
+                   ->whereYear('date',$year)
+                   ->whereMonth('date',$month)
+                    ->whereDay('date',$day)
                    //->where('holidayCode','!=',null)
                    ->withTrashed()
                     ->orderBy("date")
                     ->paginate(10);
 
-                    $backYear = $year - 1;
+                    $previousYear = $year - 1;
                     $currentYear = $year;
                     $nextYear = $year + 1;
 
+                    $previousMonth = $month - 1;
+                    $currentMonth = $month;
+                    $nextMonth = $month + 1;
+
+
+                      $previousDay = $day - 1;
+                    $currentDay = $day;
+                    $nextDay = $day + 1;
+
+
                  //   Session::flash('message', count( $daydates ). " dates found");
 
-        return view('daydate.index',compact('daydates', 'backYear', 'currentYear', 'nextYear'))->with('i', (request()->input('page', 1) - 1) * 10);
+        return view('daydate.index',
+        compact('daydates', 'previousYear', 'currentYear', 'nextYear'
+        ,'previousMonth', 'currentMonth', 'nextMonth'
+         ,'previousDay', 'currentDay', 'nextDay'
+        ))->with('i', (request()->input('page', 1) - 1) * 10);
 
-        // return view('products.index',compact('products'))
-        //    ->with();
-    }
+     }
 
     /**
      * Show the form for creating a new resource.
@@ -89,13 +113,13 @@ class DayDateController extends Controller
         $holidayTypes = HolidayType::pluck('longName', 'code');
         $holidayTypes->prepend('Please Select...',null);
 
-        $backYear = $year - 1;
+        $previousYear = $year - 1;
         $currentYear = $year;
         $nextYear = $year + 1;
 
         $date= "$year-01-01";
 
-        return view("daydate.create")->with(compact('days','holidayTypes','backYear','currentYear','nextYear','date'));
+        return view("daydate.create")->with(compact('days','holidayTypes','previousYear','currentYear','nextYear','date'));
     }
 
     /**
@@ -208,7 +232,7 @@ class DayDateController extends Controller
 
             }
 
-            return $this->showHolidays($year);
+            return $this->showHolidays($year,0);
         }
 
 
