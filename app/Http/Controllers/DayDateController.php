@@ -34,56 +34,51 @@ class DayDateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($year=0)
+    public function index($date=0)
     {
-        if($year==0){
-            $year = date("Y");
+        if($date==0){
+            $date = date("Y-m-d");
         }
-        $month=0;
-         if($month==0){
-            $month = date("m");
-        }
-          $day=0;
-         if($day==0){
-            $day = date("d");
-        }
-        return $this->showHolidays($year,$month,$day);
+       
+        return $this->showHolidays($date);
     }
 
 
   
-    public function  showHolidays($year,$month,$day){
+    public function  showHolidays($date){
 
          $daydates = DayDate::with('day')
-                   ->whereYear('date',$year)
-                   ->whereMonth('date',$month)
-                    ->whereDay('date',$day)
+                   ->whereDate('date',$date)
                    //->where('holidayCode','!=',null)
                    ->withTrashed()
                     ->orderBy("date")
                     ->paginate(10);
-
-                    $previousYear = $year - 1;
-                    $currentYear = $year;
-                    $nextYear = $year + 1;
-
-                    $previousMonth = $month - 1;
-                    $currentMonth = $month;
-                    $nextMonth = $month + 1;
-
-
-                      $previousDay = $day - 1;
-                    $currentDay = $day;
-                    $nextDay = $day + 1;
-
-
-                 //   Session::flash('message', count( $daydates ). " dates found");
+               
+                      $currentYear = date('Y', strtotime($date));
 
         return view('daydate.index',
-        compact('daydates', 'previousYear', 'currentYear', 'nextYear'
-        ,'previousMonth', 'currentMonth', 'nextMonth'
-         ,'previousDay', 'currentDay', 'nextDay'
+        compact('daydates','date' , 'currentYear'
         ))->with('i', (request()->input('page', 1) - 1) * 10);
+
+     }
+
+         public function showHolidaysByDate($date){
+
+            // dd($date);
+         $daydates = DayDate::with('day')
+                   ->whereDate('date',$date)
+                   ->withTrashed()
+                    ->orderBy("date")
+                    ->paginate(10);
+                    
+                 //   Session::flash('message', count( $daydates ). " dates found");
+
+
+                    $currentYear = date('Y', strtotime($date));
+                
+                 
+        return view('daydate.index',compact('daydates', 'date','currentYear'))
+        ->with('i', (request()->input('page', 1) - 1) * 10);
 
      }
 
@@ -232,7 +227,7 @@ class DayDateController extends Controller
 
             }
 
-            return $this->showHolidays($year,0);
+            return $this->showHolidays("$year-01-01");
         }
 
 

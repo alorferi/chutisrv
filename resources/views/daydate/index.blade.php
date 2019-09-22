@@ -6,27 +6,29 @@
            <a href="/admin/daydate/{{$currentYear}}/create">Create</a>
            &nbsp;|&nbsp;<a href="/admin/daydate/{{$currentYear}}/generate-dates/">Generate</a>
            {{-- Year --}}
-           &nbsp;|&nbsp;&nbsp;&nbsp;
+           {{-- &nbsp;|&nbsp;&nbsp;&nbsp;
            <a href="/admin/daydate/{{ $previousYear }}/{{ $currentMonth }}/{{ $currentDay }}/holidays/">&lt;&lt;</a>
            <a href="/admin/daydate/{{$currentYear}}/{{ $currentMonth }}/{{ $currentDay }}/holidays/">{{$currentYear}}</a>
            <a href="/admin/daydate/{{$nextYear}}/{{ $currentMonth }}/{{ $currentDay }}/holidays/">&gt;&gt;</a>
-            
+             --}}
            {{-- Month --}}
 
-            &nbsp;|&nbsp;&nbsp;&nbsp;
+            {{-- &nbsp;|&nbsp;&nbsp;&nbsp;
             <a href="/admin/daydate/{{$currentYear }}/{{ $previousMonth }}/{{ $currentDay }}/holidays/">&lt;&lt;</a>
            <a href="/admin/daydate/{{$currentYear}}/{{ $currentMonth }}/{{ $currentDay }}/holidays/">{{$currentMonth}}</a>
            <a href="/admin/daydate/{{$currentYear}}/{{ $nextMonth }}/{{ $currentDay }}/holidays/">&gt;&gt;</a>
-         
+          --}}
                {{-- Day --}}
 
-            &nbsp;|&nbsp;&nbsp;&nbsp;
+            {{-- &nbsp;|&nbsp;&nbsp;&nbsp;
            <a href="/admin/daydate/{{ $currentYear }}/{{ $currentMonth }}/{{ $previousDay }}/holidays/">&lt;&lt;</a>
            <a href="/admin/daydate/{{$currentYear}}/{{ $currentMonth }}/{{ $currentDay }}/holidays/">{{$currentDay}}</a>
            <a href="/admin/daydate/{{$currentYear}}/{{ $currentMonth }}/{{ $nextDay }}/holidays/">&gt;&gt;</a>
-       
+        --}}
 
-           <input type="date" value="<?php echo date('Y-m-d');?>" onchange="handler(event);">
+           <input  id="dt" type="date" value="{{ $date }}" onchange="handler(event.target);">
+
+           <input type="submit" value="Show" onclick="handler(document.getElementById('dt'))">
 
         </tr>
     </table>
@@ -112,8 +114,13 @@ Genre List
  {!! $daydates->links() !!}
 
      <script>
-        function handler(e){
-            alert(e.target.value);
+   
+                   function handler(target){
+                          // alert(target.value);
+                    if(target.value){
+                        window.location = '/admin/daydate/'+target.value+'/holidays';
+                    }
+           
             }
     </script>
 
