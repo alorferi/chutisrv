@@ -26,7 +26,7 @@
            <a href="/admin/daydate/{{$currentYear}}/{{ $currentMonth }}/{{ $nextDay }}/holidays/">&gt;&gt;</a>
        
 
-           <input type="date" value="<?php echo date('Y-m-d');?>">
+           <input type="date" value="<?php echo date('Y-m-d');?>" onchange="handler(event);">
 
         </tr>
     </table>
@@ -110,4 +110,11 @@ Genre List
 </table>
 
  {!! $daydates->links() !!}
+
+     <script>
+        function handler(e){
+            alert(e.target.value);
+            }
+    </script>
+
 @endsection
