@@ -23,6 +23,12 @@ class CalendarController extends Controller
      */
     public function index()
     {
+        
+
+        $row=array();
+
+
+      
            return view('calendar.index');
     }
 
