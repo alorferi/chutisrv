@@ -25,6 +25,7 @@
 
 
                             {{--  <li><a class="nav-link" href="/admin/stadium">Stadium</a></li>  --}}
+                            <li><a class="nav-link" href="/admin/calendar">Calendar</a></li>
                             <li><a class="nav-link" href="/admin/match">Match</a></li>
                             <li><a class="nav-link" href="/admin/team">Team</a></li>
 

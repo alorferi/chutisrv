@@ -39,7 +39,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
         Route::post('app/sendfcm/{id}', 'AppController@sendFcm')->name('app.sendfcm');
 
       
-
+        Route::resource('/calendar', 'CalendarController');
         Route::resource('/religion', 'ReligionController');
         Route::resource('/day', 'DayController');
         Route::get('/daydate/{year}/create', 'DayDateController@create');
