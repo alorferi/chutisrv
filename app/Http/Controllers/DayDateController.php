@@ -61,7 +61,10 @@ class DayDateController extends Controller
                    //->where('holidayCode','!=',null)
                    ->withTrashed()
                     ->orderBy("date")
-                    ->paginate(10);
+                    ->paginate();
+
+                    $daydates->appends(['from_date' => $from_date,'to_date'=>$to_date]);
+                  
                
                       $currentYear = date('Y', strtotime($from_date));
 
