@@ -34,30 +34,39 @@ class DayDateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($date=0)
+    public function index(Request $request)
     {
-        if($date==0){
-            $date = date("Y-m-d");
+
+        $from_date = $request->from_date;
+        $to_date = $request->to_date;
+
+
+        if(!$from_date){
+            $from_date = date("Y-m-d");
+        }
+
+        if(!$to_date){
+            $to_date = date("Y-m-d");
         }
        
-        return $this->showHolidays($date);
+        return $this->showHolidays($from_date, $to_date);
     }
 
 
   
-    public function  showHolidays($date){
+    public function  showHolidays($from_date, $to_date){
 
          $daydates = DayDate::with('day')
-                   ->whereDate('date',$date)
+                   ->whereBetween('date',[$from_date,$to_date])
                    //->where('holidayCode','!=',null)
                    ->withTrashed()
                     ->orderBy("date")
                     ->paginate(10);
                
-                      $currentYear = date('Y', strtotime($date));
+                      $currentYear = date('Y', strtotime($from_date));
 
         return view('daydate.index',
-        compact('daydates','date' , 'currentYear'
+        compact('daydates','from_date','to_date' , 'currentYear'
         ))->with('i', (request()->input('page', 1) - 1) * 10);
 
      }
@@ -234,7 +243,7 @@ class DayDateController extends Controller
 
             }
 
-            return $this->showHolidays("$year-01-01");
+            return $this->showHolidays("$year-01-01","$year-01-01");
         }
 
 

@@ -27,12 +27,26 @@
            <a href="/admin/daydate/{{$currentYear}}/{{ $currentMonth }}/{{ $nextDay }}/holidays/">&gt;&gt;</a>
         --}}
 
-           <input  id="dt" type="date" value="{{ $date }}" onchange="handler(event.target);">
+        <div class="row">
+            <div class="col">
+            <form action="{{route('daydate.index')}}" method="GET">
 
-           <input type="submit" value="Show" onclick="handler(document.getElementById('dt'))">
+                {{ csrf_field() }}
+                
+              From Date  <input  name="from_date" type="date" value="{{ $from_date }}">
 
-        </tr>
-    </table>
+              To Date  <input  name="to_date" type="date" value="{{ $to_date }}">
+
+                <input type="submit" value="Show">
+
+            </form>
+            </div>
+  
+        </div>
+
+    
+
+
 @endsection
 
 {{-- @section('title')
