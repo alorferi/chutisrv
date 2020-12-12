@@ -166,9 +166,16 @@ class DayDateController extends Controller
     }
 
 
-    public function generateDates($year){
+    public function generate(){
+         return view("daydate.generate");   
+    }
+
+    public function generateDates(Request $request){
 
 
+        $year = $request->year;
+
+        
         $days = Day::where('isFixedDate',true)->get();
 
 

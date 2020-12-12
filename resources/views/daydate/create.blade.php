@@ -4,7 +4,7 @@
 
         <a href="/admin/daydate/{{$currentYear}}/holidays/">&lt; Back</a>
 
-            &nbsp;&nbsp;| <a href="/admin/daydate/{{$backYear}}/create/">&lt;&lt;</a>
+            &nbsp;&nbsp;| <a href="/admin/daydate/{{$previousYear}}/create/">&lt;&lt;</a>
            <a href="/admin/daydate/{{$currentYear}}/create/">{{$currentYear}}</a>
            <a href="/admin/daydate/{{$nextYear}}/create/">&gt;&gt;</a>
 

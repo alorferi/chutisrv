@@ -42,10 +42,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
         Route::resource('/calendar', 'CalendarController');
         Route::resource('/religion', 'ReligionController');
         Route::resource('/day', 'DayController');
+        Route::get('daydates/generate',"DayDateController@generate")->name('daydates.get.generate');
+        Route::post('/daydate/generate-dates', 'DayDateController@generateDates')->name('daydates.post.generate');;
         Route::get('/daydate/{year}/create', 'DayDateController@create');
         Route::get('/daydate/{year}/{month}/{day}/holidays', 'DayDateController@showHolidays');
         Route::get('/daydate/{date}/holidays', 'DayDateController@showHolidaysByDate');
-        Route::get('/daydate/{year}/generate-dates', 'DayDateController@generateDates');
+       
         Route::get('/daydate/{id}/trash', 'DayDateController@trash');
         Route::get('/daydate/{id}/delete', 'DayDateController@delete');
         Route::delete('/daydate/{id}/confirm-trash', 'DayDateController@confirmTrash')->name('daydate.confirm.trash');

@@ -79,10 +79,10 @@
 
         @yield('back')
 
-
         @yield('title')
 
-            @yield('content')
+        @yield('content')
+
         </div>
     </div>
 </body>

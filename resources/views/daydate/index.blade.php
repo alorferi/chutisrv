@@ -4,7 +4,8 @@
 
  <h4> Day Date</h4>
            <a href="/admin/daydate/{{$currentYear}}/create">Create</a>
-           &nbsp;|&nbsp;<a href="/admin/daydate/{{$currentYear}}/generate-dates/">Generate</a>
+            &nbsp;|&nbsp;<a href="{{route('daydates.get.generate')}}">Generate</a>
+           {{-- &nbsp;|&nbsp;<a href="/admin/daydate/{{$currentYear}}/generate-dates/">Generate</a> --}}
            {{-- Year --}}
            {{-- &nbsp;|&nbsp;&nbsp;&nbsp;
            <a href="/admin/daydate/{{ $previousYear }}/{{ $currentMonth }}/{{ $currentDay }}/holidays/">&lt;&lt;</a>
