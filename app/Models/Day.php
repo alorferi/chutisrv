@@ -25,7 +25,7 @@ class Day extends Model
 
     public function country()
     {
-        return $this->belongsTo('App\Models\Country','country_code');
+        return $this->belongsTo('App\Models\Country','country_code','code');
     }
 
     public function dayPhotosPath(){    
