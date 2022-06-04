@@ -30,15 +30,6 @@ class DataController extends Controller
             $daydates_updated_at =  "2015-01-01";
         }
 
-        if( isset($headers['auth_pub_key'])){
-            $auth_pub_key =$headers['auth_pub_key'];
-            if($auth_pub_key == null || $auth_pub_key== ""){   
-                return Data::jsonResponse("FAILED","Invalid credential.",null); ; 
-            }
-        }else{
-            return Data::jsonResponse("FAILED","Illegal attempt to access.",null);  ; 
-        }
-
         
         $daydates = $this->getDayDates($year,$daydates_updated_at);
 

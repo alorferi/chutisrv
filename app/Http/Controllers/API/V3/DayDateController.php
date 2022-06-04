@@ -121,7 +121,7 @@ class DayDateController extends Controller
 
         function getHolidaysAndOtherDaysByDateGroupByTypes($date){
 
-            $date = Crypto::oct2Date($date);
+            // $date = Crypto::oct2Date($date);
 
             $holidayTypes =HolidayType::orderBy("display_order")->get();
 
@@ -180,7 +180,7 @@ class DayDateController extends Controller
 
         function getOtherDaysByDateGroupByTypesByMonthAndYear($date){
 
-           $date = Crypto::oct2Date($date);
+        //    $date = Crypto::oct2Date($date);
 
            $date = DateTime::createFromFormat('Y-m-d',  $date);
 
@@ -458,7 +458,7 @@ class DayDateController extends Controller
 
     public function getDays($date){
 
-        $date = $this->oct2Date($date);
+        // $date = $this->oct2Date($date);
         
        // $daydates = DayDate::with('day')->where('date',$date)->get();
        
