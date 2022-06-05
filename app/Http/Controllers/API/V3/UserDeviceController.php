@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\API\V3;
 
 
-use App\Models\UserDevice;
+use App\UserDevice;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\ActivityLog;
 use App\Utils\Data;
 
 class UserDeviceController extends Controller
@@ -15,6 +16,7 @@ class UserDeviceController extends Controller
     public function register(Request $request)
     {
 
+         ActivityLogHelper::addToLog(__CLASS__,__FUNCTION__,__LINE__);
 
         //validation
         if($request->package_name!="com.provatsoft.apps.govtholidaysbd"){

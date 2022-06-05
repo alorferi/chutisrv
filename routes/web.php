@@ -64,6 +64,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
         Route::resource('team', 'CricketTeamController');
        // Route::resource('tournament', 'CricketTournamentController');
         Route::resource('stadium', 'CricketStadiumController');
+
+        Route::get('activity-logs', 'ActivityLogController@index')->name('activity-logs.index');
    
 });
 
