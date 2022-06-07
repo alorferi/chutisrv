@@ -87,6 +87,7 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
                                 <a class="dropdown-item" href="{{route('activity-logs.index')}}">Activity Logs</a>
+                                <a class="dropdown-item" href="{{route('activity-ips.index')}}">Activity IPs</a>
                               
                                 <a class="dropdown-item" href="/admin/userdevice">Devices</a>
                                 

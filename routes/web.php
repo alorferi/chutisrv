@@ -66,6 +66,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
         Route::resource('stadium', 'CricketStadiumController');
 
         Route::get('activity-logs', 'ActivityLogController@index')->name('activity-logs.index');
+        Route::get('activity-ips', 'ActivityIpController@index')->name('activity-ips.index');
    
 });
 
