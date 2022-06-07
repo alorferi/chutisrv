@@ -16,7 +16,7 @@ class UserDeviceController extends Controller
     public function register(Request $request)
     {
 
-         ActivityLogHelper::addToLog(__CLASS__,__FUNCTION__,__LINE__);
+         ActivityLog::addToLog(__CLASS__,__FUNCTION__,__LINE__);
 
         //validation
         if($request->package_name!="com.provatsoft.apps.govtholidaysbd"){

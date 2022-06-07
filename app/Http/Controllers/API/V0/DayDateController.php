@@ -27,7 +27,7 @@ class DayDateController extends Controller
     }
 
     public function getHolidaysByYearByMonth($year,$month){
-        ActivityLogHelper::addToLog(__CLASS__,__FUNCTION__,__LINE__);
+        ActivityLog::addToLog(__CLASS__,__FUNCTION__,__LINE__);
                     $daydates = DB::table('daydates as dd')
                     ->select($this->selectClause)
                     ->join('days as d', 'dd.dayid', '=', 'd.id')
@@ -44,7 +44,7 @@ class DayDateController extends Controller
 
 
     public function getDaysByYearGroupByMonthsGroupByFlags($year){
-        ActivityLogHelper::addToLog(__CLASS__,__FUNCTION__,__LINE__);
+        ActivityLog::addToLog(__CLASS__,__FUNCTION__,__LINE__);
         $holidaytypes =HolidayType::orderBy("display_order")->get();
 
 
@@ -198,7 +198,7 @@ class DayDateController extends Controller
         }
 
     public function getHolidaysByYearGroupByMonthsGroupByTypes($year){
-        ActivityLogHelper::addToLog(__CLASS__,__FUNCTION__,__LINE__);
+        ActivityLog::addToLog(__CLASS__,__FUNCTION__,__LINE__);
         $holidaytypes =HolidayType::orderBy("display_order")->get();
 
         $months = [];
@@ -242,7 +242,7 @@ class DayDateController extends Controller
     }
 
     public function getHolidaysByYearByTypesGroupByMonths($year,$holidayCodes){
-        ActivityLogHelper::addToLog(__CLASS__,__FUNCTION__,__LINE__);
+        ActivityLog::addToLog(__CLASS__,__FUNCTION__,__LINE__);
 
        $holidayCodes= explode(",",$holidayCodes);
         
@@ -269,7 +269,7 @@ class DayDateController extends Controller
     }
 
     public function getHolidaysByYearByMonthGroupByTypes($year,$month){
-        ActivityLogHelper::addToLog(__CLASS__,__FUNCTION__,__LINE__);
+        ActivityLog::addToLog(__CLASS__,__FUNCTION__,__LINE__);
         $holidaytypes =HolidayType::orderBy("display_order")->get();
 
         $hds = [];
@@ -304,7 +304,7 @@ class DayDateController extends Controller
 
 
     public function getHolidaysByDateGroupByTypes($date){
-        ActivityLogHelper::addToLog(__CLASS__,__FUNCTION__,__LINE__);
+        ActivityLog::addToLog(__CLASS__,__FUNCTION__,__LINE__);
         $holidaytypes =HolidayType::orderBy("display_order")->get();
 
         $hds = [];
@@ -375,7 +375,7 @@ class DayDateController extends Controller
     // }
     
     public function getHolidaysByYearGroupByTypes($year){
-        ActivityLogHelper::addToLog(__CLASS__,__FUNCTION__,__LINE__);
+        ActivityLog::addToLog(__CLASS__,__FUNCTION__,__LINE__);
 
         $holidaytypes =HolidayType::all();
 
@@ -408,7 +408,7 @@ class DayDateController extends Controller
          }
 
     public function getDays($date){
-        ActivityLogHelper::addToLog(__CLASS__,__FUNCTION__,__LINE__);
+        ActivityLog::addToLog(__CLASS__,__FUNCTION__,__LINE__);
         // $date = $this->oct2Date($date);
         
        // $daydates = DayDate::with('day')->where('date',$date)->get();

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\API\V0;
 
-use App\Helpers\ActivityLogHelper;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\ActivityLog;
@@ -15,7 +14,7 @@ use App\Utils\Data;
 class DataController extends Controller
 {
     function getData($year){
-        ActivityLogHelper::addToLog(__CLASS__,__FUNCTION__,__LINE__);
+        ActivityLog::addToLog(__CLASS__,__FUNCTION__,__LINE__);
         $headers = apache_request_headers();
         $days_updated_at = null; 
         $daydates_updated_at =  null;
@@ -46,7 +45,7 @@ class DataController extends Controller
     }
 
     function getDays($last_updated_at){
-        ActivityLogHelper::addToLog(__CLASS__,__FUNCTION__,__LINE__);
+        ActivityLog::addToLog(__CLASS__,__FUNCTION__,__LINE__);
         $days = Day::whereRaw('dayFlag & 1 = 1')
         ->where('updated_at',">",$last_updated_at)
         ->get();
@@ -55,7 +54,7 @@ class DataController extends Controller
     }
 
     function getDayDates($year, $last_updated_at){
-        ActivityLogHelper::addToLog(__CLASS__,__FUNCTION__,__LINE__);
+        ActivityLog::addToLog(__CLASS__,__FUNCTION__,__LINE__);
         $daydates = DayDate::whereYear('date',$year)
         ->whereNotNull('holidayCode')
         ->where('updated_at',">",$last_updated_at);
@@ -65,7 +64,7 @@ class DataController extends Controller
     }
 
     function getDayDatesByUpdatedAt($year){
-        ActivityLogHelper::addToLog(__CLASS__,__FUNCTION__,__LINE__);
+        ActivityLog::addToLog(__CLASS__,__FUNCTION__,__LINE__);
         $headers = apache_request_headers();
 
         //return  $headers;
