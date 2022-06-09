@@ -57,19 +57,19 @@
 
             </div>
 
-            <div class="col-sm-3" id="country{{$i}}">
+            <div class="col-sm-3" id="country{{ $i }}">
 
                 Country:
 
             </div>
 
-            <div class="col-sm-3" id="region{{$i}}">
+            <div class="col-sm-3" id="region{{ $i }}">
 
                 Region:
 
             </div>
 
-            <div class="col-sm-3" id="city{{$i}}">
+            <div class="col-sm-3" id="city{{ $i }}">
 
                 City:
 
@@ -78,32 +78,30 @@
         </div>
 
         @php
-        $i++;
+            $i++;
         @endphp
-
     @endforeach
     @include('layouts.partials.paginate_info', ['paginator' => $ips, 'label' => 'ips'])
 
     <script>
-
         $(document).ready(function() {
 
 
             $('div.ip_address').each(function(index, value) {
                 console.log(`div${index}:${value.innerText}`);
                 $.ajax({
-                url: `{{env('IP2LOCATION_SRV_URL', '')}}/${value.innerText}`
-            }).then(function(data) {
+                    url: `{{ env('IP2LOCATION_SRV_URL', '') }}/${value.innerText}`
+                }).then(function(data) {
 
-                $("#country"+index).text(data.data.country)
-                $("#city"+index).text(data.data.city)
-                $("#region"+index).text(data.data.region)
+                    $("#country" + index).text(data.data.country)
+                    $("#city" + index).text(data.data.city)
+                    $("#region" + index).text(data.data.region)
+
+                });
 
             });
 
-            });
 
-         
         });
     </script>
 @endsection
