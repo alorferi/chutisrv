@@ -89,8 +89,9 @@
 
             $('div.ip_address').each(function(index, value) {
                 console.log(`div${index}:${value.innerText}`);
+               var url = `{{ env('IP2LOCATION_SRV_URL', '') }}/api/ip2locations/${value.innerText}`
                 $.ajax({
-                    url: `{{ env('IP2LOCATION_SRV_URL', '') }}/${value.innerText}`
+                    url: url
                 }).then(function(data) {
 
                     $("#country" + index).text(data.data.country)
