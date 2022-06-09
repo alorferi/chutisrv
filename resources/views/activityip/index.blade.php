@@ -47,8 +47,8 @@
 
 
             <div class="col-sm-2 ip_address">
+                <a href="{{route("activity-logs.index")}}?ip={{$ip->ip}}" target="_blank">  {{ $ip->ip }}</a>
 
-                {{ $ip->ip }}
 
             </div>
             <div class="col-sm-1">
