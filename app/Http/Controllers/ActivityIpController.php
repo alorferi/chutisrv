@@ -17,6 +17,7 @@ class ActivityIpController extends Controller
         $ips =   DB::table('activity_logs')
         ->selectRaw('activity_logs.ip, count(activity_logs.ip) as cnt')
         ->distinct(['activity_logs.ip'])
+        ->orderBy('cnt',"desc")
         ->whereBetween('created_at', ["$from_date 00:00:00", "$to_date 23:59:59"])
         ->groupBy(['activity_logs.ip'])
 
