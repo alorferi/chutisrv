@@ -23,6 +23,8 @@ class ActivityIpController extends Controller
 
        ->paginate();
 
+       $ips->appends($request->all());
+
         return view('activityip.index', compact('ips', 'from_date', 'to_date'));
     }
 }
